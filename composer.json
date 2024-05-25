@@ -9,9 +9,13 @@
         "rest",
         "api"
     ],
-    "homepage": "https://openapi-generator.tech",
-    "license": "unlicense",
+    "homepage": "https://accounting.sh",
+    "license": "Apache-2.0 license ",
     "authors": [
+        {
+            "name": "STAN-TAB CORP. LTD",
+            "homepage": "https://accounting.sh"
+        },
         {
             "name": "OpenAPI-Generator contributors",
             "homepage": "https://openapi-generator.tech"
