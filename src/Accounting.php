@@ -142,14 +142,12 @@ class Accounting
      */
     public function __construct(string $token, string $url = "https://api.accounting.sh", array $options = [])
     {
-        $version = "VERSION_HERE";
-
         $this->client = new Client($options + [
             'http_errors' => false,
             'base_uri' => $url,
             "headers" => [
                 "Authorization" => "Bearer {$token}",
-                "User-Agent" => "Accounting/php_sdk/{$version}",
+                "User-Agent" => "AccountingSh/0.1.0/php",
             ]
         ]);
     }
