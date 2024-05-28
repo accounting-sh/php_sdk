@@ -1,6 +1,5 @@
 {
     "name": "accounting-sh/php_sdk",
-    "version": "0.1.0",
     "description": "Accounting.sh PHP SDK",
     "keywords": [
         "accounting",
