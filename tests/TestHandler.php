@@ -64,7 +64,7 @@ class TestHandler
             return $this->exit($request, new Response(400, [], 'Invalid Content-Type'), $options);
         }
 
-        if($this->token !== null && (!$request->hasHeader('Authorization') || $request->getHeader('Authorization')[0] !== "Bearer {$this->token}")) {
+        if ($this->token !== null && (!$request->hasHeader('Authorization') || $request->getHeader('Authorization')[0] !== "Bearer {$this->token}")) {
             return $this->exit($request, new Response(400, [], 'Invalid authorization header'), $options);
         }
 
