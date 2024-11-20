@@ -10,7 +10,7 @@ All URIs are relative to https://api.accounting.sh, except if the operation defi
 | [**listContactBills()**](ContactsApi.md#listContactBills) | **GET** /contacts/{uuid}/bills | List a contact&#39;s bills |
 | [**listContactInvoices()**](ContactsApi.md#listContactInvoices) | **GET** /contacts/{uuid}/invoices | List a contact&#39;s invoices |
 | [**listContacts()**](ContactsApi.md#listContacts) | **GET** /contacts | List company&#39;s contacts |
-| [**updateContact()**](ContactsApi.md#updateContact) | **PUT** /contact/{uuid} | Update a contact |
+| [**updateContact()**](ContactsApi.md#updateContact) | **PUT** /contacts/{uuid} | Update a contact |
 
 
 ## `addContact()`
