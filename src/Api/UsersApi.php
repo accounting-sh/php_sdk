@@ -1,7 +1,7 @@
 <?php
 
 /**
- * QuotesApi
+ * UsersApi
  * PHP version 8.1
  *
  * @package  Accounting
@@ -30,13 +30,13 @@ use Accounting\Accounting;
 use Accounting\ApiException;
 
 /**
- * QuotesApi Class Doc Comment
+ * UsersApi Class Doc Comment
  *
  * @package  Accounting
  * @author   STAN-TAB CORP. LTD
  * @link     https://accounting.sh
  */
-class QuotesApi
+class UsersApi
 {
     /**
      * @var Accounting
@@ -54,31 +54,31 @@ class QuotesApi
 
 
     /**
-     * Operation addQuote
+     * Operation addUser
      *
-     * Add a quote
+     * Add user
      *
-     * @param  array $addQuoteRequest addQuoteRequest (required)
+     * @param  array $addUserRequest addUserRequest (required)
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      * @return null|string|array
      *
-     * @link https://api.accounting.sh/swagger.html#operation/addQuote
+     * @link https://api.accounting.sh/swagger.html#operation/addUser
      */
-    public function addQuote(
-        array $addQuoteRequest,
+    public function addUser(
+        array $addUserRequest,
     ): null|string|array {
 
-        // verify the required parameter 'addQuoteRequest' is set
-        if ($addQuoteRequest === null || (is_array($addQuoteRequest) && count($addQuoteRequest) === 0)) {
+        // verify the required parameter 'addUserRequest' is set
+        if ($addUserRequest === null || (is_array($addUserRequest) && count($addUserRequest) === 0)) {
             throw new InvalidArgumentException(
-                'Missing the required parameter $addQuoteRequest when calling addQuote'
+                'Missing the required parameter $addUserRequest when calling addUser'
             );
         }
 
 
-        $resourcePath = '/quotes';
+        $resourcePath = '/users';
         $queryParams = [];
         $headers = [];
         $options = [];
@@ -86,7 +86,7 @@ class QuotesApi
 
 
 
-        $options['json'] = $addQuoteRequest;
+        $options['json'] = $addUserRequest;
 
 
 
@@ -98,81 +98,31 @@ class QuotesApi
     }
 
     /**
-     * Operation deleteQuote
+     * Operation getUser
      *
-     * Delete a quote
+     * View user
      *
-     * @param  string $uuid The quote uuid (required)
+     * @param  string $uuid The user uuid (required)
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      * @return null|string|array
      *
-     * @link https://api.accounting.sh/swagger.html#operation/deleteQuote
+     * @link https://api.accounting.sh/swagger.html#operation/getUser
      */
-    public function deleteQuote(
+    public function getUser(
         string $uuid,
     ): null|string|array {
 
         // verify the required parameter 'uuid' is set
         if ($uuid === null || (is_array($uuid) && count($uuid) === 0)) {
             throw new InvalidArgumentException(
-                'Missing the required parameter $uuid when calling deleteQuote'
+                'Missing the required parameter $uuid when calling getUser'
             );
         }
 
 
-        $resourcePath = '/quotes/{uuid}';
-        $queryParams = [];
-        $headers = [];
-        $options = [];
-
-
-
-        if ($uuid !== null) {
-            $resourcePath = str_replace(
-                '{' . 'uuid' . '}',
-                rawurlencode($uuid),
-                $resourcePath
-            );
-        }
-
-
-
-
-        if (!empty($headers)) {
-            $options['headers'] = $headers;
-        }
-        $query = http_build_query($queryParams);
-        return $this->client->request("DELETE", $resourcePath . ($query ? "?{$query}" : ''), $options);
-    }
-
-    /**
-     * Operation getQuote
-     *
-     * Get a quote
-     *
-     * @param  string $uuid The quote uuid (required)
-     *
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
-     * @return null|string|array
-     *
-     * @link https://api.accounting.sh/swagger.html#operation/getQuote
-     */
-    public function getQuote(
-        string $uuid,
-    ): null|string|array {
-
-        // verify the required parameter 'uuid' is set
-        if ($uuid === null || (is_array($uuid) && count($uuid) === 0)) {
-            throw new InvalidArgumentException(
-                'Missing the required parameter $uuid when calling getQuote'
-            );
-        }
-
-
-        $resourcePath = '/quotes/{uuid}';
+        $resourcePath = '/users/{uuid}';
         $queryParams = [];
         $headers = [];
         $options = [];
@@ -198,59 +148,9 @@ class QuotesApi
     }
 
     /**
-     * Operation getQuoteDocument
+     * Operation listUsers
      *
-     * Get a quote in PDF
-     *
-     * @param  string $uuid The quote uuid (required)
-     *
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
-     * @return null|string|array
-     *
-     * @link https://api.accounting.sh/swagger.html#operation/getQuoteDocument
-     */
-    public function getQuoteDocument(
-        string $uuid,
-    ): null|string|array {
-
-        // verify the required parameter 'uuid' is set
-        if ($uuid === null || (is_array($uuid) && count($uuid) === 0)) {
-            throw new InvalidArgumentException(
-                'Missing the required parameter $uuid when calling getQuoteDocument'
-            );
-        }
-
-
-        $resourcePath = '/quotes/{uuid}/document';
-        $queryParams = [];
-        $headers = [];
-        $options = [];
-
-
-
-        if ($uuid !== null) {
-            $resourcePath = str_replace(
-                '{' . 'uuid' . '}',
-                rawurlencode($uuid),
-                $resourcePath
-            );
-        }
-
-
-
-
-        if (!empty($headers)) {
-            $options['headers'] = $headers;
-        }
-        $query = http_build_query($queryParams);
-        return $this->client->request("GET", $resourcePath . ($query ? "?{$query}" : ''), $options);
-    }
-
-    /**
-     * Operation listQuotes
-     *
-     * List company&#39;s quotes
+     * List company&#39;s users
      *
      * @param  string|null $fields A comma separated list of fields requested in the response (optional)
      * @param  string|null $page The response page (optional)
@@ -260,9 +160,9 @@ class QuotesApi
      * @throws InvalidArgumentException
      * @return null|string|array
      *
-     * @link https://api.accounting.sh/swagger.html#operation/listQuotes
+     * @link https://api.accounting.sh/swagger.html#operation/listUsers
      */
-    public function listQuotes(
+    public function listUsers(
         string|null $fields = null,
         string|null $page = null,
         string|null $perPage = null,
@@ -270,7 +170,7 @@ class QuotesApi
 
 
 
-        $resourcePath = '/quotes';
+        $resourcePath = '/users';
         $queryParams = [];
         $headers = [];
         $options = [];
@@ -298,39 +198,39 @@ class QuotesApi
     }
 
     /**
-     * Operation updateQuote
+     * Operation updateUser
      *
-     * Update a quote
+     * Update user
      *
-     * @param  string $uuid The quote uuid (required)
-     * @param  array $addQuoteRequest addQuoteRequest (required)
+     * @param  string $uuid The user uuid (required)
+     * @param  array $updateUserRequest updateUserRequest (required)
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      * @return null|string|array
      *
-     * @link https://api.accounting.sh/swagger.html#operation/updateQuote
+     * @link https://api.accounting.sh/swagger.html#operation/updateUser
      */
-    public function updateQuote(
+    public function updateUser(
         string $uuid,
-        array $addQuoteRequest,
+        array $updateUserRequest,
     ): null|string|array {
 
         // verify the required parameter 'uuid' is set
         if ($uuid === null || (is_array($uuid) && count($uuid) === 0)) {
             throw new InvalidArgumentException(
-                'Missing the required parameter $uuid when calling updateQuote'
+                'Missing the required parameter $uuid when calling updateUser'
             );
         }
-        // verify the required parameter 'addQuoteRequest' is set
-        if ($addQuoteRequest === null || (is_array($addQuoteRequest) && count($addQuoteRequest) === 0)) {
+        // verify the required parameter 'updateUserRequest' is set
+        if ($updateUserRequest === null || (is_array($updateUserRequest) && count($updateUserRequest) === 0)) {
             throw new InvalidArgumentException(
-                'Missing the required parameter $addQuoteRequest when calling updateQuote'
+                'Missing the required parameter $updateUserRequest when calling updateUser'
             );
         }
 
 
-        $resourcePath = '/quotes/{uuid}';
+        $resourcePath = '/users/{uuid}';
         $queryParams = [];
         $headers = [];
         $options = [];
@@ -345,7 +245,7 @@ class QuotesApi
             );
         }
 
-        $options['json'] = $addQuoteRequest;
+        $options['json'] = $updateUserRequest;
 
 
 
@@ -354,6 +254,126 @@ class QuotesApi
         }
         $query = http_build_query($queryParams);
         return $this->client->request("PUT", $resourcePath . ($query ? "?{$query}" : ''), $options);
+    }
+
+    /**
+     * Operation updateUser_0
+     *
+     * Update user
+     *
+     * @param  string $uuid The user uuid (required)
+     *
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
+     * @return null|string|array
+     *
+     * @link https://api.accounting.sh/swagger.html#operation/updateUser_0
+     */
+    public function updateUser_0(
+        string $uuid,
+    ): null|string|array {
+
+        // verify the required parameter 'uuid' is set
+        if ($uuid === null || (is_array($uuid) && count($uuid) === 0)) {
+            throw new InvalidArgumentException(
+                'Missing the required parameter $uuid when calling updateUser_0'
+            );
+        }
+
+
+        $resourcePath = '/users/{uuid}';
+        $queryParams = [];
+        $headers = [];
+        $options = [];
+
+
+
+        if ($uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'uuid' . '}',
+                rawurlencode($uuid),
+                $resourcePath
+            );
+        }
+
+
+
+
+        if (!empty($headers)) {
+            $options['headers'] = $headers;
+        }
+        $query = http_build_query($queryParams);
+        return $this->client->request("DELETE", $resourcePath . ($query ? "?{$query}" : ''), $options);
+    }
+
+    /**
+     * Operation usersCompanies
+     *
+     * List current user companies
+     *
+     *
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
+     * @return null|string|array
+     *
+     * @link https://api.accounting.sh/swagger.html#operation/usersCompanies
+     */
+    public function usersCompanies(
+    ): null|string|array {
+
+
+
+        $resourcePath = '/users/me/companies';
+        $queryParams = [];
+        $headers = [];
+        $options = [];
+
+
+
+
+
+
+
+        if (!empty($headers)) {
+            $options['headers'] = $headers;
+        }
+        $query = http_build_query($queryParams);
+        return $this->client->request("GET", $resourcePath . ($query ? "?{$query}" : ''), $options);
+    }
+
+    /**
+     * Operation usersMe
+     *
+     * View current user details
+     *
+     *
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
+     * @return null|string|array
+     *
+     * @link https://api.accounting.sh/swagger.html#operation/usersMe
+     */
+    public function usersMe(
+    ): null|string|array {
+
+
+
+        $resourcePath = '/users/me';
+        $queryParams = [];
+        $headers = [];
+        $options = [];
+
+
+
+
+
+
+
+        if (!empty($headers)) {
+            $options['headers'] = $headers;
+        }
+        $query = http_build_query($queryParams);
+        return $this->client->request("GET", $resourcePath . ($query ? "?{$query}" : ''), $options);
     }
 
 }
