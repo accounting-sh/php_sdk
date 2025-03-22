@@ -5,10 +5,10 @@ All URIs are relative to https://api.accounting.sh, except if the operation defi
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**addUser()**](UsersApi.md#addUser) | **POST** /users | Add user |
+| [**deleteUser()**](UsersApi.md#deleteUser) | **DELETE** /users/{uuid} | Delete user |
 | [**getUser()**](UsersApi.md#getUser) | **GET** /users/{uuid} | View user |
 | [**listUsers()**](UsersApi.md#listUsers) | **GET** /users | List company&#39;s users |
 | [**updateUser()**](UsersApi.md#updateUser) | **PUT** /users/{uuid} | Update user |
-| [**updateUser_0()**](UsersApi.md#updateUser_0) | **DELETE** /users/{uuid} | Update user |
 | [**usersCompanies()**](UsersApi.md#usersCompanies) | **GET** /users/me/companies | List current user companies |
 | [**usersMe()**](UsersApi.md#usersMe) | **GET** /users/me | View current user details |
 
@@ -45,6 +45,43 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **addUserRequest** | [see addUser](https://api.accounting.sh/swagger.html#operation/addUser)|  | |
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteUser()`
+
+```php
+deleteUser($uuid): null|string|array
+```
+
+Delete user
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$api = new Accounting("auth_token");
+$uuid = 'uuid_example'; // string | The user uuid
+
+try {
+    $result = $api->users()->deleteUser($uuid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->users->deleteUser: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **uuid** | **string**| The user uuid | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -162,43 +199,6 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **uuid** | **string**| The user uuid | |
 | **updateUserRequest** | [see updateUser](https://api.accounting.sh/swagger.html#operation/updateUser)|  | |
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `updateUser_0()`
-
-```php
-updateUser_0($uuid): null|string|array
-```
-
-Update user
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$api = new Accounting("auth_token");
-$uuid = 'uuid_example'; // string | The user uuid
-
-try {
-    $result = $api->users()->updateUser_0($uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling Accounting->users->updateUser_0: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **uuid** | **string**| The user uuid | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
