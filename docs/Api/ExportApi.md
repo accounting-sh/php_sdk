@@ -66,7 +66,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 $api = new Accounting("auth_token");
-$requestExportRequest = [...]; // array
+$requestExportRequest = [/*...*/]; // array
 
 try {
     $result = $api->export()->requestExport($requestExportRequest);

@@ -29,7 +29,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 $api = new Accounting("auth_token");
-$addAttachmentRequest = [...]; // array
+$addAttachmentRequest = [/*...*/]; // array
 
 try {
     $result = $api->attachments()->addAttachment($addAttachmentRequest);
@@ -225,7 +225,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The attachment uuid
-$addAttachmentRequest = [...]; // array
+$addAttachmentRequest = [/*...*/]; // array
 
 try {
     $result = $api->attachments()->updateAttachment($uuid, $addAttachmentRequest);

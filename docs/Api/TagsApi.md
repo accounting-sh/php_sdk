@@ -29,7 +29,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 $api = new Accounting("auth_token");
-$addTagRequest = [...]; // array
+$addTagRequest = [/*...*/]; // array
 
 try {
     $result = $api->tags()->addTag($addTagRequest);
@@ -225,7 +225,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The tag uuid
-$addTagRequest = [...]; // array
+$addTagRequest = [/*...*/]; // array
 
 try {
     $result = $api->tags()->updateTag($uuid, $addTagRequest);

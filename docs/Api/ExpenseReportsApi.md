@@ -35,7 +35,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 $api = new Accounting("auth_token");
-$addExpenseReportRequest = [...]; // array
+$addExpenseReportRequest = [/*...*/]; // array
 
 try {
     $result = $api->expenseReports()->addExpenseReport($addExpenseReportRequest);
@@ -297,7 +297,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 $api = new Accounting("auth_token");
-$sendExpenseReportLoginEmailRequest = [...]; // array
+$sendExpenseReportLoginEmailRequest = [/*...*/]; // array
 
 try {
     $result = $api->expenseReports()->sendExpenseReportLoginEmail($sendExpenseReportLoginEmailRequest);
@@ -335,7 +335,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The expense report uuid
-$addExpenseReportRequest = [...]; // array
+$addExpenseReportRequest = [/*...*/]; // array
 
 try {
     $result = $api->expenseReports()->updateExpenseReport($uuid, $addExpenseReportRequest);
@@ -373,7 +373,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 $api = new Accounting("auth_token");
-$updateExpenseReportAccountRequest = [...]; // array
+$updateExpenseReportAccountRequest = [/*...*/]; // array
 
 try {
     $result = $api->expenseReports()->updateExpenseReportAccount($updateExpenseReportAccountRequest);
@@ -412,7 +412,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 $api = new Accounting("auth_token");
-$updateExpenseReportSettingsRequest = [...]; // array
+$updateExpenseReportSettingsRequest = [/*...*/]; // array
 
 try {
     $result = $api->expenseReports()->updateExpenseReportSettings($updateExpenseReportSettingsRequest);
@@ -449,7 +449,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 $api = new Accounting("auth_token");
-$verifyExpenseReportSettingsRequest = [...]; // array
+$verifyExpenseReportSettingsRequest = [/*...*/]; // array
 
 try {
     $result = $api->expenseReports()->verifyExpenseReportSettings($verifyExpenseReportSettingsRequest);

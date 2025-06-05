@@ -28,7 +28,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 $api = new Accounting("auth_token");
-$addCompanyVatIdRequest = [...]; // array
+$addCompanyVatIdRequest = [/*...*/]; // array
 $uuid = 'uuid_example'; // string | The company uuid
 
 try {
@@ -189,7 +189,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
 $key = 'key_example'; // string | The VAT ID uuid
-$addCompanyVatIdRequest = [...]; // array
+$addCompanyVatIdRequest = [/*...*/]; // array
 $uuid = 'uuid_example'; // string | The company uuid
 
 try {

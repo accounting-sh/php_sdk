@@ -105,7 +105,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 $api = new Accounting("auth_token");
-$sendNotificationRequest = [...]; // array
+$sendNotificationRequest = [/*...*/]; // array
 
 try {
     $result = $api->notification()->sendNotification($sendNotificationRequest);
@@ -143,7 +143,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
 $notification = 'notification_example'; // string | The notification name
-$updateNotificationPreferencesRequest = [...]; // array
+$updateNotificationPreferencesRequest = [/*...*/]; // array
 
 try {
     $result = $api->notification()->updateNotificationPreferences($notification, $updateNotificationPreferencesRequest);

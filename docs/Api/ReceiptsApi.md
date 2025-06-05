@@ -29,7 +29,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 $api = new Accounting("auth_token");
-$addReceiptRequest = [...]; // array
+$addReceiptRequest = [/*...*/]; // array
 
 try {
     $result = $api->receipts()->addReceipt($addReceiptRequest);
@@ -218,7 +218,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The receipt uuid
-$addReceiptRequest = [...]; // array
+$addReceiptRequest = [/*...*/]; // array
 
 try {
     $result = $api->receipts()->updateReceipt($uuid, $addReceiptRequest);

@@ -259,7 +259,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The document uuid
-$updateDocumentRequest = [...]; // array
+$updateDocumentRequest = [/*...*/]; // array
 
 try {
     $result = $api->documents()->updateDocument($uuid, $updateDocumentRequest);

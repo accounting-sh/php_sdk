@@ -61,7 +61,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 $api = new Accounting("auth_token");
-$loginRequest = [...]; // array
+$loginRequest = [/*...*/]; // array
 
 try {
     $result = $api->auth()->login($loginRequest);
@@ -132,7 +132,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 $api = new Accounting("auth_token");
-$switchCompanyRequest = [...]; // array
+$switchCompanyRequest = [/*...*/]; // array
 
 try {
     $result = $api->auth()->switchCompany($switchCompanyRequest);

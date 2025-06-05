@@ -31,7 +31,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 $api = new Accounting("auth_token");
-$addCredentialRequest = [...]; // array
+$addCredentialRequest = [/*...*/]; // array
 
 try {
     $result = $api->credentials()->addCredential($addCredentialRequest);
@@ -252,7 +252,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The credential uuid
-$addCredentialRequest = [...]; // array
+$addCredentialRequest = [/*...*/]; // array
 
 try {
     $result = $api->credentials()->updateCredential($uuid, $addCredentialRequest);

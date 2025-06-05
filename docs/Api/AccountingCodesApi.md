@@ -28,7 +28,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 $api = new Accounting("auth_token");
-$addAccountingCodeRequest = [...]; // array
+$addAccountingCodeRequest = [/*...*/]; // array
 
 try {
     $result = $api->accountingCodes()->addAccountingCode($addAccountingCodeRequest);
@@ -174,7 +174,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The accounting code uuid
-$addAccountingCodeRequest = [...]; // array
+$addAccountingCodeRequest = [/*...*/]; // array
 
 try {
     $result = $api->accountingCodes()->updateAccountingCode($uuid, $addAccountingCodeRequest);

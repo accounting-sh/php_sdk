@@ -110,7 +110,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The company uuid
 $key = 'key_example'; // string | The setting key
-$updateSettingsRequest = [...]; // array
+$updateSettingsRequest = [/*...*/]; // array
 
 try {
     $result = $api->settings()->updateSettings($uuid, $key, $updateSettingsRequest);

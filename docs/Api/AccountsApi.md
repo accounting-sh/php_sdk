@@ -28,7 +28,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 $api = new Accounting("auth_token");
-$addAccountRequest = [...]; // array
+$addAccountRequest = [/*...*/]; // array
 
 try {
     $result = $api->accounts()->addAccount($addAccountRequest);
@@ -181,7 +181,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The account uuid
-$addAccountRequest = [...]; // array
+$addAccountRequest = [/*...*/]; // array
 
 try {
     $result = $api->accounts()->updateAccount($uuid, $addAccountRequest);

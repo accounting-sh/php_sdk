@@ -30,7 +30,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 $api = new Accounting("auth_token");
-$addCompanyRequest = [...]; // array
+$addCompanyRequest = [/*...*/]; // array
 
 try {
     $result = $api->companies()->addCompany($addCompanyRequest);
@@ -257,7 +257,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The company uuid
-$addCompanyRequest = [...]; // array
+$addCompanyRequest = [/*...*/]; // array
 
 try {
     $result = $api->companies()->updateCompany($uuid, $addCompanyRequest);

@@ -29,7 +29,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 $api = new Accounting("auth_token");
-$addQuoteRequest = [...]; // array
+$addQuoteRequest = [/*...*/]; // array
 
 try {
     $result = $api->quotes()->addQuote($addQuoteRequest);
@@ -218,7 +218,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The quote uuid
-$addQuoteRequest = [...]; // array
+$addQuoteRequest = [/*...*/]; // array
 
 try {
     $result = $api->quotes()->updateQuote($uuid, $addQuoteRequest);

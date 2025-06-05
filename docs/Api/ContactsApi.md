@@ -30,7 +30,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 $api = new Accounting("auth_token");
-$addContactRequest = [...]; // array
+$addContactRequest = [/*...*/]; // array
 
 try {
     $result = $api->contacts()->addContact($addContactRequest);
@@ -269,7 +269,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The contact uuid
-$addContactRequest = [...]; // array
+$addContactRequest = [/*...*/]; // array
 
 try {
     $result = $api->contacts()->updateContact($uuid, $addContactRequest);

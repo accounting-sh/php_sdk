@@ -29,7 +29,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 $api = new Accounting("auth_token");
-$addOAuthConfigurationRequest = [...]; // array
+$addOAuthConfigurationRequest = [/*...*/]; // array
 
 try {
     $result = $api->oAuthConfig()->addOAuthConfiguration($addOAuthConfigurationRequest);
@@ -216,7 +216,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The oauth configuration uuid
-$addOAuthConfigurationRequest = [...]; // array
+$addOAuthConfigurationRequest = [/*...*/]; // array
 
 try {
     $result = $api->oAuthConfig()->updateOAuthConfiguration($uuid, $addOAuthConfigurationRequest);

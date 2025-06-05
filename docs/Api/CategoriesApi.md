@@ -28,7 +28,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 $api = new Accounting("auth_token");
-$addCategoryRequest = [...]; // array
+$addCategoryRequest = [/*...*/]; // array
 
 try {
     $result = $api->categories()->addCategory($addCategoryRequest);
@@ -181,7 +181,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The category uuid
-$addCategoryRequest = [...]; // array
+$addCategoryRequest = [/*...*/]; // array
 
 try {
     $result = $api->categories()->updateCategory($uuid, $addCategoryRequest);

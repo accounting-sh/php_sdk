@@ -28,7 +28,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 $api = new Accounting("auth_token");
-$addRevenueRequest = [...]; // array
+$addRevenueRequest = [/*...*/]; // array
 
 try {
     $result = $api->revenues()->addRevenue($addRevenueRequest);
@@ -181,7 +181,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The revenue uuid
-$addRevenueRequest = [...]; // array
+$addRevenueRequest = [/*...*/]; // array
 
 try {
     $result = $api->revenues()->updateRevenue($uuid, $addRevenueRequest);

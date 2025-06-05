@@ -32,7 +32,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 $api = new Accounting("auth_token");
-$addInvoiceRequest = [...]; // array
+$addInvoiceRequest = [/*...*/]; // array
 
 try {
     $result = $api->invoices()->addInvoice($addInvoiceRequest);
@@ -70,7 +70,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The invoice uuid
-$addBillPaymentRequest = [...]; // array
+$addBillPaymentRequest = [/*...*/]; // array
 
 try {
     $result = $api->invoices()->addInvoicePayment($uuid, $addBillPaymentRequest);
@@ -294,7 +294,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The invoice uuid
-$addInvoiceRequest = [...]; // array
+$addInvoiceRequest = [/*...*/]; // array
 
 try {
     $result = $api->invoices()->updateInvoice($uuid, $addInvoiceRequest);
@@ -334,7 +334,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The invoice uuid
 $payment = 'payment_example'; // string | The invoice payment uuid
-$addBillPaymentRequest = [...]; // array
+$addBillPaymentRequest = [/*...*/]; // array
 
 try {
     $result = $api->invoices()->updateInvoicePayment($uuid, $payment, $addBillPaymentRequest);

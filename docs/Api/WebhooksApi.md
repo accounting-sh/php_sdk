@@ -30,7 +30,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 $api = new Accounting("auth_token");
-$addWebhookRequest = [...]; // array
+$addWebhookRequest = [/*...*/]; // array
 
 try {
     $result = $api->webhooks()->addWebhook($addWebhookRequest);
@@ -253,7 +253,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 $api = new Accounting("auth_token");
-$addWebhookRequest = [...]; // array
+$addWebhookRequest = [/*...*/]; // array
 $uuid = 'uuid_example'; // string | The webhook uuid
 
 try {

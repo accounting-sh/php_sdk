@@ -33,7 +33,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 $api = new Accounting("auth_token");
-$addTransactionRequest = [...]; // array
+$addTransactionRequest = [/*...*/]; // array
 
 try {
     $result = $api->transactions()->addTransaction($addTransactionRequest);
@@ -71,7 +71,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The transaction uuid
-$updateTransactionCodeRequest = [...]; // array
+$updateTransactionCodeRequest = [/*...*/]; // array
 
 try {
     $result = $api->transactions()->addTransactionCode($uuid, $updateTransactionCodeRequest);
@@ -224,7 +224,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 $api = new Accounting("auth_token");
-$importTransactionsRequest = [...]; // array
+$importTransactionsRequest = [/*...*/]; // array
 
 try {
     $result = $api->transactions()->importTransactions($importTransactionsRequest);
@@ -350,7 +350,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The transaction uuid
-$addTransactionRequest = [...]; // array
+$addTransactionRequest = [/*...*/]; // array
 
 try {
     $result = $api->transactions()->updateTransaction($uuid, $addTransactionRequest);
@@ -389,7 +389,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The transaction uuid
-$updateTransactionCodeRequest = [...]; // array
+$updateTransactionCodeRequest = [/*...*/]; // array
 
 try {
     $result = $api->transactions()->updateTransactionCode($uuid, $updateTransactionCodeRequest);

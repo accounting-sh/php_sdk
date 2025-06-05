@@ -28,7 +28,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 $api = new Accounting("auth_token");
-$addTransferRequest = [...]; // array
+$addTransferRequest = [/*...*/]; // array
 
 try {
     $result = $api->transfers()->addTransfer($addTransferRequest);
@@ -181,7 +181,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The transfer uuid
-$addTransferRequest = [...]; // array
+$addTransferRequest = [/*...*/]; // array
 
 try {
     $result = $api->transfers()->updateTransfer($uuid, $addTransferRequest);

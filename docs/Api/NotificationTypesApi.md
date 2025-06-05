@@ -28,7 +28,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 $api = new Accounting("auth_token");
-$addNotificationTypeRequest = [...]; // array
+$addNotificationTypeRequest = [/*...*/]; // array
 
 try {
     $result = $api->notificationTypes()->addNotificationType($addNotificationTypeRequest);
@@ -181,7 +181,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The notification type uuid
-$addNotificationTypeRequest = [...]; // array
+$addNotificationTypeRequest = [/*...*/]; // array
 
 try {
     $result = $api->notificationTypes()->updateNotificationType($uuid, $addNotificationTypeRequest);
