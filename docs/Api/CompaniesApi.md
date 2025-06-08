@@ -28,6 +28,9 @@ Add a company
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $addCompanyRequest = [/*...*/]; // array
@@ -64,6 +67,9 @@ Delete a company
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -102,6 +108,9 @@ Get a company
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The company uuid
@@ -138,6 +147,9 @@ Get a company's customization parameters
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -176,6 +188,9 @@ List a company's feature set
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The company uuid
@@ -212,6 +227,9 @@ List companies on this instance
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -253,6 +271,9 @@ Update a company
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");

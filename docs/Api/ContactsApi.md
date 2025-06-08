@@ -28,6 +28,9 @@ Create a new contact
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $addContactRequest = [/*...*/]; // array
@@ -64,6 +67,9 @@ Delete a contact
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -102,6 +108,9 @@ Retrieve a contact
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The contact uuid
@@ -138,6 +147,9 @@ List a contact's bills
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -182,6 +194,9 @@ List a contact's invoices
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The contact uuid
@@ -225,6 +240,9 @@ List company's contacts
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $fields = 'fields_example'; // string | A comma separated list of fields requested in the response
@@ -265,6 +283,9 @@ Update a contact
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");

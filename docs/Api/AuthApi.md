@@ -96,6 +96,9 @@ Logout current user
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 
@@ -129,6 +132,9 @@ Switch to a different company
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");

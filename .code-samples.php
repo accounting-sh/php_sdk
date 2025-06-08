@@ -4,6 +4,9 @@
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The account uuid
@@ -18,6 +21,9 @@ try {
 //..listAccountConnections
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -37,6 +43,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The account uuid
@@ -53,6 +62,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $addAccountingCodeRequest = [/*...*/]; // array
@@ -67,6 +79,9 @@ try {
 //..deleteAccountingCode
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -83,6 +98,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The accounting code uuid
@@ -98,6 +116,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 
@@ -111,6 +132,9 @@ try {
 //..updateAccountingCode
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -128,6 +152,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $addAccountRequest = [/*...*/]; // array
@@ -142,6 +169,9 @@ try {
 //..deleteAccount
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -158,6 +188,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The account uuid
@@ -172,6 +205,9 @@ try {
 //..listAccounts
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -190,6 +226,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The account uuid
@@ -206,6 +245,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $addAttachmentRequest = [/*...*/]; // array
@@ -220,6 +262,9 @@ try {
 //..deleteAttachment
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -236,6 +281,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The attachment uuid
@@ -250,6 +298,9 @@ try {
 //..listAttachments
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -268,6 +319,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $resource = 'resource_example'; // string | The resource
@@ -285,6 +339,9 @@ try {
 //..updateAttachment
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -331,6 +388,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 
@@ -344,6 +404,9 @@ try {
 //..switchCompany
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -360,6 +423,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $addBillRequest = [/*...*/]; // array
@@ -374,6 +440,9 @@ try {
 //..addBillPayment
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -391,6 +460,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The bill uuid
@@ -405,6 +477,9 @@ try {
 //..getBill
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -421,6 +496,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The invoice uuid
@@ -434,6 +512,9 @@ try {
 //..listBills
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -452,6 +533,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The bill uuid
@@ -467,6 +551,9 @@ try {
 //..updateBillPayment
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -485,6 +572,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $addCategoryRequest = [/*...*/]; // array
@@ -499,6 +589,9 @@ try {
 //..deleteCategory
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -515,6 +608,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The category uuid
@@ -529,6 +625,9 @@ try {
 //..listCategories
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -547,6 +646,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The category uuid
@@ -563,6 +665,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $addCompanyRequest = [/*...*/]; // array
@@ -577,6 +682,9 @@ try {
 //..deleteCompany
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -593,6 +701,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The company uuid
@@ -607,6 +718,9 @@ try {
 //..getCompanyCustomization
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -623,6 +737,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The company uuid
@@ -637,6 +754,9 @@ try {
 //..listCompanies
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -655,6 +775,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The company uuid
@@ -670,6 +793,9 @@ try {
 //..getStatistics
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -688,6 +814,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $addContactRequest = [/*...*/]; // array
@@ -702,6 +831,9 @@ try {
 //..deleteContact
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -718,6 +850,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The contact uuid
@@ -732,6 +867,9 @@ try {
 //..listContactBills
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -751,6 +889,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The contact uuid
@@ -769,6 +910,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $fields = 'fields_example'; // string | A comma separated list of fields requested in the response
@@ -786,6 +930,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The contact uuid
@@ -802,6 +949,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $lang = 'lang_example'; // string | The target language
@@ -816,6 +966,9 @@ try {
 //..addCredential
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -832,6 +985,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The credential uuid
@@ -847,6 +1003,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The credential uuid
@@ -861,6 +1020,9 @@ try {
 //..listCredentials
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -893,6 +1055,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 
@@ -906,6 +1071,9 @@ try {
 //..updateCredential
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -937,6 +1105,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $from = 'from_example'; // string | The currency to convert from
@@ -953,6 +1124,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The document uuid
@@ -967,6 +1141,9 @@ try {
 //..deleteDocument
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -983,6 +1160,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The document uuid
@@ -997,6 +1177,9 @@ try {
 //..listDocuments
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -1015,6 +1198,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The document uuid
@@ -1030,6 +1216,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The document uuid
@@ -1044,6 +1233,9 @@ try {
 //..updateDocument
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -1061,6 +1253,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $name = 'name_example'; // string
@@ -1077,6 +1272,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The document uuid
@@ -1090,6 +1288,9 @@ try {
 //..addExpenseReport
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -1105,6 +1306,9 @@ try {
 //..deleteExpenseReport
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -1136,6 +1340,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The expense report uuid
@@ -1151,6 +1358,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 
@@ -1164,6 +1374,9 @@ try {
 //..getExpenseReportUser
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -1179,6 +1392,9 @@ try {
 //..listExpenseReports
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -1212,6 +1428,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The expense report uuid
@@ -1227,6 +1446,9 @@ try {
 //..updateExpenseReportAccount
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -1273,6 +1495,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $fields = 'fields_example'; // string | A comma separated list of fields requested in the response
@@ -1290,6 +1515,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $requestExportRequest = [/*...*/]; // array
@@ -1305,6 +1533,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $addInvoiceRequest = [/*...*/]; // array
@@ -1319,6 +1550,9 @@ try {
 //..addInvoicePayment
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -1336,6 +1570,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The invoice uuid
@@ -1350,6 +1587,9 @@ try {
 //..getInvoice
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -1366,6 +1606,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The invoice uuid
@@ -1379,6 +1622,9 @@ try {
 //..listInvoices
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -1397,6 +1643,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 
@@ -1410,6 +1659,9 @@ try {
 //..updateInvoice
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -1427,6 +1679,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The invoice uuid
@@ -1443,6 +1698,9 @@ try {
 //..logs
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -1467,6 +1725,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $notification = 'notification_example'; // string | The notification name
@@ -1481,6 +1742,9 @@ try {
 //..listNotifications
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -1499,6 +1763,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $sendNotificationRequest = [/*...*/]; // array
@@ -1513,6 +1780,9 @@ try {
 //..updateNotificationPreferences
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -1530,6 +1800,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $addNotificationTypeRequest = [/*...*/]; // array
@@ -1544,6 +1817,9 @@ try {
 //..deleteNotificationType
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -1560,6 +1836,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The notification type uuid
@@ -1574,6 +1853,9 @@ try {
 //..listNotificationTypes
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -1592,6 +1874,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The notification type uuid
@@ -1608,6 +1893,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $addOAuthConfigurationRequest = [/*...*/]; // array
@@ -1622,6 +1910,9 @@ try {
 //..deleteOAuthConfiguration
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -1638,6 +1929,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The oauth configuration uuid
@@ -1652,6 +1946,9 @@ try {
 //..listOAuthConfigurations
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -1684,6 +1981,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The oauth configuration uuid
@@ -1700,6 +2000,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $addPaymentRequest = [/*...*/]; // array
@@ -1714,6 +2017,9 @@ try {
 //..deletePayment
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -1730,6 +2036,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The payment uuid
@@ -1744,6 +2053,9 @@ try {
 //..listPayments
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -1762,6 +2074,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The payment uuid
@@ -1778,6 +2093,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $addQuoteRequest = [/*...*/]; // array
@@ -1792,6 +2110,9 @@ try {
 //..deleteQuote
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -1808,6 +2129,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The quote uuid
@@ -1823,6 +2147,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The quote uuid
@@ -1836,6 +2163,9 @@ try {
 //..listQuotes
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -1854,6 +2184,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The quote uuid
@@ -1870,6 +2203,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $addReceiptRequest = [/*...*/]; // array
@@ -1884,6 +2220,9 @@ try {
 //..deleteReceipt
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -1900,6 +2239,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The receipt uuid
@@ -1915,6 +2257,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The receipt uuid
@@ -1928,6 +2273,9 @@ try {
 //..listReceipts
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -1946,6 +2294,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The receipt uuid
@@ -1962,6 +2313,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $addRevenueRequest = [/*...*/]; // array
@@ -1976,6 +2330,9 @@ try {
 //..deleteRevenue
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -1992,6 +2349,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The revenue uuid
@@ -2006,6 +2366,9 @@ try {
 //..listRevenues
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -2024,6 +2387,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The revenue uuid
@@ -2039,6 +2405,9 @@ try {
 //..listReviews
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -2057,6 +2426,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $q = 'q_example'; // string | Query string
@@ -2074,6 +2446,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The company uuid
@@ -2089,6 +2464,9 @@ try {
 //..listSettings
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -2108,6 +2486,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The company uuid
@@ -2125,6 +2506,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $addTagRequest = [/*...*/]; // array
@@ -2139,6 +2523,9 @@ try {
 //..deleteTag
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -2155,6 +2542,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The tag uuid
@@ -2169,6 +2559,9 @@ try {
 //..listTags
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -2186,6 +2579,9 @@ try {
 //..listTagsByResource
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -2205,6 +2601,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The tag uuid
@@ -2221,6 +2620,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $country = 'country_example'; // string | The country
@@ -2235,6 +2637,9 @@ try {
 //..verifyVatId
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -2251,6 +2656,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $addTransactionRequest = [/*...*/]; // array
@@ -2265,6 +2673,9 @@ try {
 //..addTransactionCode
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -2282,6 +2693,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The transaction uuid
@@ -2296,6 +2710,9 @@ try {
 //..deleteTransactionCode
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -2313,6 +2730,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The transaction uuid
@@ -2328,6 +2748,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $importTransactionsRequest = [/*...*/]; // array
@@ -2339,9 +2762,33 @@ try {
     echo 'Exception when calling Accounting->transactions->importTransactions: ', $e->getMessage(), PHP_EOL;
 }
 
+//..ledger
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$api = new Accounting("auth_token");
+$fields = 'fields_example'; // string | A comma separated list of fields requested in the response
+$page = 'page_example'; // string | The response page
+$perPage = 'perPage_example'; // string | The number of items per page
+$account = 'account_example'; // string | An account uuid to filter results
+
+try {
+    $result = $api->transactions()->ledger($fields, $page, $perPage, $account);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->transactions->ledger: ', $e->getMessage(), PHP_EOL;
+}
+
 //..listTransactionCodes
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -2362,6 +2809,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $fields = 'fields_example'; // string | A comma separated list of fields requested in the response
@@ -2380,6 +2830,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The transaction uuid
@@ -2395,6 +2848,9 @@ try {
 //..updateTransactionCode
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -2412,6 +2868,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $addTransferRequest = [/*...*/]; // array
@@ -2426,6 +2885,9 @@ try {
 //..deleteTransfer
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -2442,6 +2904,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The transfer uuid
@@ -2456,6 +2921,9 @@ try {
 //..listTransfers
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -2474,6 +2942,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The transfer uuid
@@ -2490,6 +2961,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $addUserRequest = [/*...*/]; // array
@@ -2504,6 +2978,9 @@ try {
 //..deleteUser
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -2520,6 +2997,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The user uuid
@@ -2534,6 +3014,9 @@ try {
 //..listUsers
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -2552,6 +3035,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The user uuid
@@ -2568,6 +3054,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 
@@ -2582,6 +3071,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 
@@ -2595,6 +3087,9 @@ try {
 //..addCompanyVatId
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -2612,6 +3107,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $key = 'key_example'; // string | The VAT ID uuid
@@ -2628,6 +3126,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $key = 'key_example'; // string | The VAT ID uuid
@@ -2643,6 +3144,9 @@ try {
 //..listCompanyVatId
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -2662,6 +3166,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $key = 'key_example'; // string | The VAT ID uuid
@@ -2679,6 +3186,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $addWebhookRequest = [/*...*/]; // array
@@ -2693,6 +3203,9 @@ try {
 //..deleteWebhook
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -2709,6 +3222,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The webhook uuid
@@ -2723,6 +3239,9 @@ try {
 //..getWebhookHistory
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -2753,6 +3272,9 @@ try {
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $fields = 'fields_example'; // string | A comma separated list of fields requested in the response
@@ -2769,6 +3291,9 @@ try {
 //..updateWebhook
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");

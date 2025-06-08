@@ -10,6 +10,7 @@ All URIs are relative to https://api.accounting.sh, except if the operation defi
 | [**deleteTransactionCode()**](TransactionsApi.md#deleteTransactionCode) | **DELETE** /transactions/{uuid}/codes/{code} | Delete a transaction&#39;s code |
 | [**getTransaction()**](TransactionsApi.md#getTransaction) | **GET** /transactions/{uuid} | Get a transaction |
 | [**importTransactions()**](TransactionsApi.md#importTransactions) | **POST** /transactions/import | Import transactions - INTERNAL |
+| [**ledger()**](TransactionsApi.md#ledger) | **GET** /transactions/ledger | List company&#39;s transactions and transfers |
 | [**listTransactionCodes()**](TransactionsApi.md#listTransactionCodes) | **GET** /transactions/{uuid}/codes | List transaction&#39;s codes |
 | [**listTransactions()**](TransactionsApi.md#listTransactions) | **GET** /transactions | List company&#39;s transactions |
 | [**updateTransaction()**](TransactionsApi.md#updateTransaction) | **PUT** /transactions/{uuid} | Update a transaction |
@@ -30,6 +31,9 @@ Add a transaction
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -67,6 +71,9 @@ Add a transaction's code
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -107,6 +114,9 @@ Delete a transaction
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The transaction uuid
@@ -143,6 +153,9 @@ Delete a transaction's code
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -183,6 +196,9 @@ Get a transaction
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The transaction uuid
@@ -222,6 +238,9 @@ Import transaction from a file or directly from extracted details
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $importTransactionsRequest = [/*...*/]; // array
@@ -244,6 +263,52 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `ledger()`
+
+```php
+ledger($fields, $page, $perPage, $account): null|string|array
+```
+
+List company's transactions and transfers
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$api = new Accounting("auth_token");
+$fields = 'fields_example'; // string | A comma separated list of fields requested in the response
+$page = 'page_example'; // string | The response page
+$perPage = 'perPage_example'; // string | The number of items per page
+$account = 'account_example'; // string | An account uuid to filter results
+
+try {
+    $result = $api->transactions()->ledger($fields, $page, $perPage, $account);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->transactions->ledger: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **fields** | **string**| A comma separated list of fields requested in the response | [optional] |
+| **page** | **string**| The response page | [optional] |
+| **perPage** | **string**| The number of items per page | [optional] |
+| **account** | **string**| An account uuid to filter results | [optional] |
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `listTransactionCodes()`
 
 ```php
@@ -258,6 +323,9 @@ List transaction's codes
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
@@ -304,6 +372,9 @@ List company's transactions
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $fields = 'fields_example'; // string | A comma separated list of fields requested in the response
@@ -347,6 +418,9 @@ Update a transaction
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The transaction uuid
@@ -385,6 +459,9 @@ Update a transaction's code
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
+// Configure Bearer (Api Key) authorization: bearer
+$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $api = new Accounting("auth_token");
