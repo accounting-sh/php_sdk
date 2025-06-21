@@ -22,11 +22,6 @@ Get the latest tax rate for a country
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $country = 'country_example'; // string | The country
 
@@ -36,6 +31,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->tax->getTaxRate: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -62,11 +58,6 @@ Verify a VAT ID
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $number = 'number_example'; // string | The VAT ID
 
@@ -76,6 +67,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->tax->verifyVatId: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters

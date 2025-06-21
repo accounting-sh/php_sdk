@@ -25,11 +25,6 @@ Add a revenue
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $addRevenueRequest = [/*...*/]; // array
 
@@ -39,6 +34,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->revenues->addRevenue: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -65,11 +61,6 @@ Delete a revenue
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The revenue uuid
 
@@ -79,6 +70,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->revenues->deleteRevenue: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -105,11 +97,6 @@ Get a revenue
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The revenue uuid
 
@@ -119,6 +106,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->revenues->getRevenue: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -145,11 +133,6 @@ List company's revenues
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $fields = 'fields_example'; // string | A comma separated list of fields requested in the response
 $page = 'page_example'; // string | The response page
@@ -161,6 +144,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->revenues->listRevenues: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -189,11 +173,6 @@ Update a revenue
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The revenue uuid
 $addRevenueRequest = [/*...*/]; // array
@@ -204,6 +183,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->revenues->updateRevenue: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters

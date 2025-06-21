@@ -21,11 +21,6 @@ List company's logs
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $fields = 'fields_example'; // string | A comma separated list of fields requested in the response
 $page = 'page_example'; // string | The response page
@@ -43,6 +38,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->logs->logs: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters

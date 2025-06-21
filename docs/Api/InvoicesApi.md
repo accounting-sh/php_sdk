@@ -29,11 +29,6 @@ Add an invoice
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $addInvoiceRequest = [/*...*/]; // array
 
@@ -43,6 +38,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->invoices->addInvoice: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -69,11 +65,6 @@ Add an invoice payment
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The invoice uuid
 $addBillPaymentRequest = [/*...*/]; // array
@@ -84,6 +75,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->invoices->addInvoicePayment: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -111,11 +103,6 @@ Delete an invoice
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The invoice uuid
 
@@ -125,6 +112,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->invoices->deleteInvoice: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -151,11 +139,6 @@ Get an invoice
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The invoice uuid
 
@@ -165,6 +148,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->invoices->getInvoice: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -191,11 +175,6 @@ Get an invoice in PDF
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The invoice uuid
 
@@ -204,6 +183,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->invoices->getInvoiceDocument: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -230,11 +210,6 @@ List company's invoices
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $fields = 'fields_example'; // string | A comma separated list of fields requested in the response
 $page = 'page_example'; // string | The response page
@@ -246,6 +221,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->invoices->listInvoices: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -274,11 +250,6 @@ List company's unpaid invoices
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 
 try {
@@ -287,6 +258,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->invoices->listUnpaidInvoices: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -311,11 +283,6 @@ Update an invoice
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The invoice uuid
 $addInvoiceRequest = [/*...*/]; // array
@@ -326,6 +293,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->invoices->updateInvoice: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -353,11 +321,6 @@ Update an invoice payment
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The invoice uuid
 $payment = 'payment_example'; // string | The invoice payment uuid
@@ -369,6 +332,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->invoices->updateInvoicePayment: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters

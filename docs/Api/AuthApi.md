@@ -24,8 +24,6 @@ Init authentication process
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-
 $api = new Accounting("auth_token");
 
 try {
@@ -34,6 +32,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->auth->authInit: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -58,8 +57,6 @@ Login user
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-
 $api = new Accounting("auth_token");
 $loginRequest = [/*...*/]; // array
 
@@ -69,6 +66,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->auth->login: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -95,11 +93,6 @@ Logout current user
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 
 try {
@@ -108,6 +101,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->auth->logout: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -132,11 +126,6 @@ Switch to a different company
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $switchCompanyRequest = [/*...*/]; // array
 
@@ -146,6 +135,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->auth->switchCompany: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters

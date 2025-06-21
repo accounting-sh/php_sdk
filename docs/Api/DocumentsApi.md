@@ -29,11 +29,6 @@ Cancel document review
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The document uuid
 
@@ -43,6 +38,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->documents->cancelReview: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -69,11 +65,6 @@ Delete a document
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The document uuid
 
@@ -83,6 +74,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->documents->deleteDocument: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -109,11 +101,6 @@ Get a document
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The document uuid
 
@@ -123,6 +110,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->documents->getDocument: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -149,11 +137,6 @@ List company's documents
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $fields = 'fields_example'; // string | A comma separated list of fields requested in the response
 $page = 'page_example'; // string | The response page
@@ -165,6 +148,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->documents->listDocuments: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -193,11 +177,6 @@ Process a document
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The document uuid
 
@@ -207,6 +186,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->documents->processDocument: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -233,11 +213,6 @@ Get url to review a document
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The document uuid
 
@@ -247,6 +222,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->documents->reviewUrl: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -273,11 +249,6 @@ Update a document
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The document uuid
 $updateDocumentRequest = [/*...*/]; // array
@@ -288,6 +259,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->documents->updateDocument: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -315,11 +287,6 @@ Upload a document
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $name = 'name_example'; // string
 $file = "/path/to/file.txt"; // \SplFileObject
@@ -330,6 +297,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->documents->uploadDocument: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -357,11 +325,6 @@ View a document
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The document uuid
 
@@ -370,6 +333,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->documents->viewDocument: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters

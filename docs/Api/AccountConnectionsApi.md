@@ -23,11 +23,6 @@ Delete an account's connection
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The account uuid
 
@@ -37,6 +32,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->accountConnections->deleteAccountConnection: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -63,11 +59,6 @@ List account's connections
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The account uuid
 $fields = 'fields_example'; // string | A comma separated list of fields requested in the response
@@ -80,6 +71,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->accountConnections->listAccountConnections: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -109,11 +101,6 @@ List available bank connections
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The account uuid
 $country = 'country_example'; // string | A two letter country code, if none are specified, the company's country is used
@@ -124,6 +111,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->accountConnections->listBanks: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters

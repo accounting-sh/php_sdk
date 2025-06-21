@@ -25,11 +25,6 @@ Add a notification type
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $addNotificationTypeRequest = [/*...*/]; // array
 
@@ -39,6 +34,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->notificationTypes->addNotificationType: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -65,11 +61,6 @@ Delete a notification type
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The notification type uuid
 
@@ -79,6 +70,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->notificationTypes->deleteNotificationType: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -105,11 +97,6 @@ Get a notification type
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The notification type uuid
 
@@ -119,6 +106,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->notificationTypes->getNotificationType: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -145,11 +133,6 @@ List company's notification types
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $fields = 'fields_example'; // string | A comma separated list of fields requested in the response
 $page = 'page_example'; // string | The response page
@@ -161,6 +144,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->notificationTypes->listNotificationTypes: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -189,11 +173,6 @@ Update a notification type
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The notification type uuid
 $addNotificationTypeRequest = [/*...*/]; // array
@@ -204,6 +183,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->notificationTypes->updateNotificationType: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters

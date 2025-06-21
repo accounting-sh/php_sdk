@@ -10,7 +10,7 @@ All URIs are relative to https://api.accounting.sh, except if the operation defi
 ## `search()`
 
 ```php
-search($q, $excluse, $only): null|string|array
+search($q, $exclude, $only): null|string|array
 ```
 
 Search
@@ -21,22 +21,18 @@ Search
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $q = 'q_example'; // string | Query string
-$excluse = 'excluse_example'; // string | Exclude specific types. This is a comma separated list.
+$exclude = 'exclude_example'; // string | Exclude specific types. This is a comma separated list.
 $only = 'only_example'; // string | Perfom search only on those types. This is a comma separated list.
 
 try {
-    $result = $api->search()->search($q, $excluse, $only);
+    $result = $api->search()->search($q, $exclude, $only);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->search->search: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -44,7 +40,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **q** | **string**| Query string | |
-| **excluse** | **string**| Exclude specific types. This is a comma separated list. | [optional] |
+| **exclude** | **string**| Exclude specific types. This is a comma separated list. | [optional] |
 | **only** | **string**| Perfom search only on those types. This is a comma separated list. | [optional] |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

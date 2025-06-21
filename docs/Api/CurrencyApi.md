@@ -21,11 +21,6 @@ Get the latest currency exchange rate
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $from = 'from_example'; // string | The currency to convert from
 $to = 'to_example'; // string | The currency to convert to
@@ -36,6 +31,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->currency->getExchangeRate: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters

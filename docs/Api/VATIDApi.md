@@ -25,11 +25,6 @@ Add a company's Vat Id
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $addCompanyVatIdRequest = [/*...*/]; // array
 $uuid = 'uuid_example'; // string | The company uuid
@@ -40,6 +35,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->vATID->addCompanyVatId: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -67,11 +63,6 @@ Delete a company's Vat Id
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $key = 'key_example'; // string | The VAT ID uuid
 $uuid = 'uuid_example'; // string | The company uuid
@@ -82,6 +73,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->vATID->deleteCompanyVatId: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -109,11 +101,6 @@ Get a company's Vat Id
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $key = 'key_example'; // string | The VAT ID uuid
 $uuid = 'uuid_example'; // string | The company uuid
@@ -124,6 +111,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->vATID->getCompanyVatId: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -151,11 +139,6 @@ List company's Vat Id
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $fields = 'fields_example'; // string | A comma separated list of fields requested in the response
 $page = 'page_example'; // string | The response page
@@ -168,6 +151,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->vATID->listCompanyVatId: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -197,11 +181,6 @@ Update a company's Vat Id
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $key = 'key_example'; // string | The VAT ID uuid
 $addCompanyVatIdRequest = [/*...*/]; // array
@@ -213,6 +192,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->vATID->updateCompanyVatId: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters

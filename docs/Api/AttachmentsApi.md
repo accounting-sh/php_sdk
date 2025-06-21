@@ -26,11 +26,6 @@ Add an attachment
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $addAttachmentRequest = [/*...*/]; // array
 
@@ -40,6 +35,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->attachments->addAttachment: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -66,11 +62,6 @@ Delete an attachment
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The attachment uuid
 
@@ -80,6 +71,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->attachments->deleteAttachment: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -106,11 +98,6 @@ Get an attachment
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The attachment uuid
 
@@ -120,6 +107,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->attachments->getAttachment: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -146,11 +134,6 @@ List company's attachments
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $fields = 'fields_example'; // string | A comma separated list of fields requested in the response
 $page = 'page_example'; // string | The response page
@@ -162,6 +145,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->attachments->listAttachments: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -190,11 +174,6 @@ List company's attachments link to resource
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $resource = 'resource_example'; // string | The resource
 $fields = 'fields_example'; // string | A comma separated list of fields requested in the response
@@ -207,6 +186,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->attachments->retrieveAttachments: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -236,11 +216,6 @@ Update an attachment
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The attachment uuid
 $addAttachmentRequest = [/*...*/]; // array
@@ -251,6 +226,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->attachments->updateAttachment: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters

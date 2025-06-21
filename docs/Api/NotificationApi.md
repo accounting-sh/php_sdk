@@ -24,11 +24,6 @@ List notification preferences
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $notification = 'notification_example'; // string | The notification name
 
@@ -38,6 +33,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->notification->listNotificationPreferences: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -64,11 +60,6 @@ List company's notifications
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $fields = 'fields_example'; // string | A comma separated list of fields requested in the response
 $page = 'page_example'; // string | The response page
@@ -80,6 +71,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->notification->listNotifications: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -108,11 +100,6 @@ Send a notification
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $sendNotificationRequest = [/*...*/]; // array
 
@@ -122,6 +109,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->notification->sendNotification: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -148,11 +136,6 @@ Update notification preferences
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $notification = 'notification_example'; // string | The notification name
 $updateNotificationPreferencesRequest = [/*...*/]; // array
@@ -163,6 +146,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->notification->updateNotificationPreferences: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters

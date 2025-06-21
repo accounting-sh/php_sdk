@@ -26,11 +26,6 @@ Add a quote
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $addQuoteRequest = [/*...*/]; // array
 
@@ -40,6 +35,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->quotes->addQuote: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -66,11 +62,6 @@ Delete a quote
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The quote uuid
 
@@ -80,6 +71,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->quotes->deleteQuote: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -106,11 +98,6 @@ Get a quote
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The quote uuid
 
@@ -120,6 +107,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->quotes->getQuote: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -146,11 +134,6 @@ Get a quote in PDF
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The quote uuid
 
@@ -159,6 +142,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->quotes->getQuoteDocument: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -185,11 +169,6 @@ List company's quotes
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $fields = 'fields_example'; // string | A comma separated list of fields requested in the response
 $page = 'page_example'; // string | The response page
@@ -201,6 +180,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->quotes->listQuotes: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -229,11 +209,6 @@ Update a quote
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The quote uuid
 $addQuoteRequest = [/*...*/]; // array
@@ -244,6 +219,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->quotes->updateQuote: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters

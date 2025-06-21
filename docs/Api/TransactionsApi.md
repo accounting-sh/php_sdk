@@ -4,18 +4,61 @@ All URIs are relative to https://api.accounting.sh, except if the operation defi
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**addLink()**](TransactionsApi.md#addLink) | **POST** /transactions/{uuid}/links | Add a new transaction link |
 | [**addTransaction()**](TransactionsApi.md#addTransaction) | **POST** /transactions | Add a transaction |
 | [**addTransactionCode()**](TransactionsApi.md#addTransactionCode) | **POST** /transactions/{uuid}/codes | Add a transaction&#39;s code |
+| [**deleteLink()**](TransactionsApi.md#deleteLink) | **DELETE** /transactions/{uuid}/links/{link_uuid} | Delete a transaction link |
 | [**deleteTransaction()**](TransactionsApi.md#deleteTransaction) | **DELETE** /transactions/{uuid} | Delete a transaction |
 | [**deleteTransactionCode()**](TransactionsApi.md#deleteTransactionCode) | **DELETE** /transactions/{uuid}/codes/{code} | Delete a transaction&#39;s code |
 | [**getTransaction()**](TransactionsApi.md#getTransaction) | **GET** /transactions/{uuid} | Get a transaction |
 | [**importTransactions()**](TransactionsApi.md#importTransactions) | **POST** /transactions/import | Import transactions - INTERNAL |
 | [**ledger()**](TransactionsApi.md#ledger) | **GET** /transactions/ledger | List company&#39;s transactions and transfers |
+| [**listLinks()**](TransactionsApi.md#listLinks) | **GET** /transactions/{uuid}/links | List a transaction links |
 | [**listTransactionCodes()**](TransactionsApi.md#listTransactionCodes) | **GET** /transactions/{uuid}/codes | List transaction&#39;s codes |
 | [**listTransactions()**](TransactionsApi.md#listTransactions) | **GET** /transactions | List company&#39;s transactions |
+| [**updateLink()**](TransactionsApi.md#updateLink) | **PUT** /transactions/{uuid}/links/{link_uuid} | Update a transaction link |
 | [**updateTransaction()**](TransactionsApi.md#updateTransaction) | **PUT** /transactions/{uuid} | Update a transaction |
 | [**updateTransactionCode()**](TransactionsApi.md#updateTransactionCode) | **PUT** /transactions/{uuid}/codes | Update a transaction&#39;s code |
+| [**viewLink()**](TransactionsApi.md#viewLink) | **GET** /transactions/{uuid}/links/{link_uuid} | View a transaction link |
 
+
+## `addLink()`
+
+```php
+addLink($listLinks200ResponseLinksInner, $uuid): null|string|array
+```
+
+Add a new transaction link
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+$listLinks200ResponseLinksInner = [/*...*/]; // array
+$uuid = 'uuid_example'; // string | A transaction uuid
+
+try {
+    $result = $api->transactions()->addLink($listLinks200ResponseLinksInner, $uuid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->transactions->addLink: ', $e->getMessage(), PHP_EOL;
+}
+
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **listLinks200ResponseLinksInner** | [see addLink](https://api.accounting.sh/swagger.html#operation/addLink)|  | |
+| **uuid** | **string**| A transaction uuid | [optional] |
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
 ## `addTransaction()`
 
@@ -31,11 +74,6 @@ Add a transaction
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $addTransactionRequest = [/*...*/]; // array
 
@@ -45,6 +83,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->transactions->addTransaction: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -71,11 +110,6 @@ Add a transaction's code
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The transaction uuid
 $updateTransactionCodeRequest = [/*...*/]; // array
@@ -86,6 +120,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->transactions->addTransactionCode: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -94,6 +129,44 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **uuid** | **string**| The transaction uuid | |
 | **updateTransactionCodeRequest** | [see addTransactionCode](https://api.accounting.sh/swagger.html#operation/addTransactionCode)|  | |
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteLink()`
+
+```php
+deleteLink($uuid, $linkUuid): null|string|array
+```
+
+Delete a transaction link
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+$uuid = 'uuid_example'; // string | A transaction uuid
+$linkUuid = 'linkUuid_example'; // string | A transaction link uuid OR the target uuid
+
+try {
+    $result = $api->transactions()->deleteLink($uuid, $linkUuid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->transactions->deleteLink: ', $e->getMessage(), PHP_EOL;
+}
+
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **uuid** | **string**| A transaction uuid | [optional] |
+| **linkUuid** | **string**| A transaction link uuid OR the target uuid | [optional] |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -113,11 +186,6 @@ Delete a transaction
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The transaction uuid
 
@@ -127,6 +195,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->transactions->deleteTransaction: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -153,11 +222,6 @@ Delete a transaction's code
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The transaction uuid
 $code = 'code_example'; // string | The transaction's code uuid
@@ -168,6 +232,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->transactions->deleteTransactionCode: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -195,11 +260,6 @@ Get a transaction
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The transaction uuid
 
@@ -209,6 +269,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->transactions->getTransaction: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -237,11 +298,6 @@ Import transaction from a file or directly from extracted details
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $importTransactionsRequest = [/*...*/]; // array
 
@@ -251,6 +307,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->transactions->importTransactions: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -277,11 +334,6 @@ List company's transactions and transfers
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $fields = 'fields_example'; // string | A comma separated list of fields requested in the response
 $page = 'page_example'; // string | The response page
@@ -294,6 +346,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->transactions->ledger: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -304,6 +357,48 @@ try {
 | **page** | **string**| The response page | [optional] |
 | **perPage** | **string**| The number of items per page | [optional] |
 | **account** | **string**| An account uuid to filter results | [optional] |
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `listLinks()`
+
+```php
+listLinks($fields, $page, $perPage, $uuid): null|string|array
+```
+
+List a transaction links
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+$fields = 'fields_example'; // string | A comma separated list of fields requested in the response
+$page = 'page_example'; // string | The response page
+$perPage = 'perPage_example'; // string | The number of items per page
+$uuid = 'uuid_example'; // string | A transaction uuid
+
+try {
+    $result = $api->transactions()->listLinks($fields, $page, $perPage, $uuid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->transactions->listLinks: ', $e->getMessage(), PHP_EOL;
+}
+
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **fields** | **string**| A comma separated list of fields requested in the response | [optional] |
+| **page** | **string**| The response page | [optional] |
+| **perPage** | **string**| The number of items per page | [optional] |
+| **uuid** | **string**| A transaction uuid | [optional] |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -323,11 +418,6 @@ List transaction's codes
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The transaction uuid
 $fields = 'fields_example'; // string | A comma separated list of fields requested in the response
@@ -341,6 +431,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->transactions->listTransactionCodes: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -371,11 +462,6 @@ List company's transactions
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $fields = 'fields_example'; // string | A comma separated list of fields requested in the response
 $page = 'page_example'; // string | The response page
@@ -388,6 +474,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->transactions->listTransactions: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -398,6 +485,46 @@ try {
 | **page** | **string**| The response page | [optional] |
 | **perPage** | **string**| The number of items per page | [optional] |
 | **account** | **string**| List to the specified account | [optional] |
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateLink()`
+
+```php
+updateLink($listLinks200ResponseLinksInner, $uuid, $linkUuid): null|string|array
+```
+
+Update a transaction link
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+$listLinks200ResponseLinksInner = [/*...*/]; // array
+$uuid = 'uuid_example'; // string | A transaction uuid
+$linkUuid = 'linkUuid_example'; // string | A transaction link uuid OR the target uuid
+
+try {
+    $result = $api->transactions()->updateLink($listLinks200ResponseLinksInner, $uuid, $linkUuid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->transactions->updateLink: ', $e->getMessage(), PHP_EOL;
+}
+
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **listLinks200ResponseLinksInner** | [see updateLink](https://api.accounting.sh/swagger.html#operation/updateLink)|  | |
+| **uuid** | **string**| A transaction uuid | [optional] |
+| **linkUuid** | **string**| A transaction link uuid OR the target uuid | [optional] |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -417,11 +544,6 @@ Update a transaction
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The transaction uuid
 $addTransactionRequest = [/*...*/]; // array
@@ -432,6 +554,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->transactions->updateTransaction: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -459,11 +582,6 @@ Update a transaction's code
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The transaction uuid
 $updateTransactionCodeRequest = [/*...*/]; // array
@@ -474,6 +592,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->transactions->updateTransactionCode: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -482,6 +601,44 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **uuid** | **string**| The transaction uuid | |
 | **updateTransactionCodeRequest** | [see updateTransactionCode](https://api.accounting.sh/swagger.html#operation/updateTransactionCode)|  | |
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `viewLink()`
+
+```php
+viewLink($uuid, $linkUuid): null|string|array
+```
+
+View a transaction link
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+$uuid = 'uuid_example'; // string | A transaction uuid
+$linkUuid = 'linkUuid_example'; // string | A transaction link uuid OR the target uuid
+
+try {
+    $result = $api->transactions()->viewLink($uuid, $linkUuid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->transactions->viewLink: ', $e->getMessage(), PHP_EOL;
+}
+
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **uuid** | **string**| A transaction uuid | [optional] |
+| **linkUuid** | **string**| A transaction link uuid OR the target uuid | [optional] |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

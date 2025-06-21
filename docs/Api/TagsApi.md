@@ -26,11 +26,6 @@ Add a tag
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $addTagRequest = [/*...*/]; // array
 
@@ -40,6 +35,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->tags->addTag: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -66,11 +62,6 @@ Delete a tag
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The tag uuid
 
@@ -80,6 +71,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->tags->deleteTag: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -106,11 +98,6 @@ Get a tag
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The tag uuid
 
@@ -120,6 +107,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->tags->getTag: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -146,11 +134,6 @@ List company's tags
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $fields = 'fields_example'; // string | A comma separated list of fields requested in the response
 $page = 'page_example'; // string | The response page
@@ -162,6 +145,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->tags->listTags: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -190,11 +174,6 @@ List company's tags by resource attachment
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $resource = 'resource_example'; // string | The resource
 $fields = 'fields_example'; // string | A comma separated list of fields requested in the response
@@ -207,6 +186,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->tags->listTagsByResource: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -236,11 +216,6 @@ Update a tag
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The tag uuid
 $addTagRequest = [/*...*/]; // array
@@ -251,6 +226,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->tags->updateTag: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters

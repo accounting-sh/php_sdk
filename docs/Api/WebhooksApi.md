@@ -27,11 +27,6 @@ Add a webhook
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $addWebhookRequest = [/*...*/]; // array
 
@@ -41,6 +36,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->webhooks->addWebhook: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -67,11 +63,6 @@ Delete a webhook
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The webhook uuid
 
@@ -81,6 +72,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->webhooks->deleteWebhook: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -107,11 +99,6 @@ Get a webhook
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The webhook uuid
 
@@ -121,6 +108,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->webhooks->getWebhook: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -147,11 +135,6 @@ Get webhook's history
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The webhook uuid
 
@@ -161,6 +144,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->webhooks->getWebhookHistory: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -187,8 +171,6 @@ List available webhook events
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-
 $api = new Accounting("auth_token");
 
 try {
@@ -197,6 +179,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->webhooks->listWebhookEvents: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -221,11 +204,6 @@ List company's webhooks
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $fields = 'fields_example'; // string | A comma separated list of fields requested in the response
 $page = 'page_example'; // string | The response page
@@ -237,6 +215,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->webhooks->listWebhooks: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -265,11 +244,6 @@ Update a webhook
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $addWebhookRequest = [/*...*/]; // array
 $uuid = 'uuid_example'; // string | The webhook uuid
@@ -280,6 +254,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->webhooks->updateWebhook: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters

@@ -25,11 +25,6 @@ Add an accounting code
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $addAccountingCodeRequest = [/*...*/]; // array
 
@@ -39,6 +34,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->accountingCodes->addAccountingCode: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -65,11 +61,6 @@ Delete an accounting code
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The accounting code uuid
 
@@ -79,6 +70,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->accountingCodes->deleteAccountingCode: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -105,11 +97,6 @@ Get an accounting code
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The accounting code uuid
 
@@ -119,6 +106,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->accountingCodes->getAccountingCode: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -145,11 +133,6 @@ List company's accounting code
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 
 try {
@@ -158,6 +141,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->accountingCodes->listAccountingCodes: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -182,11 +166,6 @@ Update an accounting code
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The accounting code uuid
 $addAccountingCodeRequest = [/*...*/]; // array
@@ -197,6 +176,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->accountingCodes->updateAccountingCode: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters

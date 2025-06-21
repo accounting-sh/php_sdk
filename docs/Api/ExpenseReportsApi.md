@@ -32,11 +32,6 @@ Add an expense report
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $addExpenseReportRequest = [/*...*/]; // array
 
@@ -46,6 +41,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->expenseReports->addExpenseReport: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -72,11 +68,6 @@ Delete an expense report
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The expense report uuid
 
@@ -86,6 +77,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->expenseReports->deleteExpenseReport: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -112,8 +104,6 @@ OAuth Login
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-
 $api = new Accounting("auth_token");
 $method = 'method_example'; // string | The OAuth Provider to use
 
@@ -123,6 +113,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->expenseReports->expenseReportOAuthLogin: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -149,11 +140,6 @@ Get an expense report
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The expense report uuid
 
@@ -163,6 +149,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->expenseReports->getExpenseReport: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -189,11 +176,6 @@ Get the currently connected expense report user details
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 
 try {
@@ -202,6 +184,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->expenseReports->getExpenseReportAccount: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -226,11 +209,6 @@ Get an user details
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The expense report user uuid
 
@@ -240,6 +218,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->expenseReports->getExpenseReportUser: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -268,11 +247,6 @@ List company's expense reports. If the token used has the `expense_report.limite
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $fields = 'fields_example'; // string | A comma separated list of fields requested in the response
 $page = 'page_example'; // string | The response page
@@ -284,6 +258,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->expenseReports->listExpenseReports: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -312,8 +287,6 @@ Request login email
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-
 $api = new Accounting("auth_token");
 $sendExpenseReportLoginEmailRequest = [/*...*/]; // array
 
@@ -323,6 +296,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->expenseReports->sendExpenseReportLoginEmail: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -349,11 +323,6 @@ Update an expense report
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The expense report uuid
 $addExpenseReportRequest = [/*...*/]; // array
@@ -364,6 +333,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->expenseReports->updateExpenseReport: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -391,11 +361,6 @@ Update the currently connected expense report user
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $updateExpenseReportAccountRequest = [/*...*/]; // array
 
@@ -405,6 +370,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->expenseReports->updateExpenseReportAccount: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -433,8 +399,6 @@ At least an url or a company must be provided
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-
 $api = new Accounting("auth_token");
 $updateExpenseReportSettingsRequest = [/*...*/]; // array
 
@@ -444,6 +408,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->expenseReports->updateExpenseReportSettings: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -470,8 +435,6 @@ Verify expense reports settings
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-
 $api = new Accounting("auth_token");
 $verifyExpenseReportSettingsRequest = [/*...*/]; // array
 
@@ -481,6 +444,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->expenseReports->verifyExpenseReportSettings: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters

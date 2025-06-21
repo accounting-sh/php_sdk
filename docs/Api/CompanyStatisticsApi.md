@@ -21,11 +21,6 @@ Get company's statistic
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The company uuid
 $start = 'start_example'; // string | Start date
@@ -37,6 +32,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->companyStatistics->getStatistics: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters

@@ -28,11 +28,6 @@ Add a credential
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $addCredentialRequest = [/*...*/]; // array
 
@@ -42,6 +37,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->credentials->addCredential: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -68,11 +64,6 @@ Delete a credential
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The credential uuid
 
@@ -82,6 +73,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->credentials->deleteCredential: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -108,11 +100,6 @@ Get a credential
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The credential uuid
 
@@ -122,6 +109,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->credentials->getCredential: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -148,11 +136,6 @@ List company's credentials
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $fields = 'fields_example'; // string | A comma separated list of fields requested in the response
 $page = 'page_example'; // string | The response page
@@ -164,6 +147,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->credentials->listCredentials: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -192,8 +176,6 @@ List available permissions
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-
 $api = new Accounting("auth_token");
 
 try {
@@ -202,6 +184,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->credentials->listPermissions: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -226,11 +209,6 @@ Get current credential informations
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 
 try {
@@ -239,6 +217,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->credentials->me: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -263,11 +242,6 @@ Update a credential
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The credential uuid
 $addCredentialRequest = [/*...*/]; // array
@@ -278,6 +252,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->credentials->updateCredential: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -305,8 +280,6 @@ Exchange a my stantabcorp (userveria) token for an Accounting Token
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-
 $api = new Accounting("auth_token");
 
 try {
@@ -315,6 +288,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->credentials->userveria: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters

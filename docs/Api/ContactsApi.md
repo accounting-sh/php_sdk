@@ -27,11 +27,6 @@ Create a new contact
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $addContactRequest = [/*...*/]; // array
 
@@ -41,6 +36,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->contacts->addContact: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -67,11 +63,6 @@ Delete a contact
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The contact uuid
 
@@ -81,6 +72,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->contacts->deleteContact: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -107,11 +99,6 @@ Retrieve a contact
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The contact uuid
 
@@ -121,6 +108,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->contacts->getContact: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -147,11 +135,6 @@ List a contact's bills
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The contact uuid
 $fields = 'fields_example'; // string | A comma separated list of fields requested in the response
@@ -164,6 +147,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->contacts->listContactBills: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -193,11 +177,6 @@ List a contact's invoices
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The contact uuid
 $fields = 'fields_example'; // string | A comma separated list of fields requested in the response
@@ -210,6 +189,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->contacts->listContactInvoices: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -239,11 +219,6 @@ List company's contacts
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $fields = 'fields_example'; // string | A comma separated list of fields requested in the response
 $page = 'page_example'; // string | The response page
@@ -255,6 +230,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->contacts->listContacts: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -283,11 +259,6 @@ Update a contact
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The contact uuid
 $addContactRequest = [/*...*/]; // array
@@ -298,6 +269,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->contacts->updateContact: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters

@@ -27,11 +27,6 @@ Add user
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $addUserRequest = [/*...*/]; // array
 
@@ -41,6 +36,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->users->addUser: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -67,11 +63,6 @@ Delete user
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The user uuid
 
@@ -81,6 +72,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->users->deleteUser: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -107,11 +99,6 @@ View user
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The user uuid
 
@@ -121,6 +108,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->users->getUser: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -147,11 +135,6 @@ List company's users
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $fields = 'fields_example'; // string | A comma separated list of fields requested in the response
 $page = 'page_example'; // string | The response page
@@ -163,6 +146,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->users->listUsers: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -191,11 +175,6 @@ Update user
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The user uuid
 $updateUserRequest = [/*...*/]; // array
@@ -206,6 +185,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->users->updateUser: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -233,11 +213,6 @@ List current user companies
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 
 try {
@@ -246,6 +221,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->users->usersCompanies: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -270,11 +246,6 @@ View current user details
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 
 try {
@@ -283,6 +254,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->users->usersMe: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters

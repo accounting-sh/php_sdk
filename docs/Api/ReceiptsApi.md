@@ -26,11 +26,6 @@ Add a receipt
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $addReceiptRequest = [/*...*/]; // array
 
@@ -40,6 +35,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->receipts->addReceipt: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -66,11 +62,6 @@ Delete a receipt
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The receipt uuid
 
@@ -80,6 +71,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->receipts->deleteReceipt: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -106,11 +98,6 @@ Get a receipt
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The receipt uuid
 
@@ -120,6 +107,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->receipts->getReceipt: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -146,11 +134,6 @@ Get a receipt in PDF
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The receipt uuid
 
@@ -159,6 +142,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->receipts->getReceiptDocument: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -185,11 +169,6 @@ List company's receipts
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $fields = 'fields_example'; // string | A comma separated list of fields requested in the response
 $page = 'page_example'; // string | The response page
@@ -201,6 +180,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->receipts->listReceipts: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -229,11 +209,6 @@ Update a receipt
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The receipt uuid
 $addReceiptRequest = [/*...*/]; // array
@@ -244,6 +219,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->receipts->updateReceipt: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters

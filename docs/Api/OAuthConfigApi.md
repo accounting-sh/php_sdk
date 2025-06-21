@@ -26,11 +26,6 @@ Add an OAuth configuration
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $addOAuthConfigurationRequest = [/*...*/]; // array
 
@@ -40,6 +35,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->oAuthConfig->addOAuthConfiguration: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -66,11 +62,6 @@ Delete an oauth configuration
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The oauth configuration uuid
 
@@ -80,6 +71,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->oAuthConfig->deleteOAuthConfiguration: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -106,11 +98,6 @@ Get an OAuth configuration
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The oauth configuration uuid
 
@@ -120,6 +107,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->oAuthConfig->getOAuthConfiguration: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -146,11 +134,6 @@ List company's oauth configurations
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $fields = 'fields_example'; // string | A comma separated list of fields requested in the response
 $page = 'page_example'; // string | The response page
@@ -162,6 +145,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->oAuthConfig->listOAuthConfigurations: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -190,8 +174,6 @@ List available providers
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-
 $api = new Accounting("auth_token");
 
 try {
@@ -200,6 +182,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->oAuthConfig->listProviders: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -224,11 +207,6 @@ Update an oauth configuration
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The oauth configuration uuid
 $addOAuthConfigurationRequest = [/*...*/]; // array
@@ -239,6 +217,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->oAuthConfig->updateOAuthConfiguration: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters

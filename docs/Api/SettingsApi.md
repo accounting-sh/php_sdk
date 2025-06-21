@@ -23,11 +23,6 @@ Get a company's settings
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The company uuid
 $key = 'key_example'; // string | The setting key
@@ -38,6 +33,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->settings->getSettings: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -65,11 +61,6 @@ List company's settings
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $fields = 'fields_example'; // string | A comma separated list of fields requested in the response
 $page = 'page_example'; // string | The response page
@@ -82,6 +73,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->settings->listSettings: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
@@ -111,11 +103,6 @@ Update a company's settings
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure Bearer (Api Key) authorization: bearer
-$config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The company uuid
 $key = 'key_example'; // string | The setting key
@@ -127,6 +114,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->settings->updateSettings: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 ### Parameters
