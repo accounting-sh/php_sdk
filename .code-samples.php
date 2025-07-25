@@ -46,6 +46,67 @@ try {
 }
 
 
+//..listConnectableBankAccounts
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+$uuid = 'uuid_example'; // string | The account uuid
+$connection = 'connection_example'; // string | The connection request UUID
+
+try {
+    $result = $api->accountConnections()->listConnectableBankAccounts($uuid, $connection);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->accountConnections->listConnectableBankAccounts: ', $e->getMessage(), PHP_EOL;
+}
+
+
+//..listConnectedAccountTransactions
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+$uuid = 'uuid_example'; // string | The account uuid
+$connection = 'connection_example'; // string | The connection uuid
+$period = 3.4; // float | The number of days to look back for transactions. Default is 7 days.
+
+try {
+    $result = $api->accountConnections()->listConnectedAccountTransactions($uuid, $connection, $period);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->accountConnections->listConnectedAccountTransactions: ', $e->getMessage(), PHP_EOL;
+}
+
+
+//..requestBankConnection
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+$uuid = 'uuid_example'; // string | The account uuid
+$requestBankConnectionRequest = [/*...*/]; // array
+
+try {
+    $result = $api->accountConnections()->requestBankConnection($uuid, $requestBankConnectionRequest);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->accountConnections->requestBankConnection: ', $e->getMessage(), PHP_EOL;
+}
+
+
+//..selectBankAccount
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+$uuid = 'uuid_example'; // string | The account uuid
+$selectBankAccountRequest = [/*...*/]; // array
+
+try {
+    $result = $api->accountConnections()->selectBankAccount($uuid, $selectBankAccountRequest);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->accountConnections->selectBankAccount: ', $e->getMessage(), PHP_EOL;
+}
+
+
 //..addAccountingCode
 require_once(__DIR__ . '/vendor/autoload.php');
 
