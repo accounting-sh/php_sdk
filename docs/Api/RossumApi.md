@@ -4,7 +4,7 @@ All URIs are relative to https://api.accounting.sh, except if the operation defi
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**listReviews()**](RossumApi.md#listReviews) | **GET** /external/rossum/reviews | List documents to be reviewes |
+| [**listReviews()**](RossumApi.md#listReviews) | **GET** /external/rossum/reviews | List documents to be reviewed |
 
 
 ## `listReviews()`
@@ -13,7 +13,7 @@ All URIs are relative to https://api.accounting.sh, except if the operation defi
 listReviews($fields, $page, $perPage): null|string|array
 ```
 
-List documents to be reviewes
+List documents to be reviewed
 
 ### Example
 

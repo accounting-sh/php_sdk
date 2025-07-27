@@ -4,7 +4,7 @@ All URIs are relative to https://api.accounting.sh, except if the operation defi
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**deleteAccountConnection()**](AccountConnectionsApi.md#deleteAccountConnection) | **DELETE** /accounts/{uuid}/connect | Delete an account&#39;s connection |
+| [**deleteAccountConnection()**](AccountConnectionsApi.md#deleteAccountConnection) | **DELETE** /accounts/{uuid}/connect/{connection} | Delete an account&#39;s connection |
 | [**listAccountConnections()**](AccountConnectionsApi.md#listAccountConnections) | **GET** /accounts/{uuid}/connect | List account&#39;s connections |
 | [**listBanks()**](AccountConnectionsApi.md#listBanks) | **GET** /accounts/{uuid}/connect/banks | List available bank connections |
 | [**listConnectableBankAccounts()**](AccountConnectionsApi.md#listConnectableBankAccounts) | **GET** /accounts/{uuid}/connect/accounts | List connectable bank accounts |
@@ -16,7 +16,7 @@ All URIs are relative to https://api.accounting.sh, except if the operation defi
 ## `deleteAccountConnection()`
 
 ```php
-deleteAccountConnection($uuid): null|string|array
+deleteAccountConnection($uuid, $connection): null|string|array
 ```
 
 Delete an account's connection
@@ -29,9 +29,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The account uuid
+$connection = 'connection_example'; // string | The connection uuid
 
 try {
-    $result = $api->accountConnections()->deleteAccountConnection($uuid);
+    $result = $api->accountConnections()->deleteAccountConnection($uuid, $connection);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->accountConnections->deleteAccountConnection: ', $e->getMessage(), PHP_EOL;
@@ -44,6 +45,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **uuid** | **string**| The account uuid | |
+| **connection** | **string**| The connection uuid | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

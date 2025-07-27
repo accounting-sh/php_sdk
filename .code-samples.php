@@ -5,9 +5,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The account uuid
+$connection = 'connection_example'; // string | The connection uuid
 
 try {
-    $result = $api->accountConnections()->deleteAccountConnection($uuid);
+    $result = $api->accountConnections()->deleteAccountConnection($uuid, $connection);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->accountConnections->deleteAccountConnection: ', $e->getMessage(), PHP_EOL;
