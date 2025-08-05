@@ -1,7 +1,7 @@
 <?php
 
 /**
- * CountriesApi
+ * StatisticsApi
  * PHP version 8.1
  *
  * @package  Accounting
@@ -30,13 +30,13 @@ use Accounting\Accounting;
 use Accounting\ApiException;
 
 /**
- * CountriesApi Class Doc Comment
+ * StatisticsApi Class Doc Comment
  *
  * @package  Accounting
  * @author   STAN-TAB CORP. LTD
  * @link     https://accounting.sh
  */
-class CountriesApi
+class StatisticsApi
 {
     /**
      * @var Accounting
@@ -54,41 +54,51 @@ class CountriesApi
 
 
     /**
-     * Operation getTranslatedCountries
+     * Operation summaryStatisticsPeriod
      *
-     * Get translated list of countries
+     * Company&#39;s summary statistics
      *
-     * @param  string $lang The target language (required)
+     * @param  string $uuid The company uuid (required)
+     * @param  \DateTime|null $start The start date (optional)
+     * @param  \DateTime|null $end The end date (optional)
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      * @return null|string|array
      *
-     * @link https://api.accounting.sh/swagger.html#operation/getTranslatedCountries
+     * @link https://api.accounting.sh/swagger.html#operation/summaryStatisticsPeriod
      */
-    public function getTranslatedCountries(
-        string $lang,
+    public function summaryStatisticsPeriod(
+        string $uuid,
+        \DateTime|null $start = null,
+        \DateTime|null $end = null,
     ): null|string|array {
 
-        // verify the required parameter 'lang' is set
-        if ($lang === null || (is_array($lang) && count($lang) === 0)) {
+        // verify the required parameter 'uuid' is set
+        if ($uuid === null || (is_array($uuid) && count($uuid) === 0)) {
             throw new InvalidArgumentException(
-                'Missing the required parameter $lang when calling getTranslatedCountries'
+                'Missing the required parameter $uuid when calling summaryStatisticsPeriod'
             );
         }
 
 
-        $resourcePath = '/countries/{lang}';
+        $resourcePath = '/companies/{uuid}/statistics/summary';
         $queryParams = [];
         $headers = [];
         $options = [];
 
+        if ($start !== null) {
+            $queryParams['start'] = $start;
+        }
+        if ($end !== null) {
+            $queryParams['end'] = $end;
+        }
 
 
-        if ($lang !== null) {
+        if ($uuid !== null) {
             $resourcePath = str_replace(
-                '{' . 'lang' . '}',
-                rawurlencode($lang),
+                '{' . 'uuid' . '}',
+                rawurlencode($uuid),
                 $resourcePath
             );
         }

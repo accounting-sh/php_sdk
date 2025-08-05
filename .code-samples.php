@@ -686,22 +686,6 @@ try {
 }
 
 
-//..getStatistics
-require_once(__DIR__ . '/vendor/autoload.php');
-
-$api = new Accounting("auth_token");
-$uuid = 'uuid_example'; // string | The company uuid
-$start = 'start_example'; // string | Start date
-$end = 'end_example'; // string | End date
-
-try {
-    $result = $api->companyStatistics()->getStatistics($uuid, $start, $end);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling Accounting->companyStatistics->getStatistics: ', $e->getMessage(), PHP_EOL;
-}
-
-
 //..addContact
 require_once(__DIR__ . '/vendor/autoload.php');
 
@@ -2044,6 +2028,22 @@ try {
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->settings->updateSettings: ', $e->getMessage(), PHP_EOL;
+}
+
+
+//..summaryStatisticsPeriod
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+$uuid = 'uuid_example'; // string | The company uuid
+$start = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The start date
+$end = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The end date
+
+try {
+    $result = $api->statistics()->summaryStatisticsPeriod($uuid, $start, $end);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->statistics->summaryStatisticsPeriod: ', $e->getMessage(), PHP_EOL;
 }
 
 
