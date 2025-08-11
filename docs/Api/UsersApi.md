@@ -8,6 +8,7 @@ All URIs are relative to https://api.accounting.sh, except if the operation defi
 | [**deleteUser()**](UsersApi.md#deleteUser) | **DELETE** /users/{uuid} | Delete user |
 | [**getUser()**](UsersApi.md#getUser) | **GET** /users/{uuid} | View user |
 | [**listUsers()**](UsersApi.md#listUsers) | **GET** /users | List company&#39;s users |
+| [**updateMe()**](UsersApi.md#updateMe) | **PATCH** /users/me | Update current user details |
 | [**updateUser()**](UsersApi.md#updateUser) | **PUT** /users/{uuid} | Update user |
 | [**usersCompanies()**](UsersApi.md#usersCompanies) | **GET** /users/me/companies | List current user companies |
 | [**usersMe()**](UsersApi.md#usersMe) | **GET** /users/me | View current user details |
@@ -156,6 +157,44 @@ try {
 | **fields** | **string**| A comma separated list of fields requested in the response | [optional] |
 | **page** | **string**| The response page | [optional] |
 | **perPage** | **string**| The number of items per page | [optional] |
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateMe()`
+
+```php
+updateMe($name, $avatar): null|string|array
+```
+
+Update current user details
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+$name = 'name_example'; // string
+$avatar = "/path/to/file.txt"; // \SplFileObject
+
+try {
+    $result = $api->users()->updateMe($name, $avatar);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->users->updateMe: ', $e->getMessage(), PHP_EOL;
+}
+
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **name** | **string**|  | [optional] |
+| **avatar** | [see updateMe](https://api.accounting.sh/swagger.html#operation/updateMe)|  | [optional] |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

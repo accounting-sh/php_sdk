@@ -2542,6 +2542,21 @@ try {
 }
 
 
+//..updateMe
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+$name = 'name_example'; // string
+$avatar = "/path/to/file.txt"; // \SplFileObject
+
+try {
+    $result = $api->users()->updateMe($name, $avatar);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->users->updateMe: ', $e->getMessage(), PHP_EOL;
+}
+
+
 //..updateUser
 require_once(__DIR__ . '/vendor/autoload.php');
 
