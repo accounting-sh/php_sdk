@@ -8,7 +8,7 @@ All URIs are relative to https://api.accounting.sh, except if the operation defi
 | [**deleteUser()**](UsersApi.md#deleteUser) | **DELETE** /users/{uuid} | Delete user |
 | [**getUser()**](UsersApi.md#getUser) | **GET** /users/{uuid} | View user |
 | [**listUsers()**](UsersApi.md#listUsers) | **GET** /users | List company&#39;s users |
-| [**updateMe()**](UsersApi.md#updateMe) | **PATCH** /users/me | Update current user details |
+| [**updateMe()**](UsersApi.md#updateMe) | **POST** /users/me | Update current user details |
 | [**updateUser()**](UsersApi.md#updateUser) | **PUT** /users/{uuid} | Update user |
 | [**usersCompanies()**](UsersApi.md#usersCompanies) | **GET** /users/me/companies | List current user companies |
 | [**usersMe()**](UsersApi.md#usersMe) | **GET** /users/me | View current user details |

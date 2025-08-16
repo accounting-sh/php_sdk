@@ -11,7 +11,6 @@ All URIs are relative to https://api.accounting.sh, except if the operation defi
 | [**listPermissions()**](CredentialsApi.md#listPermissions) | **GET** /credentials/permissions | List available permissions |
 | [**me()**](CredentialsApi.md#me) | **GET** /me | Get current credential informations |
 | [**updateCredential()**](CredentialsApi.md#updateCredential) | **PUT** /credentials/{uuid} | Update a credential |
-| [**userveria()**](CredentialsApi.md#userveria) | **POST** /userveria | Exchange a my stantabcorp (userveria) token for an Accounting Token |
 
 
 ## `addCredential()`
@@ -261,39 +260,6 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **uuid** | **string**| The credential uuid | |
 | **addCredentialRequest** | [see updateCredential](https://api.accounting.sh/swagger.html#operation/updateCredential)|  | |
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `userveria()`
-
-```php
-userveria(): null|string|array
-```
-
-Exchange a my stantabcorp (userveria) token for an Accounting Token
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-$api = new Accounting("auth_token");
-
-try {
-    $result = $api->credentials()->userveria();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling Accounting->credentials->userveria: ', $e->getMessage(), PHP_EOL;
-}
-
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

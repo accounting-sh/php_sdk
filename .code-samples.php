@@ -906,19 +906,6 @@ try {
 }
 
 
-//..userveria
-require_once(__DIR__ . '/vendor/autoload.php');
-
-$api = new Accounting("auth_token");
-
-try {
-    $result = $api->credentials()->userveria();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling Accounting->credentials->userveria: ', $e->getMessage(), PHP_EOL;
-}
-
-
 //..getExchangeRate
 require_once(__DIR__ . '/vendor/autoload.php');
 
