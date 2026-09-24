@@ -149,7 +149,7 @@ class Accounting
             'base_uri' => $url,
             "headers" => [
                 "Authorization" => "Bearer {$token}",
-                "User-Agent" => "AccountingSh//php",
+                "User-Agent" => "AccountingSh/1.3.5/php",
             ]
         ]);
     }
