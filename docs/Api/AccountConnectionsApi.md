@@ -5,6 +5,7 @@ All URIs are relative to https://api.accounting.sh, except if the operation defi
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**deleteAccountConnection()**](AccountConnectionsApi.md#deleteAccountConnection) | **DELETE** /accounts/{uuid}/connect/{connection} | Delete an account&#39;s connection |
+| [**importAccountTransactions()**](AccountConnectionsApi.md#importAccountTransactions) | **POST** /accounts/{uuid}/transactions/import | Import all available bank transaction history asynchronously |
 | [**listAccountConnections()**](AccountConnectionsApi.md#listAccountConnections) | **GET** /accounts/{uuid}/connect | List account&#39;s connections |
 | [**listBanks()**](AccountConnectionsApi.md#listBanks) | **GET** /accounts/{uuid}/connect/banks | List available bank connections |
 | [**listConnectableBankAccounts()**](AccountConnectionsApi.md#listConnectableBankAccounts) | **GET** /accounts/{uuid}/connect/accounts | List connectable bank accounts |
@@ -46,6 +47,44 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **uuid** | **string**| The account uuid | |
 | **connection** | **string**| The connection uuid | |
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `importAccountTransactions()`
+
+```php
+importAccountTransactions($uuid): null|string|array
+```
+
+Import all available bank transaction history asynchronously
+
+Queues an import from all linked bank accounts. A completion notification is sent using the bank transaction notification preferences.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+$uuid = 'uuid_example'; // string | The account UUID
+
+try {
+    $result = $api->accountConnections()->importAccountTransactions($uuid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->accountConnections->importAccountTransactions: ', $e->getMessage(), PHP_EOL;
+}
+
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **uuid** | **string**| The account UUID | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

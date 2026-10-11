@@ -15,6 +15,20 @@ try {
 }
 
 
+//..importAccountTransactions
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+$uuid = 'uuid_example'; // string | The account UUID
+
+try {
+    $result = $api->accountConnections()->importAccountTransactions($uuid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->accountConnections->importAccountTransactions: ', $e->getMessage(), PHP_EOL;
+}
+
+
 //..listAccountConnections
 require_once(__DIR__ . '/vendor/autoload.php');
 
