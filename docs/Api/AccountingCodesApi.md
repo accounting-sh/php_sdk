@@ -19,6 +19,8 @@ addAccountingCode($addAccountingCodeRequest): null|string|array
 
 Add an accounting code
 
+Add an accounting code. Send the resource fields in the request body; the response contains the saved record. Requires at least one permission: `accounting_code.add`.
+
 ### Example
 
 ```php
@@ -26,7 +28,7 @@ Add an accounting code
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
-$addAccountingCodeRequest = [/*...*/]; // array
+$addAccountingCodeRequest = [/*...*/]; // array | Send a JSON object with the fields below. Fields marked required must be supplied.
 
 try {
     $result = $api->accountingCodes()->addAccountingCode($addAccountingCodeRequest);
@@ -41,7 +43,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **addAccountingCodeRequest** | [see addAccountingCode](https://api.accounting.sh/swagger.html#operation/addAccountingCode)|  | |
+| **addAccountingCodeRequest** | [see addAccountingCode](https://api.accounting.sh/swagger.html#operation/addAccountingCode)| Send a JSON object with the fields below. Fields marked required must be supplied. | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -54,6 +56,8 @@ deleteAccountingCode($uuid): null|string|array
 ```
 
 Delete an accounting code
+
+Delete an accounting code. This action deletes the selected record. Review references to it before deletion. Requires at least one permission: `accounting_code.delete`.
 
 ### Example
 
@@ -91,6 +95,8 @@ getAccountingCode($uuid): null|string|array
 
 Get an accounting code
 
+Get an accounting code. Use the identifier returned by the corresponding list or create operation. Requires at least one permission: `accounting_code.view`.
+
 ### Example
 
 ```php
@@ -127,6 +133,8 @@ listAccountingCodes(): null|string|array
 
 List company's accounting code
 
+List company's accounting code. Retrieve records using the query parameters below. Requires at least one permission: `accounting_code.list`.
+
 ### Example
 
 ```php
@@ -160,6 +168,8 @@ updateAccountingCode($uuid, $addAccountingCodeRequest): null|string|array
 
 Update an accounting code
 
+Update an accounting code. Send the fields accepted by this operation in the request body. Requires at least one permission: `accounting_code.edit`.
+
 ### Example
 
 ```php
@@ -168,7 +178,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The accounting code uuid
-$addAccountingCodeRequest = [/*...*/]; // array
+$addAccountingCodeRequest = [/*...*/]; // array | Send a JSON object with the fields below. Fields marked required must be supplied.
 
 try {
     $result = $api->accountingCodes()->updateAccountingCode($uuid, $addAccountingCodeRequest);
@@ -184,7 +194,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **uuid** | **string**| The accounting code uuid | |
-| **addAccountingCodeRequest** | [see updateAccountingCode](https://api.accounting.sh/swagger.html#operation/updateAccountingCode)|  | |
+| **addAccountingCodeRequest** | [see updateAccountingCode](https://api.accounting.sh/swagger.html#operation/updateAccountingCode)| Send a JSON object with the fields below. Fields marked required must be supplied. | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

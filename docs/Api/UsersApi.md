@@ -8,7 +8,7 @@ All URIs are relative to https://api.accounting.sh, except if the operation defi
 | [**deleteUser()**](UsersApi.md#deleteUser) | **DELETE** /users/{uuid} | Delete user |
 | [**getUser()**](UsersApi.md#getUser) | **GET** /users/{uuid} | View user |
 | [**listUsers()**](UsersApi.md#listUsers) | **GET** /users | List company&#39;s users |
-| [**updateMe()**](UsersApi.md#updateMe) | **POST** /users/me | Update current user details |
+| [**updateMePutAlias()**](UsersApi.md#updateMePutAlias) | **PUT** /users/me | Update current user details |
 | [**updateUser()**](UsersApi.md#updateUser) | **PUT** /users/{uuid} | Update user |
 | [**usersCompanies()**](UsersApi.md#usersCompanies) | **GET** /users/me/companies | List current user companies |
 | [**usersMe()**](UsersApi.md#usersMe) | **GET** /users/me | View current user details |
@@ -17,10 +17,12 @@ All URIs are relative to https://api.accounting.sh, except if the operation defi
 ## `addUser()`
 
 ```php
-addUser($addUserRequest): null|string|array
+addUser(): null|string|array
 ```
 
 Add user
+
+Add user. Send the resource fields in the request body; the response contains the saved record. Requires at least one permission: `user.add`.
 
 ### Example
 
@@ -29,10 +31,9 @@ Add user
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
-$addUserRequest = [/*...*/]; // array
 
 try {
-    $result = $api->users()->addUser($addUserRequest);
+    $result = $api->users()->addUser();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->users->addUser: ', $e->getMessage(), PHP_EOL;
@@ -42,9 +43,7 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **addUserRequest** | [see addUser](https://api.accounting.sh/swagger.html#operation/addUser)|  | |
+This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -57,6 +56,8 @@ deleteUser($uuid): null|string|array
 ```
 
 Delete user
+
+Delete user. This action deletes the selected record. Review references to it before deletion. Requires at least one permission: `user.delete`.
 
 ### Example
 
@@ -94,6 +95,8 @@ getUser($uuid): null|string|array
 
 View user
 
+View user. Use the identifier returned by the corresponding list or create operation. Requires at least one permission: `user.view`.
+
 ### Example
 
 ```php
@@ -125,10 +128,12 @@ try {
 ## `listUsers()`
 
 ```php
-listUsers($fields, $page, $perPage): null|string|array
+listUsers($fields, $page, $perPage, $orderBy): null|string|array
 ```
 
 List company's users
+
+List company's users. Retrieve records using the query parameters below. Requires at least one permission: `user.list`.
 
 ### Example
 
@@ -137,12 +142,13 @@ List company's users
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
-$fields = 'fields_example'; // string | A comma separated list of fields requested in the response
-$page = 'page_example'; // string | The response page
-$perPage = 'perPage_example'; // string | The number of items per page
+$fields = uuid,user,permissions; // string | Comma-separated fields to include in each record. Default fields: uuid, user, permissions.
+$page = 1; // int | Page number, starting at 1. Values below 1 are treated as 1.
+$perPage = 10; // int | Records per page. The server caps page size to 100. Values below 1 use that maximum.
+$orderBy = created_at:desc; // string | Sort by a supported field and direction, using field:asc or field:desc.
 
 try {
-    $result = $api->users()->listUsers($fields, $page, $perPage);
+    $result = $api->users()->listUsers($fields, $page, $perPage, $orderBy);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->users->listUsers: ', $e->getMessage(), PHP_EOL;
@@ -154,21 +160,24 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **fields** | **string**| A comma separated list of fields requested in the response | [optional] |
-| **page** | **string**| The response page | [optional] |
-| **perPage** | **string**| The number of items per page | [optional] |
+| **fields** | **string**| Comma-separated fields to include in each record. Default fields: uuid, user, permissions. | [optional] |
+| **page** | **int**| Page number, starting at 1. Values below 1 are treated as 1. | [optional] [default to 1] |
+| **perPage** | **int**| Records per page. The server caps page size to 100. Values below 1 use that maximum. | [optional] [default to 10] |
+| **orderBy** | **string**| Sort by a supported field and direction, using field:asc or field:desc. | [optional] |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `updateMe()`
+## `updateMePutAlias()`
 
 ```php
-updateMe($name, $avatar): null|string|array
+updateMePutAlias(): null|string|array
 ```
 
 Update current user details
+
+Update the current authenticated user profile using the supplied fields. This requires an interactive user session. Requires authentication. Equivalent to POST /users/me.
 
 ### Example
 
@@ -177,24 +186,19 @@ Update current user details
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
-$name = 'name_example'; // string
-$avatar = "/path/to/file.txt"; // \SplFileObject
 
 try {
-    $result = $api->users()->updateMe($name, $avatar);
+    $result = $api->users()->updateMePutAlias();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling Accounting->users->updateMe: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling Accounting->users->updateMePutAlias: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **name** | **string**|  | [optional] |
-| **avatar** | [see updateMe](https://api.accounting.sh/swagger.html#operation/updateMe)|  | [optional] |
+This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -203,10 +207,12 @@ try {
 ## `updateUser()`
 
 ```php
-updateUser($uuid, $updateUserRequest): null|string|array
+updateUser($uuid): null|string|array
 ```
 
 Update user
+
+Update user. Send the fields accepted by this operation in the request body. Requires at least one permission: `user.edit`.
 
 ### Example
 
@@ -216,10 +222,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The user uuid
-$updateUserRequest = [/*...*/]; // array
 
 try {
-    $result = $api->users()->updateUser($uuid, $updateUserRequest);
+    $result = $api->users()->updateUser($uuid);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->users->updateUser: ', $e->getMessage(), PHP_EOL;
@@ -232,7 +237,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **uuid** | **string**| The user uuid | |
-| **updateUserRequest** | [see updateUser](https://api.accounting.sh/swagger.html#operation/updateUser)|  | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -245,6 +249,8 @@ usersCompanies(): null|string|array
 ```
 
 List current user companies
+
+Retrieve companies associated with the current authenticated user. Use a company identifier with POST /auth/switch to change the user session company. Requires authentication.
 
 ### Example
 
@@ -278,6 +284,8 @@ usersMe(): null|string|array
 ```
 
 View current user details
+
+Retrieve the current authenticated user and company membership. Use an interactive user session for user-specific information. Requires authentication.
 
 ### Example
 

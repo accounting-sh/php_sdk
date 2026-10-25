@@ -15,6 +15,8 @@ getExchangeRate($from, $to): null|string|array
 
 Get the latest currency exchange rate
 
+Retrieve the exchange rate for the source and destination currency codes in the URL. Requires at least one permission: `view.currency.rates`. Requires company feature(s): `api`. Returns 402 if unavailable.
+
 ### Example
 
 ```php

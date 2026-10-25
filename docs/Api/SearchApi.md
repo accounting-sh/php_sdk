@@ -15,6 +15,8 @@ search($q, $exclude, $only): null|string|array
 
 Search
 
+Search indexed company resources using the supplied query. Newly saved resources may appear after indexing completes. Requires at least one permission: `search`.
+
 ### Example
 
 ```php

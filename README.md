@@ -28,7 +28,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
     
-// Configure Bearer (Api Key) authorization: bearer
+// Configure Bearer (API key) authorization: bearer
 $config = Accounting\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -77,6 +77,7 @@ Class | Method | HTTP request | Description
 *AttachmentsApi* | [**updateAttachment**](docs/Api/AttachmentsApi.md#updateattachment) | **PUT** /attachments/{uuid} | Update an attachment
 *AuthApi* | [**authInit**](docs/Api/AuthApi.md#authinit) | **GET** /auth/init | Init authentication process
 *AuthApi* | [**login**](docs/Api/AuthApi.md#login) | **POST** /auth/login | Login user
+*AuthApi* | [**loginGetAlias**](docs/Api/AuthApi.md#logingetalias) | **GET** /auth/login | Login user
 *AuthApi* | [**logout**](docs/Api/AuthApi.md#logout) | **GET** /auth/logout | Logout current user
 *AuthApi* | [**switchCompany**](docs/Api/AuthApi.md#switchcompany) | **POST** /auth/switch | Switch to a different company
 *BillsApi* | [**addBill**](docs/Api/BillsApi.md#addbill) | **POST** /expenses/bills | Add a bill
@@ -92,12 +93,13 @@ Class | Method | HTTP request | Description
 *CategoriesApi* | [**getCategory**](docs/Api/CategoriesApi.md#getcategory) | **GET** /categories/{uuid} | Get a category
 *CategoriesApi* | [**listCategories**](docs/Api/CategoriesApi.md#listcategories) | **GET** /categories | List company&#39;s categories
 *CategoriesApi* | [**updateCategory**](docs/Api/CategoriesApi.md#updatecategory) | **PUT** /categories/{uuid} | Update a category
-*CompaniesApi* | [**addCompany**](docs/Api/CompaniesApi.md#addcompany) | **POST** /companies | Add a company
+*CompaniesApi* | [**addCompany**](docs/Api/CompaniesApi.md#addcompany) | **POST** /companies | Add a company (resellers only)
 *CompaniesApi* | [**deleteCompany**](docs/Api/CompaniesApi.md#deletecompany) | **DELETE** /companies/{uuid} | Delete a company
 *CompaniesApi* | [**getCompany**](docs/Api/CompaniesApi.md#getcompany) | **GET** /companies/{uuid} | Get a company
 *CompaniesApi* | [**getCompanyCustomization**](docs/Api/CompaniesApi.md#getcompanycustomization) | **GET** /companies/{uuid}/customization | Get a company&#39;s customization parameters
 *CompaniesApi* | [**getCompanyFeatureSet**](docs/Api/CompaniesApi.md#getcompanyfeatureset) | **GET** /companies/{uuid}/features | List a company&#39;s feature set
-*CompaniesApi* | [**listCompanies**](docs/Api/CompaniesApi.md#listcompanies) | **GET** /companies | List companies on this instance
+*CompaniesApi* | [**getCompanyOnboarding**](docs/Api/CompaniesApi.md#getcompanyonboarding) | **GET** /companies/{uuid}/onboarding | Get company onboarding status
+*CompaniesApi* | [**listCompanies**](docs/Api/CompaniesApi.md#listcompanies) | **GET** /companies | List companies on this instance (resellers only)
 *CompaniesApi* | [**updateCompany**](docs/Api/CompaniesApi.md#updatecompany) | **PUT** /companies/{uuid} | Update a company
 *ContactsApi* | [**addContact**](docs/Api/ContactsApi.md#addcontact) | **POST** /contacts | Create a new contact
 *ContactsApi* | [**deleteContact**](docs/Api/ContactsApi.md#deletecontact) | **DELETE** /contacts/{uuid} | Delete a contact
@@ -114,13 +116,18 @@ Class | Method | HTTP request | Description
 *CredentialsApi* | [**listPermissions**](docs/Api/CredentialsApi.md#listpermissions) | **GET** /credentials/permissions | List available permissions
 *CredentialsApi* | [**me**](docs/Api/CredentialsApi.md#me) | **GET** /me | Get current credential informations
 *CredentialsApi* | [**updateCredential**](docs/Api/CredentialsApi.md#updatecredential) | **PUT** /credentials/{uuid} | Update a credential
+*CreditNotesApi* | [**addCreditNote**](docs/Api/CreditNotesApi.md#addcreditnote) | **POST** /incomes/credit-notes | Issue a partial credit note or credit the remaining invoice balance
+*CreditNotesApi* | [**deleteCreditNote**](docs/Api/CreditNotesApi.md#deletecreditnote) | **DELETE** /incomes/credit-notes/{uuid} | Issued credit notes cannot be deleted
+*CreditNotesApi* | [**getCreditNote**](docs/Api/CreditNotesApi.md#getcreditnote) | **GET** /incomes/credit-notes/{uuid} | Retrieve an issued credit note
+*CreditNotesApi* | [**getCreditNoteDocument**](docs/Api/CreditNotesApi.md#getcreditnotedocument) | **GET** /incomes/credit-notes/{uuid}/document | Download the immutable credit note PDF
+*CreditNotesApi* | [**listCreditNotes**](docs/Api/CreditNotesApi.md#listcreditnotes) | **GET** /incomes/credit-notes | List this company&#39;s issued credit notes
+*CreditNotesApi* | [**updateCreditNote**](docs/Api/CreditNotesApi.md#updatecreditnote) | **PUT** /incomes/credit-notes/{uuid} | Issued credit notes cannot be updated
 *CurrencyApi* | [**getExchangeRate**](docs/Api/CurrencyApi.md#getexchangerate) | **GET** /currency/{from}/{to} | Get the latest currency exchange rate
-*DocumentsApi* | [**cancelReview**](docs/Api/DocumentsApi.md#cancelreview) | **DELETE** /documents/{uuid}/review | Cancel document review
 *DocumentsApi* | [**deleteDocument**](docs/Api/DocumentsApi.md#deletedocument) | **DELETE** /documents/{uuid} | Delete a document
 *DocumentsApi* | [**getDocument**](docs/Api/DocumentsApi.md#getdocument) | **GET** /documents/{uuid} | Get a document
 *DocumentsApi* | [**listDocuments**](docs/Api/DocumentsApi.md#listdocuments) | **GET** /documents | List company&#39;s documents
 *DocumentsApi* | [**processDocument**](docs/Api/DocumentsApi.md#processdocument) | **GET** /documents/{uuid}/process | Process a document
-*DocumentsApi* | [**reviewUrl**](docs/Api/DocumentsApi.md#reviewurl) | **GET** /documents/{uuid}/review | Get url to review a document
+*DocumentsApi* | [**reviewDocumentRetention**](docs/Api/DocumentsApi.md#reviewdocumentretention) | **PUT** /documents/{uuid}/retention | Review accounting retention or a legal hold
 *DocumentsApi* | [**updateDocument**](docs/Api/DocumentsApi.md#updatedocument) | **PUT** /documents/{uuid} | Update a document
 *DocumentsApi* | [**uploadDocument**](docs/Api/DocumentsApi.md#uploaddocument) | **POST** /documents | Upload a document
 *DocumentsApi* | [**viewDocument**](docs/Api/DocumentsApi.md#viewdocument) | **GET** /documents/{uuid}/view | View a document
@@ -143,10 +150,61 @@ Class | Method | HTTP request | Description
 *InvoicesApi* | [**deleteInvoice**](docs/Api/InvoicesApi.md#deleteinvoice) | **DELETE** /incomes/invoices/{uuid} | Delete an invoice
 *InvoicesApi* | [**getInvoice**](docs/Api/InvoicesApi.md#getinvoice) | **GET** /incomes/invoices/{uuid} | Get an invoice
 *InvoicesApi* | [**getInvoiceDocument**](docs/Api/InvoicesApi.md#getinvoicedocument) | **GET** /incomes/invoices/{uuid}/document | Get an invoice in PDF
+*InvoicesApi* | [**getInvoiceIssuance**](docs/Api/InvoicesApi.md#getinvoiceissuance) | **GET** /incomes/invoices/{uuid}/issuance | Retrieve the immutable source snapshot and original document fingerprints
 *InvoicesApi* | [**listInvoices**](docs/Api/InvoicesApi.md#listinvoices) | **GET** /incomes/invoices | List company&#39;s invoices
 *InvoicesApi* | [**listUnpaidInvoices**](docs/Api/InvoicesApi.md#listunpaidinvoices) | **GET** /incomes/invoices/unpaid | List company&#39;s unpaid invoices
 *InvoicesApi* | [**updateInvoice**](docs/Api/InvoicesApi.md#updateinvoice) | **PUT** /incomes/invoices/{uuid} | Update an invoice
 *InvoicesApi* | [**updateInvoicePayment**](docs/Api/InvoicesApi.md#updateinvoicepayment) | **PUT** /incomes/invoices/{uuid}/payments/{payment} | Update an invoice payment
+*JournalApi* | [**journalBalances**](docs/Api/JournalApi.md#journalbalances) | **GET** /journal/balances | Account balances
+*JournalApi* | [**journalBalancesheet**](docs/Api/JournalApi.md#journalbalancesheet) | **GET** /journal/reports/balance-sheet | Balance sheet
+*JournalApi* | [**journalCorrectionAdd**](docs/Api/JournalApi.md#journalcorrectionadd) | **POST** /journal/corrections | Add correction
+*JournalApi* | [**journalCorrectionDelete**](docs/Api/JournalApi.md#journalcorrectiondelete) | **DELETE** /journal/corrections/{uuid} | Reject changes to immutable correction
+*JournalApi* | [**journalCorrectionDetails**](docs/Api/JournalApi.md#journalcorrectiondetails) | **GET** /journal/corrections/{uuid} | Details correction
+*JournalApi* | [**journalCorrectionList**](docs/Api/JournalApi.md#journalcorrectionlist) | **GET** /journal/corrections | List correction
+*JournalApi* | [**journalCorrectionUpdate**](docs/Api/JournalApi.md#journalcorrectionupdate) | **PUT** /journal/corrections/{uuid} | Reject changes to immutable correction
+*JournalApi* | [**journalEntryAdd**](docs/Api/JournalApi.md#journalentryadd) | **POST** /journal/{journal_uuid}/entries | Add entry
+*JournalApi* | [**journalEntryDelete**](docs/Api/JournalApi.md#journalentrydelete) | **DELETE** /journal/{journal_uuid}/entries/{entry_uuid} | Delete entry
+*JournalApi* | [**journalEntryDetails**](docs/Api/JournalApi.md#journalentrydetails) | **GET** /journal/{journal_uuid}/entries/{entry_uuid} | Details entry
+*JournalApi* | [**journalEntryList**](docs/Api/JournalApi.md#journalentrylist) | **GET** /journal/{journal_uuid}/entries | List entry
+*JournalApi* | [**journalEntryUpdate**](docs/Api/JournalApi.md#journalentryupdate) | **PUT** /journal/{journal_uuid}/entries/{entry_uuid} | Update entry
+*JournalApi* | [**journalEvidenceAdd**](docs/Api/JournalApi.md#journalevidenceadd) | **POST** /journal/{journal_uuid}/entries/{entry_uuid}/evidence | Add evidence
+*JournalApi* | [**journalEvidenceDelete**](docs/Api/JournalApi.md#journalevidencedelete) | **DELETE** /journal/{journal_uuid}/entries/{entry_uuid}/evidence/{uuid} | Reject changes to immutable evidence
+*JournalApi* | [**journalEvidenceDetails**](docs/Api/JournalApi.md#journalevidencedetails) | **GET** /journal/{journal_uuid}/entries/{entry_uuid}/evidence/{uuid} | Details evidence
+*JournalApi* | [**journalEvidenceList**](docs/Api/JournalApi.md#journalevidencelist) | **GET** /journal/{journal_uuid}/entries/{entry_uuid}/evidence | List evidence
+*JournalApi* | [**journalEvidenceUpdate**](docs/Api/JournalApi.md#journalevidenceupdate) | **PUT** /journal/{journal_uuid}/entries/{entry_uuid}/evidence/{uuid} | Reject changes to immutable evidence
+*JournalApi* | [**journalExportAdd**](docs/Api/JournalApi.md#journalexportadd) | **POST** /journal/exports | Add export
+*JournalApi* | [**journalExportDelete**](docs/Api/JournalApi.md#journalexportdelete) | **DELETE** /journal/exports/{uuid} | Reject changes to immutable export
+*JournalApi* | [**journalExportDetails**](docs/Api/JournalApi.md#journalexportdetails) | **GET** /journal/exports/{uuid} | Details export
+*JournalApi* | [**journalExportList**](docs/Api/JournalApi.md#journalexportlist) | **GET** /journal/exports | List export
+*JournalApi* | [**journalExportUpdate**](docs/Api/JournalApi.md#journalexportupdate) | **PUT** /journal/exports/{uuid} | Reject changes to immutable export
+*JournalApi* | [**journalInitializationAdd**](docs/Api/JournalApi.md#journalinitializationadd) | **POST** /journal/initializations | Add initialization
+*JournalApi* | [**journalInitializationDelete**](docs/Api/JournalApi.md#journalinitializationdelete) | **DELETE** /journal/initializations/{uuid} | Reject changes to immutable initialization
+*JournalApi* | [**journalInitializationDetails**](docs/Api/JournalApi.md#journalinitializationdetails) | **GET** /journal/initializations/{uuid} | Details initialization
+*JournalApi* | [**journalInitializationList**](docs/Api/JournalApi.md#journalinitializationlist) | **GET** /journal/initializations | List initialization
+*JournalApi* | [**journalInitializationUpdate**](docs/Api/JournalApi.md#journalinitializationupdate) | **PUT** /journal/initializations/{uuid} | Reject changes to immutable initialization
+*JournalApi* | [**journalIssueAdd**](docs/Api/JournalApi.md#journalissueadd) | **POST** /journal/issues | Reject changes to immutable issue
+*JournalApi* | [**journalIssueDelete**](docs/Api/JournalApi.md#journalissuedelete) | **DELETE** /journal/issues/{uuid} | Reject changes to immutable issue
+*JournalApi* | [**journalIssueDetails**](docs/Api/JournalApi.md#journalissuedetails) | **GET** /journal/issues/{uuid} | Details issue
+*JournalApi* | [**journalIssueList**](docs/Api/JournalApi.md#journalissuelist) | **GET** /journal/issues | List issue
+*JournalApi* | [**journalIssueUpdate**](docs/Api/JournalApi.md#journalissueupdate) | **PUT** /journal/issues/{uuid} | Reject changes to immutable issue
+*JournalApi* | [**journalJournalAdd**](docs/Api/JournalApi.md#journaljournaladd) | **POST** /journal | Add journal
+*JournalApi* | [**journalJournalDelete**](docs/Api/JournalApi.md#journaljournaldelete) | **DELETE** /journal/{journal_uuid} | Delete journal
+*JournalApi* | [**journalJournalDetails**](docs/Api/JournalApi.md#journaljournaldetails) | **GET** /journal/{journal_uuid} | Details journal
+*JournalApi* | [**journalJournalList**](docs/Api/JournalApi.md#journaljournallist) | **GET** /journal | List journal
+*JournalApi* | [**journalJournalUpdate**](docs/Api/JournalApi.md#journaljournalupdate) | **PUT** /journal/{journal_uuid} | Update journal
+*JournalApi* | [**journalMappingAdd**](docs/Api/JournalApi.md#journalmappingadd) | **POST** /journal/mappings | Add mapping
+*JournalApi* | [**journalMappingDelete**](docs/Api/JournalApi.md#journalmappingdelete) | **DELETE** /journal/mappings/{uuid} | Delete mapping
+*JournalApi* | [**journalMappingDetails**](docs/Api/JournalApi.md#journalmappingdetails) | **GET** /journal/mappings/{uuid} | Details mapping
+*JournalApi* | [**journalMappingList**](docs/Api/JournalApi.md#journalmappinglist) | **GET** /journal/mappings | List mapping
+*JournalApi* | [**journalMappingUpdate**](docs/Api/JournalApi.md#journalmappingupdate) | **PUT** /journal/mappings/{uuid} | Update mapping
+*JournalApi* | [**journalMovements**](docs/Api/JournalApi.md#journalmovements) | **GET** /journal/movements | Posted account movements
+*JournalApi* | [**journalPeriodAdd**](docs/Api/JournalApi.md#journalperiodadd) | **POST** /journal/periods | Add period
+*JournalApi* | [**journalPeriodDelete**](docs/Api/JournalApi.md#journalperioddelete) | **DELETE** /journal/periods/{uuid} | Delete period
+*JournalApi* | [**journalPeriodDetails**](docs/Api/JournalApi.md#journalperioddetails) | **GET** /journal/periods/{uuid} | Details period
+*JournalApi* | [**journalPeriodList**](docs/Api/JournalApi.md#journalperiodlist) | **GET** /journal/periods | List period
+*JournalApi* | [**journalPeriodUpdate**](docs/Api/JournalApi.md#journalperiodupdate) | **PUT** /journal/periods/{uuid} | Update period
+*JournalApi* | [**journalProfitandloss**](docs/Api/JournalApi.md#journalprofitandloss) | **GET** /journal/reports/profit-and-loss | Profit and loss
+*JournalApi* | [**journalTrialbalance**](docs/Api/JournalApi.md#journaltrialbalance) | **GET** /journal/reports/trial-balance | Trial balance
 *LogsApi* | [**logs**](docs/Api/LogsApi.md#logs) | **GET** /logs | List company&#39;s logs
 *NotificationApi* | [**listNotificationPreferences**](docs/Api/NotificationApi.md#listnotificationpreferences) | **GET** /notifications/preferences/{notification} | List notification preferences
 *NotificationApi* | [**listNotifications**](docs/Api/NotificationApi.md#listnotifications) | **GET** /notifications | List company&#39;s notifications
@@ -211,9 +269,13 @@ Class | Method | HTTP request | Description
 *TransactionsApi* | [**listLinks**](docs/Api/TransactionsApi.md#listlinks) | **GET** /transactions/{uuid}/links | List a transaction links
 *TransactionsApi* | [**listTransactionCodes**](docs/Api/TransactionsApi.md#listtransactioncodes) | **GET** /transactions/{uuid}/codes | List transaction&#39;s codes
 *TransactionsApi* | [**listTransactions**](docs/Api/TransactionsApi.md#listtransactions) | **GET** /transactions | List company&#39;s transactions
+*TransactionsApi* | [**reconciliationReject**](docs/Api/TransactionsApi.md#reconciliationreject) | **POST** /transactions/{uuid}/reconciliation/rejections | Remember a rejected transaction/document candidate
+*TransactionsApi* | [**reconciliationRun**](docs/Api/TransactionsApi.md#reconciliationrun) | **POST** /transactions/{uuid}/reconciliation | Schedule background matching for human review
+*TransactionsApi* | [**reconciliationSuggestions**](docs/Api/TransactionsApi.md#reconciliationsuggestions) | **GET** /transactions/{uuid}/reconciliation/suggestions | Rank document and payment matches without creating links
+*TransactionsApi* | [**reverseTransactionLink**](docs/Api/TransactionsApi.md#reversetransactionlink) | **POST** /transactions/{uuid}/links/{link_uuid}/reverse | Reverse a human-confirmed match and its generated payment
 *TransactionsApi* | [**updateLink**](docs/Api/TransactionsApi.md#updatelink) | **PUT** /transactions/{uuid}/links/{link_uuid} | Update a transaction link
 *TransactionsApi* | [**updateTransaction**](docs/Api/TransactionsApi.md#updatetransaction) | **PUT** /transactions/{uuid} | Update a transaction
-*TransactionsApi* | [**updateTransactionCode**](docs/Api/TransactionsApi.md#updatetransactioncode) | **PUT** /transactions/{uuid}/codes | Update a transaction&#39;s code
+*TransactionsApi* | [**updateTransactionCode**](docs/Api/TransactionsApi.md#updatetransactioncode) | **PUT** /transactions/{uuid}/codes/{code} | Update a transaction&#39;s code
 *TransactionsApi* | [**viewLink**](docs/Api/TransactionsApi.md#viewlink) | **GET** /transactions/{uuid}/links/{link_uuid} | View a transaction link
 *TransfersApi* | [**addTransfer**](docs/Api/TransfersApi.md#addtransfer) | **POST** /transfers | Add a transfer
 *TransfersApi* | [**deleteTransfer**](docs/Api/TransfersApi.md#deletetransfer) | **DELETE** /transfers/{uuid} | Delete a transfer
@@ -224,7 +286,7 @@ Class | Method | HTTP request | Description
 *UsersApi* | [**deleteUser**](docs/Api/UsersApi.md#deleteuser) | **DELETE** /users/{uuid} | Delete user
 *UsersApi* | [**getUser**](docs/Api/UsersApi.md#getuser) | **GET** /users/{uuid} | View user
 *UsersApi* | [**listUsers**](docs/Api/UsersApi.md#listusers) | **GET** /users | List company&#39;s users
-*UsersApi* | [**updateMe**](docs/Api/UsersApi.md#updateme) | **POST** /users/me | Update current user details
+*UsersApi* | [**updateMePutAlias**](docs/Api/UsersApi.md#updatemeputalias) | **PUT** /users/me | Update current user details
 *UsersApi* | [**updateUser**](docs/Api/UsersApi.md#updateuser) | **PUT** /users/{uuid} | Update user
 *UsersApi* | [**usersCompanies**](docs/Api/UsersApi.md#userscompanies) | **GET** /users/me/companies | List current user companies
 *UsersApi* | [**usersMe**](docs/Api/UsersApi.md#usersme) | **GET** /users/me | View current user details
@@ -247,15 +309,7 @@ Class | Method | HTTP request | Description
     
     ### bearer
 
-            - **Type**: Bearer authentication (Api Key)
-
-    
-    ### cookie
-
-        - **Type**: API key
-        - **API key parameter name**: accounting_auth
-        - **Location**: 
-
+            - **Type**: Bearer authentication (API key)
 
 ## Tests
 
@@ -270,6 +324,6 @@ vendor/bin/phpunit
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `9.1.21`
-    - Package version: `1.3.6`
+- API version: `10.0.9`
+    - Package version: `2.0.0`
 - Generator version: `7.6.0-SNAPSHOT`

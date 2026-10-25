@@ -14,10 +14,12 @@ All URIs are relative to https://api.accounting.sh, except if the operation defi
 ## `addCompanyVatId()`
 
 ```php
-addCompanyVatId($addCompanyVatIdRequest, $uuid): null|string|array
+addCompanyVatId($uuid, $addCompanyVatIdRequest): null|string|array
 ```
 
 Add a company's Vat Id
+
+Add a company's Vat Id. Send the resource fields in the request body; the response contains the saved record. Requires at least one permission: `vat.add`.
 
 ### Example
 
@@ -26,11 +28,11 @@ Add a company's Vat Id
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
-$addCompanyVatIdRequest = [/*...*/]; // array
 $uuid = 'uuid_example'; // string | The company uuid
+$addCompanyVatIdRequest = [/*...*/]; // array | Send a JSON object with the fields below. Fields marked required must be supplied.
 
 try {
-    $result = $api->vATID()->addCompanyVatId($addCompanyVatIdRequest, $uuid);
+    $result = $api->vATID()->addCompanyVatId($uuid, $addCompanyVatIdRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->vATID->addCompanyVatId: ', $e->getMessage(), PHP_EOL;
@@ -42,8 +44,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **addCompanyVatIdRequest** | [see addCompanyVatId](https://api.accounting.sh/swagger.html#operation/addCompanyVatId)|  | |
-| **uuid** | **string**| The company uuid | [optional] |
+| **uuid** | **string**| The company uuid | |
+| **addCompanyVatIdRequest** | [see addCompanyVatId](https://api.accounting.sh/swagger.html#operation/addCompanyVatId)| Send a JSON object with the fields below. Fields marked required must be supplied. | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -52,10 +54,12 @@ try {
 ## `deleteCompanyVatId()`
 
 ```php
-deleteCompanyVatId($key, $uuid): null|string|array
+deleteCompanyVatId($uuid, $key): null|string|array
 ```
 
 Delete a company's Vat Id
+
+Delete a company's Vat Id. This action deletes the selected record. Review references to it before deletion. Requires at least one permission: `vat.delete`.
 
 ### Example
 
@@ -64,11 +68,11 @@ Delete a company's Vat Id
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
-$key = 'key_example'; // string | The VAT ID uuid
 $uuid = 'uuid_example'; // string | The company uuid
+$key = 'key_example'; // string | The VAT ID uuid
 
 try {
-    $result = $api->vATID()->deleteCompanyVatId($key, $uuid);
+    $result = $api->vATID()->deleteCompanyVatId($uuid, $key);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->vATID->deleteCompanyVatId: ', $e->getMessage(), PHP_EOL;
@@ -80,8 +84,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **uuid** | **string**| The company uuid | |
 | **key** | **string**| The VAT ID uuid | |
-| **uuid** | **string**| The company uuid | [optional] |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -90,10 +94,12 @@ try {
 ## `getCompanyVatId()`
 
 ```php
-getCompanyVatId($key, $uuid): null|string|array
+getCompanyVatId($uuid, $key): null|string|array
 ```
 
 Get a company's Vat Id
+
+Get a company's Vat Id. Use the identifier returned by the corresponding list or create operation. Requires at least one permission: `vat.view`.
 
 ### Example
 
@@ -102,11 +108,11 @@ Get a company's Vat Id
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
-$key = 'key_example'; // string | The VAT ID uuid
 $uuid = 'uuid_example'; // string | The company uuid
+$key = 'key_example'; // string | The VAT ID uuid
 
 try {
-    $result = $api->vATID()->getCompanyVatId($key, $uuid);
+    $result = $api->vATID()->getCompanyVatId($uuid, $key);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->vATID->getCompanyVatId: ', $e->getMessage(), PHP_EOL;
@@ -118,8 +124,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **uuid** | **string**| The company uuid | |
 | **key** | **string**| The VAT ID uuid | |
-| **uuid** | **string**| The company uuid | [optional] |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -128,10 +134,12 @@ try {
 ## `listCompanyVatId()`
 
 ```php
-listCompanyVatId($fields, $page, $perPage, $uuid): null|string|array
+listCompanyVatId($uuid, $fields, $page, $perPage, $orderBy): null|string|array
 ```
 
 List company's Vat Id
+
+List company's Vat Id. Retrieve records using the query parameters below. Requires at least one permission: `vat.list`.
 
 ### Example
 
@@ -140,13 +148,14 @@ List company's Vat Id
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
-$fields = 'fields_example'; // string | A comma separated list of fields requested in the response
-$page = 'page_example'; // string | The response page
-$perPage = 'perPage_example'; // string | The number of items per page
 $uuid = 'uuid_example'; // string | The company uuid
+$fields = uuid,vat_id,country; // string | Comma-separated fields to include in each record. Default fields: uuid, vat_id, country.
+$page = 1; // int | Page number, starting at 1. Values below 1 are treated as 1.
+$perPage = 10; // int | Records per page. The server caps page size to 100. Values below 1 use that maximum.
+$orderBy = created_at:desc; // string | Sort by a supported field and direction, using field:asc or field:desc.
 
 try {
-    $result = $api->vATID()->listCompanyVatId($fields, $page, $perPage, $uuid);
+    $result = $api->vATID()->listCompanyVatId($uuid, $fields, $page, $perPage, $orderBy);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->vATID->listCompanyVatId: ', $e->getMessage(), PHP_EOL;
@@ -158,10 +167,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **fields** | **string**| A comma separated list of fields requested in the response | [optional] |
-| **page** | **string**| The response page | [optional] |
-| **perPage** | **string**| The number of items per page | [optional] |
-| **uuid** | **string**| The company uuid | [optional] |
+| **uuid** | **string**| The company uuid | |
+| **fields** | **string**| Comma-separated fields to include in each record. Default fields: uuid, vat_id, country. | [optional] |
+| **page** | **int**| Page number, starting at 1. Values below 1 are treated as 1. | [optional] [default to 1] |
+| **perPage** | **int**| Records per page. The server caps page size to 100. Values below 1 use that maximum. | [optional] [default to 10] |
+| **orderBy** | **string**| Sort by a supported field and direction, using field:asc or field:desc. | [optional] |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -170,10 +180,12 @@ try {
 ## `updateCompanyVatId()`
 
 ```php
-updateCompanyVatId($key, $addCompanyVatIdRequest, $uuid): null|string|array
+updateCompanyVatId($uuid, $key, $addCompanyVatIdRequest): null|string|array
 ```
 
 Update a company's Vat Id
+
+Update a company's Vat Id. Send the fields accepted by this operation in the request body. Requires at least one permission: `vat.edit`.
 
 ### Example
 
@@ -182,12 +194,12 @@ Update a company's Vat Id
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
-$key = 'key_example'; // string | The VAT ID uuid
-$addCompanyVatIdRequest = [/*...*/]; // array
 $uuid = 'uuid_example'; // string | The company uuid
+$key = 'key_example'; // string | The VAT ID uuid
+$addCompanyVatIdRequest = [/*...*/]; // array | Send a JSON object with the fields below. Fields marked required must be supplied.
 
 try {
-    $result = $api->vATID()->updateCompanyVatId($key, $addCompanyVatIdRequest, $uuid);
+    $result = $api->vATID()->updateCompanyVatId($uuid, $key, $addCompanyVatIdRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->vATID->updateCompanyVatId: ', $e->getMessage(), PHP_EOL;
@@ -199,9 +211,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **uuid** | **string**| The company uuid | |
 | **key** | **string**| The VAT ID uuid | |
-| **addCompanyVatIdRequest** | [see updateCompanyVatId](https://api.accounting.sh/swagger.html#operation/updateCompanyVatId)|  | |
-| **uuid** | **string**| The company uuid | [optional] |
+| **addCompanyVatIdRequest** | [see updateCompanyVatId](https://api.accounting.sh/swagger.html#operation/updateCompanyVatId)| Send a JSON object with the fields below. Fields marked required must be supplied. | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

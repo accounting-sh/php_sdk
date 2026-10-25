@@ -20,6 +20,8 @@ addOAuthConfiguration($addOAuthConfigurationRequest): null|string|array
 
 Add an OAuth configuration
 
+Add an OAuth configuration. Send the resource fields in the request body; the response contains the saved record. Requires at least one permission: `oauth_config.add`. Requires company feature(s): `oauth`. Returns 402 if unavailable.
+
 ### Example
 
 ```php
@@ -27,7 +29,7 @@ Add an OAuth configuration
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
-$addOAuthConfigurationRequest = [/*...*/]; // array
+$addOAuthConfigurationRequest = [/*...*/]; // array | Send a JSON object with the fields below. Fields marked required must be supplied.
 
 try {
     $result = $api->oAuthConfig()->addOAuthConfiguration($addOAuthConfigurationRequest);
@@ -42,7 +44,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **addOAuthConfigurationRequest** | [see addOAuthConfiguration](https://api.accounting.sh/swagger.html#operation/addOAuthConfiguration)|  | |
+| **addOAuthConfigurationRequest** | [see addOAuthConfiguration](https://api.accounting.sh/swagger.html#operation/addOAuthConfiguration)| Send a JSON object with the fields below. Fields marked required must be supplied. | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -55,6 +57,8 @@ deleteOAuthConfiguration($uuid): null|string|array
 ```
 
 Delete an oauth configuration
+
+Delete an oauth configuration. This action deletes the selected record. Review references to it before deletion. Requires at least one permission: `oauth_config.delete`. Requires company feature(s): `oauth`. Returns 402 if unavailable.
 
 ### Example
 
@@ -92,6 +96,8 @@ getOAuthConfiguration($uuid): null|string|array
 
 Get an OAuth configuration
 
+Get an OAuth configuration. Use the identifier returned by the corresponding list or create operation. Requires at least one permission: `oauth_config.view`. Requires company feature(s): `oauth`. Returns 402 if unavailable.
+
 ### Example
 
 ```php
@@ -123,10 +129,12 @@ try {
 ## `listOAuthConfigurations()`
 
 ```php
-listOAuthConfigurations($fields, $page, $perPage): null|string|array
+listOAuthConfigurations($fields, $page, $perPage, $orderBy): null|string|array
 ```
 
 List company's oauth configurations
+
+List company's oauth configurations. Retrieve records using the query parameters below. Requires at least one permission: `oauth_config.list`. Requires company feature(s): `oauth`. Returns 402 if unavailable.
 
 ### Example
 
@@ -135,12 +143,13 @@ List company's oauth configurations
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
-$fields = 'fields_example'; // string | A comma separated list of fields requested in the response
-$page = 'page_example'; // string | The response page
-$perPage = 'perPage_example'; // string | The number of items per page
+$fields = uuid,provider,client_id; // string | Comma-separated fields to include in each record. Default fields: uuid, provider, client_id.
+$page = 1; // int | Page number, starting at 1. Values below 1 are treated as 1.
+$perPage = 10; // int | Records per page. The server caps page size to 100. Values below 1 use that maximum.
+$orderBy = created_at:desc; // string | Sort by a supported field and direction, using field:asc or field:desc.
 
 try {
-    $result = $api->oAuthConfig()->listOAuthConfigurations($fields, $page, $perPage);
+    $result = $api->oAuthConfig()->listOAuthConfigurations($fields, $page, $perPage, $orderBy);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->oAuthConfig->listOAuthConfigurations: ', $e->getMessage(), PHP_EOL;
@@ -152,9 +161,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **fields** | **string**| A comma separated list of fields requested in the response | [optional] |
-| **page** | **string**| The response page | [optional] |
-| **perPage** | **string**| The number of items per page | [optional] |
+| **fields** | **string**| Comma-separated fields to include in each record. Default fields: uuid, provider, client_id. | [optional] |
+| **page** | **int**| Page number, starting at 1. Values below 1 are treated as 1. | [optional] [default to 1] |
+| **perPage** | **int**| Records per page. The server caps page size to 100. Values below 1 use that maximum. | [optional] [default to 10] |
+| **orderBy** | **string**| Sort by a supported field and direction, using field:asc or field:desc. | [optional] |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -167,6 +177,8 @@ listProviders(): null|string|array
 ```
 
 List available providers
+
+Retrieve the supported OAuth providers before creating an OAuth configuration.
 
 ### Example
 
@@ -201,6 +213,8 @@ updateOAuthConfiguration($uuid, $addOAuthConfigurationRequest): null|string|arra
 
 Update an oauth configuration
 
+Update an oauth configuration. Send the fields accepted by this operation in the request body. Requires at least one permission: `oauth_config.edit`. Requires company feature(s): `oauth`. Returns 402 if unavailable.
+
 ### Example
 
 ```php
@@ -209,7 +223,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The oauth configuration uuid
-$addOAuthConfigurationRequest = [/*...*/]; // array
+$addOAuthConfigurationRequest = [/*...*/]; // array | Send a JSON object with the fields below. Fields marked required must be supplied.
 
 try {
     $result = $api->oAuthConfig()->updateOAuthConfiguration($uuid, $addOAuthConfigurationRequest);
@@ -225,7 +239,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **uuid** | **string**| The oauth configuration uuid | |
-| **addOAuthConfigurationRequest** | [see updateOAuthConfiguration](https://api.accounting.sh/swagger.html#operation/updateOAuthConfiguration)|  | |
+| **addOAuthConfigurationRequest** | [see updateOAuthConfiguration](https://api.accounting.sh/swagger.html#operation/updateOAuthConfiguration)| Send a JSON object with the fields below. Fields marked required must be supplied. | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

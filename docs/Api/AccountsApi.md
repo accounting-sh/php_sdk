@@ -19,6 +19,8 @@ addAccount($addAccountRequest): null|string|array
 
 Add an account
 
+Add an account. Send the resource fields in the request body; the response contains the saved record. Requires at least one permission: `add.account`.
+
 ### Example
 
 ```php
@@ -26,7 +28,7 @@ Add an account
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
-$addAccountRequest = [/*...*/]; // array
+$addAccountRequest = [/*...*/]; // array | Send a JSON object with the fields below. Fields marked required must be supplied.
 
 try {
     $result = $api->accounts()->addAccount($addAccountRequest);
@@ -41,7 +43,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **addAccountRequest** | [see addAccount](https://api.accounting.sh/swagger.html#operation/addAccount)|  | |
+| **addAccountRequest** | [see addAccount](https://api.accounting.sh/swagger.html#operation/addAccount)| Send a JSON object with the fields below. Fields marked required must be supplied. | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -54,6 +56,8 @@ deleteAccount($uuid): null|string|array
 ```
 
 Delete an account
+
+Delete an account. This action deletes the selected record. Review references to it before deletion. Requires at least one permission: `delete.account`.
 
 ### Example
 
@@ -91,6 +95,8 @@ getAccount($uuid): null|string|array
 
 Get an account
 
+Get an account. Use the identifier returned by the corresponding list or create operation. Requires at least one permission: `view.account`.
+
 ### Example
 
 ```php
@@ -122,10 +128,12 @@ try {
 ## `listAccounts()`
 
 ```php
-listAccounts($fields, $page, $perPage): null|string|array
+listAccounts($fields, $page, $perPage, $orderBy): null|string|array
 ```
 
 List company's accounts
+
+List company's accounts. Retrieve records using the query parameters below. Requires at least one permission: `list.accounts`.
 
 ### Example
 
@@ -134,12 +142,13 @@ List company's accounts
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
-$fields = 'fields_example'; // string | A comma separated list of fields requested in the response
-$page = 'page_example'; // string | The response page
-$perPage = 'perPage_example'; // string | The number of items per page
+$fields = uuid,name,bank,currency,journal_number; // string | Comma-separated fields to include in each record. Default fields: uuid, name, bank, currency, journal_number.
+$page = 1; // int | Page number, starting at 1. Values below 1 are treated as 1.
+$perPage = 10; // int | Records per page. The server caps page size to 100. Values below 1 use that maximum.
+$orderBy = created_at:desc; // string | Sort by a supported field and direction, using field:asc or field:desc.
 
 try {
-    $result = $api->accounts()->listAccounts($fields, $page, $perPage);
+    $result = $api->accounts()->listAccounts($fields, $page, $perPage, $orderBy);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->accounts->listAccounts: ', $e->getMessage(), PHP_EOL;
@@ -151,9 +160,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **fields** | **string**| A comma separated list of fields requested in the response | [optional] |
-| **page** | **string**| The response page | [optional] |
-| **perPage** | **string**| The number of items per page | [optional] |
+| **fields** | **string**| Comma-separated fields to include in each record. Default fields: uuid, name, bank, currency, journal_number. | [optional] |
+| **page** | **int**| Page number, starting at 1. Values below 1 are treated as 1. | [optional] [default to 1] |
+| **perPage** | **int**| Records per page. The server caps page size to 100. Values below 1 use that maximum. | [optional] [default to 10] |
+| **orderBy** | **string**| Sort by a supported field and direction, using field:asc or field:desc. | [optional] |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -167,6 +177,8 @@ updateAccount($uuid, $addAccountRequest): null|string|array
 
 Update an account
 
+Update an account. Send the fields accepted by this operation in the request body. Requires at least one permission: `edit.account`.
+
 ### Example
 
 ```php
@@ -175,7 +187,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The account uuid
-$addAccountRequest = [/*...*/]; // array
+$addAccountRequest = [/*...*/]; // array | Send a JSON object with the fields below. Fields marked required must be supplied.
 
 try {
     $result = $api->accounts()->updateAccount($uuid, $addAccountRequest);
@@ -191,7 +203,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **uuid** | **string**| The account uuid | |
-| **addAccountRequest** | [see updateAccount](https://api.accounting.sh/swagger.html#operation/updateAccount)|  | |
+| **addAccountRequest** | [see updateAccount](https://api.accounting.sh/swagger.html#operation/updateAccount)| Send a JSON object with the fields below. Fields marked required must be supplied. | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

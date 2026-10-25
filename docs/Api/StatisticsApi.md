@@ -15,6 +15,8 @@ summaryStatisticsPeriod($uuid, $start, $end): null|string|array
 
 Company's summary statistics
 
+Company's summary statistics. Use the parameters and response fields below for this operation. Requires at least one permission: `view.company`.
+
 ### Example
 
 ```php

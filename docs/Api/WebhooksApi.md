@@ -21,6 +21,8 @@ addWebhook($addWebhookRequest): null|string|array
 
 Add a webhook
 
+Add a webhook. Send the resource fields in the request body; the response contains the saved record. Requires at least one permission: `add.webhook`. Requires company feature(s): `webhooks`. Returns 402 if unavailable.
+
 ### Example
 
 ```php
@@ -28,7 +30,7 @@ Add a webhook
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
-$addWebhookRequest = [/*...*/]; // array
+$addWebhookRequest = [/*...*/]; // array | Send a JSON object with the fields below. Fields marked required must be supplied.
 
 try {
     $result = $api->webhooks()->addWebhook($addWebhookRequest);
@@ -43,7 +45,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **addWebhookRequest** | [see addWebhook](https://api.accounting.sh/swagger.html#operation/addWebhook)|  | |
+| **addWebhookRequest** | [see addWebhook](https://api.accounting.sh/swagger.html#operation/addWebhook)| Send a JSON object with the fields below. Fields marked required must be supplied. | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -56,6 +58,8 @@ deleteWebhook($uuid): null|string|array
 ```
 
 Delete a webhook
+
+Delete a webhook. This action deletes the selected record. Review references to it before deletion. Requires at least one permission: `delete.webhook`. Requires company feature(s): `webhooks`. Returns 402 if unavailable.
 
 ### Example
 
@@ -79,7 +83,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **uuid** | **string**| The webhook uuid | [optional] |
+| **uuid** | **string**| The webhook uuid | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -92,6 +96,8 @@ getWebhook($uuid): null|string|array
 ```
 
 Get a webhook
+
+Get a webhook. Use the identifier returned by the corresponding list or create operation. Requires at least one permission: `view.webhook`. Requires company feature(s): `webhooks`. Returns 402 if unavailable.
 
 ### Example
 
@@ -115,7 +121,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **uuid** | **string**| The webhook uuid | [optional] |
+| **uuid** | **string**| The webhook uuid | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -128,6 +134,8 @@ getWebhookHistory($uuid): null|string|array
 ```
 
 Get webhook's history
+
+Retrieve delivery history for this webhook to inspect previous attempts and troubleshoot delivery failures. Requires at least one permission: `view.webhook`. Requires company feature(s): `webhooks`. Returns 402 if unavailable.
 
 ### Example
 
@@ -151,7 +159,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **uuid** | **string**| The webhook uuid | [optional] |
+| **uuid** | **string**| The webhook uuid | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -164,6 +172,8 @@ listWebhookEvents(): null|string|array
 ```
 
 List available webhook events
+
+Retrieve event identifiers accepted when creating or updating a webhook subscription.
 
 ### Example
 
@@ -193,10 +203,12 @@ This endpoint does not need any parameter.
 ## `listWebhooks()`
 
 ```php
-listWebhooks($fields, $page, $perPage): null|string|array
+listWebhooks($fields, $page, $perPage, $orderBy): null|string|array
 ```
 
 List company's webhooks
+
+List company's webhooks. Retrieve records using the query parameters below. Requires at least one permission: `list.webhooks`. Requires company feature(s): `webhooks`. Returns 402 if unavailable.
 
 ### Example
 
@@ -205,12 +217,13 @@ List company's webhooks
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
-$fields = 'fields_example'; // string | A comma separated list of fields requested in the response
-$page = 'page_example'; // string | The response page
-$perPage = 'perPage_example'; // string | The number of items per page
+$fields = uuid,link,events; // string | Comma-separated fields to include in each record. Default fields: uuid, link, events.
+$page = 1; // int | Page number, starting at 1. Values below 1 are treated as 1.
+$perPage = 10; // int | Records per page. The server caps page size to 100. Values below 1 use that maximum.
+$orderBy = created_at:desc; // string | Sort by a supported field and direction, using field:asc or field:desc.
 
 try {
-    $result = $api->webhooks()->listWebhooks($fields, $page, $perPage);
+    $result = $api->webhooks()->listWebhooks($fields, $page, $perPage, $orderBy);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->webhooks->listWebhooks: ', $e->getMessage(), PHP_EOL;
@@ -222,9 +235,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **fields** | **string**| A comma separated list of fields requested in the response | [optional] |
-| **page** | **string**| The response page | [optional] |
-| **perPage** | **string**| The number of items per page | [optional] |
+| **fields** | **string**| Comma-separated fields to include in each record. Default fields: uuid, link, events. | [optional] |
+| **page** | **int**| Page number, starting at 1. Values below 1 are treated as 1. | [optional] [default to 1] |
+| **perPage** | **int**| Records per page. The server caps page size to 100. Values below 1 use that maximum. | [optional] [default to 10] |
+| **orderBy** | **string**| Sort by a supported field and direction, using field:asc or field:desc. | [optional] |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -233,10 +247,12 @@ try {
 ## `updateWebhook()`
 
 ```php
-updateWebhook($addWebhookRequest, $uuid): null|string|array
+updateWebhook($uuid, $addWebhookRequest): null|string|array
 ```
 
 Update a webhook
+
+Update a webhook. Send the fields accepted by this operation in the request body. Requires at least one permission: `edit.webhook`. Requires company feature(s): `webhooks`. Returns 402 if unavailable.
 
 ### Example
 
@@ -245,11 +261,11 @@ Update a webhook
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
-$addWebhookRequest = [/*...*/]; // array
 $uuid = 'uuid_example'; // string | The webhook uuid
+$addWebhookRequest = [/*...*/]; // array | Send a JSON object with the fields below. Fields marked required must be supplied.
 
 try {
-    $result = $api->webhooks()->updateWebhook($addWebhookRequest, $uuid);
+    $result = $api->webhooks()->updateWebhook($uuid, $addWebhookRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->webhooks->updateWebhook: ', $e->getMessage(), PHP_EOL;
@@ -261,8 +277,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **addWebhookRequest** | [see updateWebhook](https://api.accounting.sh/swagger.html#operation/updateWebhook)|  | |
-| **uuid** | **string**| The webhook uuid | [optional] |
+| **uuid** | **string**| The webhook uuid | |
+| **addWebhookRequest** | [see updateWebhook](https://api.accounting.sh/swagger.html#operation/updateWebhook)| Send a JSON object with the fields below. Fields marked required must be supplied. | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

@@ -4,52 +4,15 @@ All URIs are relative to https://api.accounting.sh, except if the operation defi
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**cancelReview()**](DocumentsApi.md#cancelReview) | **DELETE** /documents/{uuid}/review | Cancel document review |
 | [**deleteDocument()**](DocumentsApi.md#deleteDocument) | **DELETE** /documents/{uuid} | Delete a document |
 | [**getDocument()**](DocumentsApi.md#getDocument) | **GET** /documents/{uuid} | Get a document |
 | [**listDocuments()**](DocumentsApi.md#listDocuments) | **GET** /documents | List company&#39;s documents |
 | [**processDocument()**](DocumentsApi.md#processDocument) | **GET** /documents/{uuid}/process | Process a document |
-| [**reviewUrl()**](DocumentsApi.md#reviewUrl) | **GET** /documents/{uuid}/review | Get url to review a document |
+| [**reviewDocumentRetention()**](DocumentsApi.md#reviewDocumentRetention) | **PUT** /documents/{uuid}/retention | Review accounting retention or a legal hold |
 | [**updateDocument()**](DocumentsApi.md#updateDocument) | **PUT** /documents/{uuid} | Update a document |
 | [**uploadDocument()**](DocumentsApi.md#uploadDocument) | **POST** /documents | Upload a document |
 | [**viewDocument()**](DocumentsApi.md#viewDocument) | **GET** /documents/{uuid}/view | View a document |
 
-
-## `cancelReview()`
-
-```php
-cancelReview($uuid): null|string|array
-```
-
-Cancel document review
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-$api = new Accounting("auth_token");
-$uuid = 'uuid_example'; // string | The document uuid
-
-try {
-    $result = $api->documents()->cancelReview($uuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling Accounting->documents->cancelReview: ', $e->getMessage(), PHP_EOL;
-}
-
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **uuid** | **string**| The document uuid | |
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
 
 ## `deleteDocument()`
 
@@ -58,6 +21,8 @@ deleteDocument($uuid): null|string|array
 ```
 
 Delete a document
+
+Delete a document. This action deletes the selected record. Review references to it before deletion. Requires at least one permission: `delete.document`.
 
 ### Example
 
@@ -95,6 +60,8 @@ getDocument($uuid): null|string|array
 
 Get a document
 
+Get a document. Use the identifier returned by the corresponding list or create operation. Requires at least one permission: `view.document`.
+
 ### Example
 
 ```php
@@ -126,10 +93,12 @@ try {
 ## `listDocuments()`
 
 ```php
-listDocuments($fields, $page, $perPage): null|string|array
+listDocuments($fields, $page, $perPage, $orderBy): null|string|array
 ```
 
 List company's documents
+
+List company's documents. Retrieve records using the query parameters below. Requires at least one permission: `list.documents`.
 
 ### Example
 
@@ -138,12 +107,13 @@ List company's documents
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
-$fields = 'fields_example'; // string | A comma separated list of fields requested in the response
-$page = 'page_example'; // string | The response page
-$perPage = 'perPage_example'; // string | The number of items per page
+$fields = uuid,name,mimetype; // string | Comma-separated fields to include in each record. Default fields: uuid, name, mimetype.
+$page = 1; // int | Page number, starting at 1. Values below 1 are treated as 1.
+$perPage = 10; // int | Records per page. The server caps page size to 100. Values below 1 use that maximum.
+$orderBy = created_at:desc; // string | Sort by a supported field and direction, using field:asc or field:desc.
 
 try {
-    $result = $api->documents()->listDocuments($fields, $page, $perPage);
+    $result = $api->documents()->listDocuments($fields, $page, $perPage, $orderBy);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->documents->listDocuments: ', $e->getMessage(), PHP_EOL;
@@ -155,9 +125,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **fields** | **string**| A comma separated list of fields requested in the response | [optional] |
-| **page** | **string**| The response page | [optional] |
-| **perPage** | **string**| The number of items per page | [optional] |
+| **fields** | **string**| Comma-separated fields to include in each record. Default fields: uuid, name, mimetype. | [optional] |
+| **page** | **int**| Page number, starting at 1. Values below 1 are treated as 1. | [optional] [default to 1] |
+| **perPage** | **int**| Records per page. The server caps page size to 100. Values below 1 use that maximum. | [optional] [default to 10] |
+| **orderBy** | **string**| Sort by a supported field and direction, using field:asc or field:desc. | [optional] |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -170,6 +141,8 @@ processDocument($uuid): null|string|array
 ```
 
 Process a document
+
+Queue background processing of the uploaded document. A successful response acknowledges the queued job, not completed extraction. Already processed documents return 400. This GET starts work; avoid automatic retries. Requires at least one permission: `process.document`.
 
 ### Example
 
@@ -199,13 +172,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `reviewUrl()`
+## `reviewDocumentRetention()`
 
 ```php
-reviewUrl($uuid): null|string|array
+reviewDocumentRetention($uuid, $reviewDocumentRetentionRequest): null|string|array
 ```
 
-Get url to review a document
+Review accounting retention or a legal hold
+
+Review the accounting anchor, retention category or legal hold. This cannot shorten existing protection or change the frozen jurisdiction. Send hold=null explicitly to release a hold. Requires permission: `manage.document.retention`.
 
 ### Example
 
@@ -214,13 +189,14 @@ Get url to review a document
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
-$uuid = 'uuid_example'; // string | The document uuid
+$uuid = 'uuid_example'; // string
+$reviewDocumentRetentionRequest = [/*...*/]; // array
 
 try {
-    $result = $api->documents()->reviewUrl($uuid);
+    $result = $api->documents()->reviewDocumentRetention($uuid, $reviewDocumentRetentionRequest);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling Accounting->documents->reviewUrl: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling Accounting->documents->reviewDocumentRetention: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
@@ -229,7 +205,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **uuid** | **string**| The document uuid | |
+| **uuid** | **string**|  | |
+| **reviewDocumentRetentionRequest** | [see reviewDocumentRetention](https://api.accounting.sh/swagger.html#operation/reviewDocumentRetention)|  | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -243,6 +220,8 @@ updateDocument($uuid, $updateDocumentRequest): null|string|array
 
 Update a document
 
+Update a document. Send the fields accepted by this operation in the request body. Requires at least one permission: `edit.document`.
+
 ### Example
 
 ```php
@@ -251,7 +230,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The document uuid
-$updateDocumentRequest = [/*...*/]; // array
+$updateDocumentRequest = [/*...*/]; // array | Send a JSON object with the fields below. Fields marked required must be supplied.
 
 try {
     $result = $api->documents()->updateDocument($uuid, $updateDocumentRequest);
@@ -267,7 +246,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **uuid** | **string**| The document uuid | |
-| **updateDocumentRequest** | [see updateDocument](https://api.accounting.sh/swagger.html#operation/updateDocument)|  | |
+| **updateDocumentRequest** | [see updateDocument](https://api.accounting.sh/swagger.html#operation/updateDocument)| Send a JSON object with the fields below. Fields marked required must be supplied. | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -281,6 +260,8 @@ uploadDocument($name, $file): null|string|array
 
 Upload a document
 
+Upload a document. Send the resource fields in the request body; the response contains the saved record. Requires at least one permission: `add.document`.
+
 ### Example
 
 ```php
@@ -288,8 +269,8 @@ Upload a document
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
-$name = 'name_example'; // string
-$file = "/path/to/file.txt"; // \SplFileObject
+$name = 'name_example'; // string | Human-readable name or label.
+$file = "/path/to/file.txt"; // \SplFileObject | File to upload. Send this field as a file part in a multipart/form-data request.
 
 try {
     $result = $api->documents()->uploadDocument($name, $file);
@@ -304,8 +285,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **name** | **string**|  | |
-| **file** | [see uploadDocument](https://api.accounting.sh/swagger.html#operation/uploadDocument)|  | |
+| **name** | **string**| Human-readable name or label. | |
+| **file** | **\SplFileObject****\SplFileObject**| File to upload. Send this field as a file part in a multipart/form-data request. | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -318,6 +299,8 @@ viewDocument($uuid)
 ```
 
 View a document
+
+Download the stored document content. The response is a file, rather than a JSON resource envelope. Requires at least one permission: `view.document`.
 
 ### Example
 

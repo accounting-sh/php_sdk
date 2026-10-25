@@ -4,12 +4,13 @@ All URIs are relative to https://api.accounting.sh, except if the operation defi
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**addCompany()**](CompaniesApi.md#addCompany) | **POST** /companies | Add a company |
+| [**addCompany()**](CompaniesApi.md#addCompany) | **POST** /companies | Add a company (resellers only) |
 | [**deleteCompany()**](CompaniesApi.md#deleteCompany) | **DELETE** /companies/{uuid} | Delete a company |
 | [**getCompany()**](CompaniesApi.md#getCompany) | **GET** /companies/{uuid} | Get a company |
 | [**getCompanyCustomization()**](CompaniesApi.md#getCompanyCustomization) | **GET** /companies/{uuid}/customization | Get a company&#39;s customization parameters |
 | [**getCompanyFeatureSet()**](CompaniesApi.md#getCompanyFeatureSet) | **GET** /companies/{uuid}/features | List a company&#39;s feature set |
-| [**listCompanies()**](CompaniesApi.md#listCompanies) | **GET** /companies | List companies on this instance |
+| [**getCompanyOnboarding()**](CompaniesApi.md#getCompanyOnboarding) | **GET** /companies/{uuid}/onboarding | Get company onboarding status |
+| [**listCompanies()**](CompaniesApi.md#listCompanies) | **GET** /companies | List companies on this instance (resellers only) |
 | [**updateCompany()**](CompaniesApi.md#updateCompany) | **PUT** /companies/{uuid} | Update a company |
 
 
@@ -19,7 +20,9 @@ All URIs are relative to https://api.accounting.sh, except if the operation defi
 addCompany($addCompanyRequest): null|string|array
 ```
 
-Add a company
+Add a company (resellers only)
+
+Restricted to resellers. Add a company. Send the resource fields in the request body; the response contains the saved record. Requires at least one permission: `add.company`.
 
 ### Example
 
@@ -28,7 +31,7 @@ Add a company
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
-$addCompanyRequest = [/*...*/]; // array
+$addCompanyRequest = [/*...*/]; // array | Send a JSON object with the fields below. Fields marked required must be supplied.
 
 try {
     $result = $api->companies()->addCompany($addCompanyRequest);
@@ -43,7 +46,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **addCompanyRequest** | [see addCompany](https://api.accounting.sh/swagger.html#operation/addCompany)|  | |
+| **addCompanyRequest** | [see addCompany](https://api.accounting.sh/swagger.html#operation/addCompany)| Send a JSON object with the fields below. Fields marked required must be supplied. | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -56,6 +59,8 @@ deleteCompany($uuid): null|string|array
 ```
 
 Delete a company
+
+Delete a company. This action deletes the selected record. Review references to it before deletion. Requires at least one permission: `company.delete`.
 
 ### Example
 
@@ -93,6 +98,8 @@ getCompany($uuid): null|string|array
 
 Get a company
 
+Get a company. Use the identifier returned by the corresponding list or create operation. Requires at least one permission: `view.company`.
+
 ### Example
 
 ```php
@@ -128,6 +135,8 @@ getCompanyCustomization($uuid): null|string|array
 ```
 
 Get a company's customization parameters
+
+Get a company's customization parameters. Use the parameters and response fields below for this operation. Requires authentication.
 
 ### Example
 
@@ -165,6 +174,8 @@ getCompanyFeatureSet($uuid): null|string|array
 
 List a company's feature set
 
+Retrieve the features enabled for the authenticated company. The company identifier must match the company associated with your authentication. Requires authentication.
+
 ### Example
 
 ```php
@@ -172,7 +183,7 @@ List a company's feature set
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
-$uuid = 'uuid_example'; // string | The company uuid
+$uuid = 'uuid_example'; // string | Identifier of the authenticated company.
 
 try {
     $result = $api->companies()->getCompanyFeatureSet($uuid);
@@ -187,19 +198,21 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **uuid** | **string**| The company uuid | |
+| **uuid** | **string**| Identifier of the authenticated company. | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `listCompanies()`
+## `getCompanyOnboarding()`
 
 ```php
-listCompanies($fields, $page, $perPage): null|string|array
+getCompanyOnboarding($uuid): null|string|array
 ```
 
-List companies on this instance
+Get company onboarding status
+
+Get the company's current onboarding version and completion status. When incomplete, returns missing setting keys and the fiscal year end (default 31/12). French companies are checked for invoice.FR.franchise_en_base and invoice.FR.vat_on_debits; all companies are checked for preferred.locale. A completed response omits missing_settings and fiscal_year_end. Requires at least one permission: `view.company`, `edit.company`, `edit.company.settings`, `view.company.settings`.
 
 ### Example
 
@@ -208,12 +221,51 @@ List companies on this instance
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
-$fields = 'fields_example'; // string | A comma separated list of fields requested in the response
-$page = 'page_example'; // string | The response page
-$perPage = 'perPage_example'; // string | The number of items per page
+$uuid = 'uuid_example'; // string | The authenticated company's UUID.
 
 try {
-    $result = $api->companies()->listCompanies($fields, $page, $perPage);
+    $result = $api->companies()->getCompanyOnboarding($uuid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->companies->getCompanyOnboarding: ', $e->getMessage(), PHP_EOL;
+}
+
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **uuid** | **string**| The authenticated company&#39;s UUID. | |
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `listCompanies()`
+
+```php
+listCompanies($fields, $page, $perPage, $orderBy): null|string|array
+```
+
+List companies on this instance (resellers only)
+
+Restricted to resellers. List companies on this instance. Retrieve records using the query parameters below. Requires at least one permission: `list.companies`.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+$fields = uuid,name,currency,prefix; // string | Comma-separated fields to include in each record. Default fields: uuid, name, currency, prefix.
+$page = 1; // int | Page number, starting at 1. Values below 1 are treated as 1.
+$perPage = 10; // int | Records per page. The server caps page size to 100. Values below 1 use that maximum.
+$orderBy = created_at:desc; // string | Sort by a supported field and direction, using field:asc or field:desc.
+
+try {
+    $result = $api->companies()->listCompanies($fields, $page, $perPage, $orderBy);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->companies->listCompanies: ', $e->getMessage(), PHP_EOL;
@@ -225,9 +277,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **fields** | **string**| A comma separated list of fields requested in the response | [optional] |
-| **page** | **string**| The response page | [optional] |
-| **perPage** | **string**| The number of items per page | [optional] |
+| **fields** | **string**| Comma-separated fields to include in each record. Default fields: uuid, name, currency, prefix. | [optional] |
+| **page** | **int**| Page number, starting at 1. Values below 1 are treated as 1. | [optional] [default to 1] |
+| **perPage** | **int**| Records per page. The server caps page size to 100. Values below 1 use that maximum. | [optional] [default to 10] |
+| **orderBy** | **string**| Sort by a supported field and direction, using field:asc or field:desc. | [optional] |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -241,6 +294,8 @@ updateCompany($uuid, $addCompanyRequest): null|string|array
 
 Update a company
 
+Update a company. Send the fields accepted by this operation in the request body. Omitted optional fields retain their existing values. Requires at least one permission: `edit.company`.
+
 ### Example
 
 ```php
@@ -249,7 +304,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The company uuid
-$addCompanyRequest = [/*...*/]; // array
+$addCompanyRequest = [/*...*/]; // array | Send a JSON object with the fields below. Fields marked required must be supplied.
 
 try {
     $result = $api->companies()->updateCompany($uuid, $addCompanyRequest);
@@ -265,7 +320,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **uuid** | **string**| The company uuid | |
-| **addCompanyRequest** | [see updateCompany](https://api.accounting.sh/swagger.html#operation/updateCompany)|  | |
+| **addCompanyRequest** | [see updateCompany](https://api.accounting.sh/swagger.html#operation/updateCompany)| Send a JSON object with the fields below. Fields marked required must be supplied. | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

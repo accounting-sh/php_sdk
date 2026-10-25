@@ -18,6 +18,8 @@ listNotificationPreferences($notification): null|string|array
 
 List notification preferences
 
+List notification preferences. Use the parameters and response fields below for this operation. Requires at least one permission: `manage.notification_preferences`.
+
 ### Example
 
 ```php
@@ -49,10 +51,12 @@ try {
 ## `listNotifications()`
 
 ```php
-listNotifications($fields, $page, $perPage): null|string|array
+listNotifications($fields, $page, $perPage, $orderBy): null|string|array
 ```
 
 List company's notifications
+
+List company's notifications. Retrieve records using the query parameters below. Requires at least one permission: `list_notification`.
 
 ### Example
 
@@ -61,12 +65,13 @@ List company's notifications
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
-$fields = 'fields_example'; // string | A comma separated list of fields requested in the response
-$page = 'page_example'; // string | The response page
-$perPage = 'perPage_example'; // string | The number of items per page
+$fields = uuid,notification; // string | Comma-separated fields to include in each record. Default fields: uuid, notification.
+$page = 1; // int | Page number, starting at 1. Values below 1 are treated as 1.
+$perPage = 10; // int | Records per page. The server caps page size to 100. Values below 1 use that maximum.
+$orderBy = created_at:desc; // string | Sort by a supported field and direction, using field:asc or field:desc.
 
 try {
-    $result = $api->notification()->listNotifications($fields, $page, $perPage);
+    $result = $api->notification()->listNotifications($fields, $page, $perPage, $orderBy);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->notification->listNotifications: ', $e->getMessage(), PHP_EOL;
@@ -78,9 +83,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **fields** | **string**| A comma separated list of fields requested in the response | [optional] |
-| **page** | **string**| The response page | [optional] |
-| **perPage** | **string**| The number of items per page | [optional] |
+| **fields** | **string**| Comma-separated fields to include in each record. Default fields: uuid, notification. | [optional] |
+| **page** | **int**| Page number, starting at 1. Values below 1 are treated as 1. | [optional] [default to 1] |
+| **perPage** | **int**| Records per page. The server caps page size to 100. Values below 1 use that maximum. | [optional] [default to 10] |
+| **orderBy** | **string**| Sort by a supported field and direction, using field:asc or field:desc. | [optional] |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -94,6 +100,8 @@ sendNotification($sendNotificationRequest): null|string|array
 
 Send a notification
 
+Send a notification using the supplied delivery options. This action can contact recipients; avoid automatic retries. Requires at least one permission: `send_notification`.
+
 ### Example
 
 ```php
@@ -101,7 +109,7 @@ Send a notification
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
-$sendNotificationRequest = [/*...*/]; // array
+$sendNotificationRequest = [/*...*/]; // array | Send a JSON object with the fields below. Fields marked required must be supplied.
 
 try {
     $result = $api->notification()->sendNotification($sendNotificationRequest);
@@ -116,7 +124,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **sendNotificationRequest** | [see sendNotification](https://api.accounting.sh/swagger.html#operation/sendNotification)|  | |
+| **sendNotificationRequest** | [see sendNotification](https://api.accounting.sh/swagger.html#operation/sendNotification)| Send a JSON object with the fields below. Fields marked required must be supplied. | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -130,6 +138,8 @@ updateNotificationPreferences($notification, $updateNotificationPreferencesReque
 
 Update notification preferences
 
+Update notification preferences. Send the fields accepted by this operation in the request body. Omitted optional fields retain their existing values. Requires at least one permission: `manage.notification_preferences`.
+
 ### Example
 
 ```php
@@ -138,7 +148,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
 $notification = 'notification_example'; // string | The notification name
-$updateNotificationPreferencesRequest = [/*...*/]; // array
+$updateNotificationPreferencesRequest = [/*...*/]; // array | Send a JSON object with the fields below. Fields marked required must be supplied.
 
 try {
     $result = $api->notification()->updateNotificationPreferences($notification, $updateNotificationPreferencesRequest);
@@ -154,7 +164,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **notification** | **string**| The notification name | |
-| **updateNotificationPreferencesRequest** | [see updateNotificationPreferences](https://api.accounting.sh/swagger.html#operation/updateNotificationPreferences)|  | |
+| **updateNotificationPreferencesRequest** | [see updateNotificationPreferences](https://api.accounting.sh/swagger.html#operation/updateNotificationPreferences)| Send a JSON object with the fields below. Fields marked required must be supplied. | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

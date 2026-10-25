@@ -20,6 +20,8 @@ addAttachment($addAttachmentRequest): null|string|array
 
 Add an attachment
 
+Add an attachment. Send the resource fields in the request body; the response contains the saved record. Requires at least one permission: `attachment.add`.
+
 ### Example
 
 ```php
@@ -27,7 +29,7 @@ Add an attachment
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
-$addAttachmentRequest = [/*...*/]; // array
+$addAttachmentRequest = [/*...*/]; // array | Send a JSON object with the fields below. Fields marked required must be supplied.
 
 try {
     $result = $api->attachments()->addAttachment($addAttachmentRequest);
@@ -42,7 +44,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **addAttachmentRequest** | [see addAttachment](https://api.accounting.sh/swagger.html#operation/addAttachment)|  | |
+| **addAttachmentRequest** | [see addAttachment](https://api.accounting.sh/swagger.html#operation/addAttachment)| Send a JSON object with the fields below. Fields marked required must be supplied. | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -55,6 +57,8 @@ deleteAttachment($uuid): null|string|array
 ```
 
 Delete an attachment
+
+Delete an attachment. This action deletes the selected record. Review references to it before deletion. Requires at least one permission: `attachment.delete`.
 
 ### Example
 
@@ -92,6 +96,8 @@ getAttachment($uuid): null|string|array
 
 Get an attachment
 
+Get an attachment. Use the identifier returned by the corresponding list or create operation. Requires at least one permission: `attachment.view`.
+
 ### Example
 
 ```php
@@ -123,10 +129,12 @@ try {
 ## `listAttachments()`
 
 ```php
-listAttachments($fields, $page, $perPage): null|string|array
+listAttachments($fields, $page, $perPage, $orderBy): null|string|array
 ```
 
 List company's attachments
+
+List company's attachments. Retrieve records using the query parameters below. Requires at least one permission: `attachment.list`.
 
 ### Example
 
@@ -135,12 +143,13 @@ List company's attachments
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
-$fields = 'fields_example'; // string | A comma separated list of fields requested in the response
-$page = 'page_example'; // string | The response page
-$perPage = 'perPage_example'; // string | The number of items per page
+$fields = uuid,document,attached_to; // string | Comma-separated fields to include in each record. Default fields: uuid, document, attached_to.
+$page = 1; // int | Page number, starting at 1. Values below 1 are treated as 1.
+$perPage = 10; // int | Records per page. The server caps page size to 100. Values below 1 use that maximum.
+$orderBy = created_at:desc; // string | Sort by a supported field and direction, using field:asc or field:desc.
 
 try {
-    $result = $api->attachments()->listAttachments($fields, $page, $perPage);
+    $result = $api->attachments()->listAttachments($fields, $page, $perPage, $orderBy);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->attachments->listAttachments: ', $e->getMessage(), PHP_EOL;
@@ -152,9 +161,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **fields** | **string**| A comma separated list of fields requested in the response | [optional] |
-| **page** | **string**| The response page | [optional] |
-| **perPage** | **string**| The number of items per page | [optional] |
+| **fields** | **string**| Comma-separated fields to include in each record. Default fields: uuid, document, attached_to. | [optional] |
+| **page** | **int**| Page number, starting at 1. Values below 1 are treated as 1. | [optional] [default to 1] |
+| **perPage** | **int**| Records per page. The server caps page size to 100. Values below 1 use that maximum. | [optional] [default to 10] |
+| **orderBy** | **string**| Sort by a supported field and direction, using field:asc or field:desc. | [optional] |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -163,10 +173,12 @@ try {
 ## `retrieveAttachments()`
 
 ```php
-retrieveAttachments($resource, $fields, $page, $perPage): null|string|array
+retrieveAttachments($resource, $fields, $page, $perPage, $orderBy): null|string|array
 ```
 
 List company's attachments link to resource
+
+List company's attachments link to resource. Use the parameters and response fields below for this operation. Requires at least one permission: `attachment.list`.
 
 ### Example
 
@@ -176,12 +188,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
 $resource = 'resource_example'; // string | The resource
-$fields = 'fields_example'; // string | A comma separated list of fields requested in the response
-$page = 'page_example'; // string | The response page
-$perPage = 'perPage_example'; // string | The number of items per page
+$fields = uuid,document,attached_to; // string | Comma-separated fields to include in each record. Default fields: uuid, document, attached_to.
+$page = 1; // int | Page number, starting at 1. Values below 1 are treated as 1.
+$perPage = 10; // int | Records per page. The server caps page size to 100. Values below 1 use that maximum.
+$orderBy = created_at:desc; // string | Sort by a supported field and direction, using field:asc or field:desc.
 
 try {
-    $result = $api->attachments()->retrieveAttachments($resource, $fields, $page, $perPage);
+    $result = $api->attachments()->retrieveAttachments($resource, $fields, $page, $perPage, $orderBy);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->attachments->retrieveAttachments: ', $e->getMessage(), PHP_EOL;
@@ -194,9 +207,10 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **resource** | **string**| The resource | |
-| **fields** | **string**| A comma separated list of fields requested in the response | [optional] |
-| **page** | **string**| The response page | [optional] |
-| **perPage** | **string**| The number of items per page | [optional] |
+| **fields** | **string**| Comma-separated fields to include in each record. Default fields: uuid, document, attached_to. | [optional] |
+| **page** | **int**| Page number, starting at 1. Values below 1 are treated as 1. | [optional] [default to 1] |
+| **perPage** | **int**| Records per page. The server caps page size to 100. Values below 1 use that maximum. | [optional] [default to 10] |
+| **orderBy** | **string**| Sort by a supported field and direction, using field:asc or field:desc. | [optional] |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -210,6 +224,8 @@ updateAttachment($uuid, $addAttachmentRequest): null|string|array
 
 Update an attachment
 
+Update an attachment. Send the fields accepted by this operation in the request body. Requires at least one permission: `attachment.edit`.
+
 ### Example
 
 ```php
@@ -218,7 +234,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The attachment uuid
-$addAttachmentRequest = [/*...*/]; // array
+$addAttachmentRequest = [/*...*/]; // array | Send a JSON object with the fields below. Fields marked required must be supplied.
 
 try {
     $result = $api->attachments()->updateAttachment($uuid, $addAttachmentRequest);
@@ -234,7 +250,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **uuid** | **string**| The attachment uuid | |
-| **addAttachmentRequest** | [see updateAttachment](https://api.accounting.sh/swagger.html#operation/updateAttachment)|  | |
+| **addAttachmentRequest** | [see updateAttachment](https://api.accounting.sh/swagger.html#operation/updateAttachment)| Send a JSON object with the fields below. Fields marked required must be supplied. | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

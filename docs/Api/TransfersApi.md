@@ -19,6 +19,8 @@ addTransfer($addTransferRequest): null|string|array
 
 Add a transfer
 
+Add a transfer. Send the resource fields in the request body; the response contains the saved record. Requires at least one permission: `add.transfer`.
+
 ### Example
 
 ```php
@@ -26,7 +28,7 @@ Add a transfer
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
-$addTransferRequest = [/*...*/]; // array
+$addTransferRequest = [/*...*/]; // array | Send a JSON object with the fields below. Fields marked required must be supplied.
 
 try {
     $result = $api->transfers()->addTransfer($addTransferRequest);
@@ -41,7 +43,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **addTransferRequest** | [see addTransfer](https://api.accounting.sh/swagger.html#operation/addTransfer)|  | |
+| **addTransferRequest** | [see addTransfer](https://api.accounting.sh/swagger.html#operation/addTransfer)| Send a JSON object with the fields below. Fields marked required must be supplied. | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -54,6 +56,8 @@ deleteTransfer($uuid): null|string|array
 ```
 
 Delete a transfer
+
+Delete a transfer. This action deletes the selected record. Review references to it before deletion. Requires at least one permission: `delete.transfer`.
 
 ### Example
 
@@ -91,6 +95,8 @@ getTransfer($uuid): null|string|array
 
 Get a transfer
 
+Get a transfer. Use the identifier returned by the corresponding list or create operation. Requires at least one permission: `view.transfer`.
+
 ### Example
 
 ```php
@@ -122,10 +128,12 @@ try {
 ## `listTransfers()`
 
 ```php
-listTransfers($fields, $page, $perPage): null|string|array
+listTransfers($fields, $page, $perPage, $orderBy): null|string|array
 ```
 
 List company's transfers
+
+List company's transfers. Retrieve records using the query parameters below. Requires at least one permission: `list.transfers`.
 
 ### Example
 
@@ -134,12 +142,13 @@ List company's transfers
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
-$fields = 'fields_example'; // string | A comma separated list of fields requested in the response
-$page = 'page_example'; // string | The response page
-$perPage = 'perPage_example'; // string | The number of items per page
+$fields = uuid,from,to,amount; // string | Comma-separated fields to include in each record. Default fields: uuid, from, to, amount.
+$page = 1; // int | Page number, starting at 1. Values below 1 are treated as 1.
+$perPage = 10; // int | Records per page. The server caps page size to 100. Values below 1 use that maximum.
+$orderBy = created_at:desc; // string | Sort by a supported field and direction, using field:asc or field:desc.
 
 try {
-    $result = $api->transfers()->listTransfers($fields, $page, $perPage);
+    $result = $api->transfers()->listTransfers($fields, $page, $perPage, $orderBy);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->transfers->listTransfers: ', $e->getMessage(), PHP_EOL;
@@ -151,9 +160,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **fields** | **string**| A comma separated list of fields requested in the response | [optional] |
-| **page** | **string**| The response page | [optional] |
-| **perPage** | **string**| The number of items per page | [optional] |
+| **fields** | **string**| Comma-separated fields to include in each record. Default fields: uuid, from, to, amount. | [optional] |
+| **page** | **int**| Page number, starting at 1. Values below 1 are treated as 1. | [optional] [default to 1] |
+| **perPage** | **int**| Records per page. The server caps page size to 100. Values below 1 use that maximum. | [optional] [default to 10] |
+| **orderBy** | **string**| Sort by a supported field and direction, using field:asc or field:desc. | [optional] |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -167,6 +177,8 @@ updateTransfer($uuid, $addTransferRequest): null|string|array
 
 Update a transfer
 
+Update a transfer. Send the fields accepted by this operation in the request body. Requires at least one permission: `edit.transfer`.
+
 ### Example
 
 ```php
@@ -175,7 +187,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The transfer uuid
-$addTransferRequest = [/*...*/]; // array
+$addTransferRequest = [/*...*/]; // array | Send a JSON object with the fields below. Fields marked required must be supplied.
 
 try {
     $result = $api->transfers()->updateTransfer($uuid, $addTransferRequest);
@@ -191,7 +203,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **uuid** | **string**| The transfer uuid | |
-| **addTransferRequest** | [see updateTransfer](https://api.accounting.sh/swagger.html#operation/updateTransfer)|  | |
+| **addTransferRequest** | [see updateTransfer](https://api.accounting.sh/swagger.html#operation/updateTransfer)| Send a JSON object with the fields below. Fields marked required must be supplied. | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

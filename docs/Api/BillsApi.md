@@ -22,6 +22,8 @@ addBill($addBillRequest): null|string|array
 
 Add a bill
 
+Add a bill. Send the resource fields in the request body; the response contains the saved record. Requires at least one permission: `add.bill`.
+
 ### Example
 
 ```php
@@ -29,7 +31,7 @@ Add a bill
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
-$addBillRequest = [/*...*/]; // array
+$addBillRequest = [/*...*/]; // array | Send a JSON object with the fields below. Fields marked required must be supplied.
 
 try {
     $result = $api->bills()->addBill($addBillRequest);
@@ -44,7 +46,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **addBillRequest** | [see addBill](https://api.accounting.sh/swagger.html#operation/addBill)|  | |
+| **addBillRequest** | [see addBill](https://api.accounting.sh/swagger.html#operation/addBill)| Send a JSON object with the fields below. Fields marked required must be supplied. | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -58,6 +60,8 @@ addBillPayment($uuid, $addBillPaymentRequest): null|string|array
 
 Add a bill payment
 
+Add a bill payment. Use the parameters and response fields below for this operation. Requires at least one permission: `add.invoice.payment`.
+
 ### Example
 
 ```php
@@ -66,7 +70,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The bill uuid
-$addBillPaymentRequest = [/*...*/]; // array
+$addBillPaymentRequest = [/*...*/]; // array | Send a JSON object with the fields below. Fields marked required must be supplied.
 
 try {
     $result = $api->bills()->addBillPayment($uuid, $addBillPaymentRequest);
@@ -82,7 +86,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **uuid** | **string**| The bill uuid | |
-| **addBillPaymentRequest** | [see addBillPayment](https://api.accounting.sh/swagger.html#operation/addBillPayment)|  | |
+| **addBillPaymentRequest** | [see addBillPayment](https://api.accounting.sh/swagger.html#operation/addBillPayment)| Send a JSON object with the fields below. Fields marked required must be supplied. | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -95,6 +99,8 @@ deleteBill($uuid): null|string|array
 ```
 
 Delete a bill
+
+Delete a bill. This action deletes the selected record. Review references to it before deletion. Requires at least one permission: `delete.bill`.
 
 ### Example
 
@@ -132,6 +138,8 @@ getBill($uuid): null|string|array
 
 Get a bill
 
+Get a bill. Use the identifier returned by the corresponding list or create operation. Requires at least one permission: `view.bill`.
+
 ### Example
 
 ```php
@@ -163,12 +171,12 @@ try {
 ## `getBillDocument()`
 
 ```php
-getBillDocument($uuid)
+getBillDocument($uuid): null|string|array
 ```
 
 Get a bill in PDF
 
-This endpoint generate a bill in PDF if `selfbilling` is set to true
+Retrieve the generated PDF for this record. HTTP 200 returns application/pdf. If generation is still pending, HTTP 202 returns JSON with success=false and an explanation; retry later. Requires at least one permission: `regenerate.invoice`.
 
 ### Example
 
@@ -180,7 +188,8 @@ $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The invoice uuid
 
 try {
-    $api->bills()->getBillDocument($uuid);
+    $result = $api->bills()->getBillDocument($uuid);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->bills->getBillDocument: ', $e->getMessage(), PHP_EOL;
 }
@@ -200,10 +209,12 @@ try {
 ## `listBills()`
 
 ```php
-listBills($fields, $page, $perPage): null|string|array
+listBills($fields, $page, $perPage, $orderBy): null|string|array
 ```
 
 List company's bills
+
+List company's bills. Retrieve records using the query parameters below. Requires at least one permission: `list.bills`.
 
 ### Example
 
@@ -212,12 +223,13 @@ List company's bills
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
-$fields = 'fields_example'; // string | A comma separated list of fields requested in the response
-$page = 'page_example'; // string | The response page
-$perPage = 'perPage_example'; // string | The number of items per page
+$fields = uuid,contact,bill_number,status; // string | Comma-separated fields to include in each record. Default fields: uuid, contact, bill_number, status.
+$page = 1; // int | Page number, starting at 1. Values below 1 are treated as 1.
+$perPage = 10; // int | Records per page. The server caps page size to 100. Values below 1 use that maximum.
+$orderBy = created_at:desc; // string | Sort by a supported field and direction, using field:asc or field:desc.
 
 try {
-    $result = $api->bills()->listBills($fields, $page, $perPage);
+    $result = $api->bills()->listBills($fields, $page, $perPage, $orderBy);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->bills->listBills: ', $e->getMessage(), PHP_EOL;
@@ -229,9 +241,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **fields** | **string**| A comma separated list of fields requested in the response | [optional] |
-| **page** | **string**| The response page | [optional] |
-| **perPage** | **string**| The number of items per page | [optional] |
+| **fields** | **string**| Comma-separated fields to include in each record. Default fields: uuid, contact, bill_number, status. | [optional] |
+| **page** | **int**| Page number, starting at 1. Values below 1 are treated as 1. | [optional] [default to 1] |
+| **perPage** | **int**| Records per page. The server caps page size to 100. Values below 1 use that maximum. | [optional] [default to 10] |
+| **orderBy** | **string**| Sort by a supported field and direction, using field:asc or field:desc. | [optional] |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -240,10 +253,12 @@ try {
 ## `updateBill()`
 
 ```php
-updateBill($uuid, $addBillRequest): null|string|array
+updateBill($uuid, $updateBillRequest): null|string|array
 ```
 
 Update a bill
+
+Update a bill. Send the fields accepted by this operation in the request body. Requires at least one permission: `edit.bill`.
 
 ### Example
 
@@ -253,10 +268,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The bill uuid
-$addBillRequest = [/*...*/]; // array
+$updateBillRequest = [/*...*/]; // array | Send a JSON object with the fields below. Fields marked required must be supplied.
 
 try {
-    $result = $api->bills()->updateBill($uuid, $addBillRequest);
+    $result = $api->bills()->updateBill($uuid, $updateBillRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->bills->updateBill: ', $e->getMessage(), PHP_EOL;
@@ -269,7 +284,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **uuid** | **string**| The bill uuid | |
-| **addBillRequest** | [see updateBill](https://api.accounting.sh/swagger.html#operation/updateBill)|  | |
+| **updateBillRequest** | [see updateBill](https://api.accounting.sh/swagger.html#operation/updateBill)| Send a JSON object with the fields below. Fields marked required must be supplied. | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -283,6 +298,8 @@ updateBillPayment($uuid, $payment, $addBillPaymentRequest): null|string|array
 
 Update a bill payment
 
+Update a bill payment. Send the fields accepted by this operation in the request body. Requires at least one permission: `edit.invoice.revenues`.
+
 ### Example
 
 ```php
@@ -292,7 +309,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The bill uuid
 $payment = 'payment_example'; // string | The bill payment uuid
-$addBillPaymentRequest = [/*...*/]; // array
+$addBillPaymentRequest = [/*...*/]; // array | Send a JSON object with the fields below. Fields marked required must be supplied.
 
 try {
     $result = $api->bills()->updateBillPayment($uuid, $payment, $addBillPaymentRequest);
@@ -309,7 +326,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **uuid** | **string**| The bill uuid | |
 | **payment** | **string**| The bill payment uuid | |
-| **addBillPaymentRequest** | [see updateBillPayment](https://api.accounting.sh/swagger.html#operation/updateBillPayment)|  | |
+| **addBillPaymentRequest** | [see updateBillPayment](https://api.accounting.sh/swagger.html#operation/updateBillPayment)| Send a JSON object with the fields below. Fields marked required must be supplied. | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

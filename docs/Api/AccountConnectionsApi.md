@@ -22,6 +22,8 @@ deleteAccountConnection($uuid, $connection): null|string|array
 
 Delete an account's connection
 
+Delete an account's connection. This action deletes the selected record. Review references to it before deletion. Requires at least one permission: `account.connections.delete`. Requires company feature(s): `bank_connection`. Returns 402 if unavailable.
+
 ### Example
 
 ```php
@@ -60,7 +62,7 @@ importAccountTransactions($uuid): null|string|array
 
 Import all available bank transaction history asynchronously
 
-Queues an import from all linked bank accounts. A completion notification is sent using the bank transaction notification preferences.
+Queue import of the available transaction history from the connected bank account. HTTP 202 acknowledges the background job; imported transactions become available through the transaction routes. Requires at least one permission: `transaction.add`. Requires company feature(s): `bank_connection`. Returns 402 if unavailable.
 
 ### Example
 
@@ -97,6 +99,8 @@ listAccountConnections($uuid, $fields, $page, $perPage): null|string|array
 ```
 
 List account's connections
+
+List account's connections. Retrieve records using the query parameters below. Requires at least one permission: `account.connections.list`. Requires company feature(s): `bank_connection`. Returns 402 if unavailable.
 
 ### Example
 
@@ -140,6 +144,8 @@ listBanks($uuid, $country): null|string|array
 
 List available bank connections
 
+List available bank connections. Use the parameters and response fields below for this operation. Requires at least one permission: `account.connections.banks`. Requires company feature(s): `bank_connection`. Returns 402 if unavailable.
+
 ### Example
 
 ```php
@@ -178,6 +184,8 @@ listConnectableBankAccounts($uuid, $connection): null|string|array
 
 List connectable bank accounts
 
+List connectable bank accounts. Use the parameters and response fields below for this operation. Requires at least one permission: `account.connections.banks`. Requires company feature(s): `bank_connection`. Returns 402 if unavailable.
+
 ### Example
 
 ```php
@@ -215,6 +223,8 @@ listConnectedAccountTransactions($uuid, $connection, $period): null|string|array
 ```
 
 List the connected account's transactions
+
+List the connected account's transactions. Use the parameters and response fields below for this operation. Requires at least one permission: `account.connections.list`. Requires company feature(s): `bank_connection`. Returns 402 if unavailable.
 
 ### Example
 
@@ -256,6 +266,8 @@ requestBankConnection($uuid, $requestBankConnectionRequest): null|string|array
 
 Request a new bank connection
 
+Request a new bank connection. Use the parameters and response fields below for this operation. Requires at least one permission: `account.connections.banks`. Requires company feature(s): `bank_connection`. Returns 402 if unavailable.
+
 ### Example
 
 ```php
@@ -264,7 +276,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The account uuid
-$requestBankConnectionRequest = [/*...*/]; // array
+$requestBankConnectionRequest = [/*...*/]; // array | Send a JSON object with the fields below. Fields marked required must be supplied.
 
 try {
     $result = $api->accountConnections()->requestBankConnection($uuid, $requestBankConnectionRequest);
@@ -280,7 +292,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **uuid** | **string**| The account uuid | |
-| **requestBankConnectionRequest** | [see requestBankConnection](https://api.accounting.sh/swagger.html#operation/requestBankConnection)|  | |
+| **requestBankConnectionRequest** | [see requestBankConnection](https://api.accounting.sh/swagger.html#operation/requestBankConnection)| Send a JSON object with the fields below. Fields marked required must be supplied. | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -294,6 +306,8 @@ selectBankAccount($uuid, $selectBankAccountRequest): null|string|array
 
 Select a bank account to connect
 
+Select a bank account to connect. Use the parameters and response fields below for this operation. Requires at least one permission: `account.connections.banks`. Requires company feature(s): `bank_connection`. Returns 402 if unavailable.
+
 ### Example
 
 ```php
@@ -302,7 +316,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The account uuid
-$selectBankAccountRequest = [/*...*/]; // array
+$selectBankAccountRequest = [/*...*/]; // array | Send a JSON object with the fields below. Fields marked required must be supplied.
 
 try {
     $result = $api->accountConnections()->selectBankAccount($uuid, $selectBankAccountRequest);
@@ -318,7 +332,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **uuid** | **string**| The account uuid | |
-| **selectBankAccountRequest** | [see selectBankAccount](https://api.accounting.sh/swagger.html#operation/selectBankAccount)|  | |
+| **selectBankAccountRequest** | [see selectBankAccount](https://api.accounting.sh/swagger.html#operation/selectBankAccount)| Send a JSON object with the fields below. Fields marked required must be supplied. | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

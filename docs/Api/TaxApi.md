@@ -16,6 +16,8 @@ getTaxRate($country): null|string|array
 
 Get the latest tax rate for a country
 
+Retrieve the tax rate reference data for the supplied country code. Requires at least one permission: `view.tax.rates`. Requires company feature(s): `api`. Returns 402 if unavailable.
+
 ### Example
 
 ```php
@@ -51,6 +53,8 @@ verifyVatId($number): null|string|array
 ```
 
 Verify a VAT ID
+
+Verify the supplied VAT identifier using the external verification service. Availability and returned information depend on that service. Requires at least one permission: `vat_id:verify`. Requires company feature(s): `api`. Returns 402 if unavailable.
 
 ### Example
 

@@ -10,10 +10,12 @@ All URIs are relative to https://api.accounting.sh, except if the operation defi
 ## `listReviews()`
 
 ```php
-listReviews($fields, $page, $perPage): null|string|array
+listReviews($fields, $page, $perPage, $orderBy): null|string|array
 ```
 
 List documents to be reviewed
+
+List documents to be reviewed. Use the parameters and response fields below for this operation. Requires at least one permission: `list.documents`. Requires company feature(s): `document_ia`. Returns 402 if unavailable.
 
 ### Example
 
@@ -22,12 +24,13 @@ List documents to be reviewed
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
-$fields = 'fields_example'; // string | A comma separated list of fields requested in the response
-$page = 'page_example'; // string | The response page
-$perPage = 'perPage_example'; // string | The number of items per page
+$fields = uuid,name,process_status; // string | Comma-separated fields to include in each record. Default fields: uuid, name, process_status.
+$page = 1; // int | Page number, starting at 1. Values below 1 are treated as 1.
+$perPage = 10; // int | Records per page. The server caps page size to 100. Values below 1 use that maximum.
+$orderBy = created_at:desc; // string | Sort by a supported field and direction, using field:asc or field:desc.
 
 try {
-    $result = $api->rossum()->listReviews($fields, $page, $perPage);
+    $result = $api->rossum()->listReviews($fields, $page, $perPage, $orderBy);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->rossum->listReviews: ', $e->getMessage(), PHP_EOL;
@@ -39,9 +42,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **fields** | **string**| A comma separated list of fields requested in the response | [optional] |
-| **page** | **string**| The response page | [optional] |
-| **perPage** | **string**| The number of items per page | [optional] |
+| **fields** | **string**| Comma-separated fields to include in each record. Default fields: uuid, name, process_status. | [optional] |
+| **page** | **int**| Page number, starting at 1. Values below 1 are treated as 1. | [optional] [default to 1] |
+| **perPage** | **int**| Records per page. The server caps page size to 100. Values below 1 use that maximum. | [optional] [default to 10] |
+| **orderBy** | **string**| Sort by a supported field and direction, using field:asc or field:desc. | [optional] |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

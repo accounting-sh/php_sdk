@@ -45,6 +45,6 @@
             "@phplint",
             "vendor/bin/phpunit tests"
         ],
-        "phplint": "phplint"
+        "phplint": "phplint lint"
     }
 }

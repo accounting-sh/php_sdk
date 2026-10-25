@@ -21,6 +21,8 @@ addContact($addContactRequest): null|string|array
 
 Create a new contact
 
+Create a new contact. Send the resource fields in the request body; the response contains the saved record. Requires at least one permission: `add.contact`.
+
 ### Example
 
 ```php
@@ -28,7 +30,7 @@ Create a new contact
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
-$addContactRequest = [/*...*/]; // array
+$addContactRequest = [/*...*/]; // array | Send a JSON object with the fields below. Fields marked required must be supplied.
 
 try {
     $result = $api->contacts()->addContact($addContactRequest);
@@ -43,7 +45,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **addContactRequest** | [see addContact](https://api.accounting.sh/swagger.html#operation/addContact)|  | |
+| **addContactRequest** | [see addContact](https://api.accounting.sh/swagger.html#operation/addContact)| Send a JSON object with the fields below. Fields marked required must be supplied. | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -56,6 +58,8 @@ deleteContact($uuid): null|string|array
 ```
 
 Delete a contact
+
+Delete a contact. This action deletes the selected record. Review references to it before deletion. Requires at least one permission: `delete.contact`.
 
 ### Example
 
@@ -93,6 +97,8 @@ getContact($uuid): null|string|array
 
 Retrieve a contact
 
+Retrieve a contact. Use the identifier returned by the corresponding list or create operation. Requires at least one permission: `view.contact`.
+
 ### Example
 
 ```php
@@ -124,10 +130,12 @@ try {
 ## `listContactBills()`
 
 ```php
-listContactBills($uuid, $fields, $page, $perPage): null|string|array
+listContactBills($uuid, $fields, $page, $perPage, $orderBy): null|string|array
 ```
 
 List a contact's bills
+
+List a contact's bills. Use the parameters and response fields below for this operation. Requires at least one permission: `list.bills`.
 
 ### Example
 
@@ -137,12 +145,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The contact uuid
-$fields = 'fields_example'; // string | A comma separated list of fields requested in the response
-$page = 'page_example'; // string | The response page
-$perPage = 'perPage_example'; // string | The number of items per page
+$fields = uuid,vendor,bill_number,status; // string | Comma-separated fields to include in each record. Default fields: uuid, vendor, bill_number, status.
+$page = 1; // int | Page number, starting at 1. Values below 1 are treated as 1.
+$perPage = 10; // int | Records per page. The server caps page size to 100. Values below 1 use that maximum.
+$orderBy = created_at:desc; // string | Sort by a supported field and direction, using field:asc or field:desc.
 
 try {
-    $result = $api->contacts()->listContactBills($uuid, $fields, $page, $perPage);
+    $result = $api->contacts()->listContactBills($uuid, $fields, $page, $perPage, $orderBy);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->contacts->listContactBills: ', $e->getMessage(), PHP_EOL;
@@ -154,10 +163,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **uuid** | **string**| The contact uuid | [optional] |
-| **fields** | **string**| A comma separated list of fields requested in the response | [optional] |
-| **page** | **string**| The response page | [optional] |
-| **perPage** | **string**| The number of items per page | [optional] |
+| **uuid** | **string**| The contact uuid | |
+| **fields** | **string**| Comma-separated fields to include in each record. Default fields: uuid, vendor, bill_number, status. | [optional] |
+| **page** | **int**| Page number, starting at 1. Values below 1 are treated as 1. | [optional] [default to 1] |
+| **perPage** | **int**| Records per page. The server caps page size to 100. Values below 1 use that maximum. | [optional] [default to 10] |
+| **orderBy** | **string**| Sort by a supported field and direction, using field:asc or field:desc. | [optional] |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -166,10 +176,12 @@ try {
 ## `listContactInvoices()`
 
 ```php
-listContactInvoices($uuid, $fields, $page, $perPage): null|string|array
+listContactInvoices($uuid, $fields, $page, $perPage, $orderBy): null|string|array
 ```
 
 List a contact's invoices
+
+List a contact's invoices. Use the parameters and response fields below for this operation. Requires at least one permission: `list.invoices`.
 
 ### Example
 
@@ -179,12 +191,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The contact uuid
-$fields = 'fields_example'; // string | A comma separated list of fields requested in the response
-$page = 'page_example'; // string | The response page
-$perPage = 'perPage_example'; // string | The number of items per page
+$fields = uuid,customer,status,emitted; // string | Comma-separated fields to include in each record. Default fields: uuid, customer, status, emitted.
+$page = 1; // int | Page number, starting at 1. Values below 1 are treated as 1.
+$perPage = 10; // int | Records per page. The server caps page size to 100. Values below 1 use that maximum.
+$orderBy = created_at:desc; // string | Sort by a supported field and direction, using field:asc or field:desc.
 
 try {
-    $result = $api->contacts()->listContactInvoices($uuid, $fields, $page, $perPage);
+    $result = $api->contacts()->listContactInvoices($uuid, $fields, $page, $perPage, $orderBy);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->contacts->listContactInvoices: ', $e->getMessage(), PHP_EOL;
@@ -197,9 +210,10 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **uuid** | **string**| The contact uuid | |
-| **fields** | **string**| A comma separated list of fields requested in the response | [optional] |
-| **page** | **string**| The response page | [optional] |
-| **perPage** | **string**| The number of items per page | [optional] |
+| **fields** | **string**| Comma-separated fields to include in each record. Default fields: uuid, customer, status, emitted. | [optional] |
+| **page** | **int**| Page number, starting at 1. Values below 1 are treated as 1. | [optional] [default to 1] |
+| **perPage** | **int**| Records per page. The server caps page size to 100. Values below 1 use that maximum. | [optional] [default to 10] |
+| **orderBy** | **string**| Sort by a supported field and direction, using field:asc or field:desc. | [optional] |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -208,10 +222,12 @@ try {
 ## `listContacts()`
 
 ```php
-listContacts($fields, $page, $perPage): null|string|array
+listContacts($fields, $page, $perPage, $orderBy): null|string|array
 ```
 
 List company's contacts
+
+List company's contacts. Retrieve records using the query parameters below. Requires at least one permission: `list.contacts`.
 
 ### Example
 
@@ -220,12 +236,13 @@ List company's contacts
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
-$fields = 'fields_example'; // string | A comma separated list of fields requested in the response
-$page = 'page_example'; // string | The response page
-$perPage = 'perPage_example'; // string | The number of items per page
+$fields = uuid,name,prefix,currency,registration_number; // string | Comma-separated fields to include in each record. Default fields: uuid, name, prefix, currency, registration_number. Optional buyer_type is the explicit business/consumer override; null uses automatic inference.
+$page = 1; // int | Page number, starting at 1. Values below 1 are treated as 1.
+$perPage = 10; // int | Records per page. The server caps page size to 100. Values below 1 use that maximum.
+$orderBy = created_at:desc; // string | Sort by a supported field and direction, using field:asc or field:desc.
 
 try {
-    $result = $api->contacts()->listContacts($fields, $page, $perPage);
+    $result = $api->contacts()->listContacts($fields, $page, $perPage, $orderBy);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->contacts->listContacts: ', $e->getMessage(), PHP_EOL;
@@ -237,9 +254,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **fields** | **string**| A comma separated list of fields requested in the response | [optional] |
-| **page** | **string**| The response page | [optional] |
-| **perPage** | **string**| The number of items per page | [optional] |
+| **fields** | **string**| Comma-separated fields to include in each record. Default fields: uuid, name, prefix, currency, registration_number. Optional buyer_type is the explicit business/consumer override; null uses automatic inference. | [optional] |
+| **page** | **int**| Page number, starting at 1. Values below 1 are treated as 1. | [optional] [default to 1] |
+| **perPage** | **int**| Records per page. The server caps page size to 100. Values below 1 use that maximum. | [optional] [default to 10] |
+| **orderBy** | **string**| Sort by a supported field and direction, using field:asc or field:desc. | [optional] |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -253,6 +271,8 @@ updateContact($uuid, $addContactRequest): null|string|array
 
 Update a contact
 
+Update a contact. Send the fields accepted by this operation in the request body. Requires at least one permission: `edit.contact`.
+
 ### Example
 
 ```php
@@ -261,7 +281,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The contact uuid
-$addContactRequest = [/*...*/]; // array
+$addContactRequest = [/*...*/]; // array | Send a JSON object with the fields below. Fields marked required must be supplied.
 
 try {
     $result = $api->contacts()->updateContact($uuid, $addContactRequest);
@@ -277,7 +297,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **uuid** | **string**| The contact uuid | |
-| **addContactRequest** | [see updateContact](https://api.accounting.sh/swagger.html#operation/updateContact)|  | |
+| **addContactRequest** | [see updateContact](https://api.accounting.sh/swagger.html#operation/updateContact)| Send a JSON object with the fields below. Fields marked required must be supplied. | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

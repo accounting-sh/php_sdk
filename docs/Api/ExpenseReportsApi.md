@@ -26,6 +26,8 @@ addExpenseReport($addExpenseReportRequest): null|string|array
 
 Add an expense report
 
+Add an expense report. Send the resource fields in the request body; the response contains the saved record. Requires at least one permission: `expense_report.add`. Requires company feature(s): `expense_report`. Returns 402 if unavailable.
+
 ### Example
 
 ```php
@@ -33,7 +35,7 @@ Add an expense report
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
-$addExpenseReportRequest = [/*...*/]; // array
+$addExpenseReportRequest = [/*...*/]; // array | Send a JSON object with the fields below. Fields marked required must be supplied.
 
 try {
     $result = $api->expenseReports()->addExpenseReport($addExpenseReportRequest);
@@ -48,7 +50,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **addExpenseReportRequest** | [see addExpenseReport](https://api.accounting.sh/swagger.html#operation/addExpenseReport)|  | |
+| **addExpenseReportRequest** | [see addExpenseReport](https://api.accounting.sh/swagger.html#operation/addExpenseReport)| Send a JSON object with the fields below. Fields marked required must be supplied. | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -61,6 +63,8 @@ deleteExpenseReport($uuid): null|string|array
 ```
 
 Delete an expense report
+
+Delete an expense report. This action deletes the selected record. Review references to it before deletion. Requires at least one permission: `expense_report.delete`. Requires company feature(s): `expense_report`. Returns 402 if unavailable.
 
 ### Example
 
@@ -98,6 +102,8 @@ expenseReportOAuthLogin($method): null|string|array
 
 OAuth Login
 
+OAuth Login. Use the parameters and response fields below for this operation.
+
 ### Example
 
 ```php
@@ -133,6 +139,8 @@ getExpenseReport($uuid): null|string|array
 ```
 
 Get an expense report
+
+Get an expense report. Use the identifier returned by the corresponding list or create operation. Requires at least one permission: `expense_report.view`. Requires company feature(s): `expense_report`. Returns 402 if unavailable.
 
 ### Example
 
@@ -170,6 +178,8 @@ getExpenseReportAccount(): null|string|array
 
 Get the currently connected expense report user details
 
+Get the currently connected expense report user details. Use the parameters and response fields below for this operation. Requires at least one permission: `expense_report.view.account`. Requires company feature(s): `expense_report`. Returns 402 if unavailable.
+
 ### Example
 
 ```php
@@ -203,6 +213,8 @@ getExpenseReportUser($uuid): null|string|array
 
 Get an user details
 
+Get an user details. Use the parameters and response fields below for this operation. Requires at least one permission: `expense_report.view.user`. Requires company feature(s): `expense_report`. Returns 402 if unavailable.
+
 ### Example
 
 ```php
@@ -234,12 +246,12 @@ try {
 ## `listExpenseReports()`
 
 ```php
-listExpenseReports($fields, $page, $perPage): null|string|array
+listExpenseReports($fields, $page, $perPage, $orderBy): null|string|array
 ```
 
 List company's expense reports.
 
-List company's expense reports. If the token used has the `expense_report.limited_to_self` permission, this will only list the user's expense reports
+List company's expense reports. Retrieve records using the query parameters below. Requires at least one permission: `expense_report.list`. Requires company feature(s): `expense_report`. Returns 402 if unavailable.
 
 ### Example
 
@@ -248,12 +260,13 @@ List company's expense reports. If the token used has the `expense_report.limite
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
-$fields = 'fields_example'; // string | A comma separated list of fields requested in the response
-$page = 'page_example'; // string | The response page
-$perPage = 'perPage_example'; // string | The number of items per page
+$fields = uuid,user,status; // string | Comma-separated fields to include in each record. Default fields: uuid, user, status.
+$page = 1; // int | Page number, starting at 1. Values below 1 are treated as 1.
+$perPage = 10; // int | Records per page. The server caps page size to 100. Values below 1 use that maximum.
+$orderBy = created_at:desc; // string | Sort by a supported field and direction, using field:asc or field:desc.
 
 try {
-    $result = $api->expenseReports()->listExpenseReports($fields, $page, $perPage);
+    $result = $api->expenseReports()->listExpenseReports($fields, $page, $perPage, $orderBy);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->expenseReports->listExpenseReports: ', $e->getMessage(), PHP_EOL;
@@ -265,9 +278,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **fields** | **string**| A comma separated list of fields requested in the response | [optional] |
-| **page** | **string**| The response page | [optional] |
-| **perPage** | **string**| The number of items per page | [optional] |
+| **fields** | **string**| Comma-separated fields to include in each record. Default fields: uuid, user, status. | [optional] |
+| **page** | **int**| Page number, starting at 1. Values below 1 are treated as 1. | [optional] [default to 1] |
+| **perPage** | **int**| Records per page. The server caps page size to 100. Values below 1 use that maximum. | [optional] [default to 10] |
+| **orderBy** | **string**| Sort by a supported field and direction, using field:asc or field:desc. | [optional] |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -281,6 +295,8 @@ sendExpenseReportLoginEmail($sendExpenseReportLoginEmailRequest): null|string|ar
 
 Request login email
 
+Request a sign-in email for an expense report user. This action sends an email; avoid automatic retries.
+
 ### Example
 
 ```php
@@ -288,7 +304,7 @@ Request login email
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
-$sendExpenseReportLoginEmailRequest = [/*...*/]; // array
+$sendExpenseReportLoginEmailRequest = [/*...*/]; // array | Send a JSON object with the fields below. Fields marked required must be supplied.
 
 try {
     $result = $api->expenseReports()->sendExpenseReportLoginEmail($sendExpenseReportLoginEmailRequest);
@@ -303,7 +319,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **sendExpenseReportLoginEmailRequest** | [see sendExpenseReportLoginEmail](https://api.accounting.sh/swagger.html#operation/sendExpenseReportLoginEmail)|  | |
+| **sendExpenseReportLoginEmailRequest** | [see sendExpenseReportLoginEmail](https://api.accounting.sh/swagger.html#operation/sendExpenseReportLoginEmail)| Send a JSON object with the fields below. Fields marked required must be supplied. | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -317,6 +333,8 @@ updateExpenseReport($uuid, $addExpenseReportRequest): null|string|array
 
 Update an expense report
 
+Update an expense report. Send the fields accepted by this operation in the request body. Requires at least one permission: `expense_report.edit`. Requires company feature(s): `expense_report`. Returns 402 if unavailable.
+
 ### Example
 
 ```php
@@ -325,7 +343,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The expense report uuid
-$addExpenseReportRequest = [/*...*/]; // array
+$addExpenseReportRequest = [/*...*/]; // array | Send a JSON object with the fields below. Fields marked required must be supplied.
 
 try {
     $result = $api->expenseReports()->updateExpenseReport($uuid, $addExpenseReportRequest);
@@ -341,7 +359,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **uuid** | **string**| The expense report uuid | |
-| **addExpenseReportRequest** | [see updateExpenseReport](https://api.accounting.sh/swagger.html#operation/updateExpenseReport)|  | |
+| **addExpenseReportRequest** | [see updateExpenseReport](https://api.accounting.sh/swagger.html#operation/updateExpenseReport)| Send a JSON object with the fields below. Fields marked required must be supplied. | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -355,6 +373,8 @@ updateExpenseReportAccount($updateExpenseReportAccountRequest): null|string|arra
 
 Update the currently connected expense report user
 
+Update the currently connected expense report user. Send the fields accepted by this operation in the request body. Requires at least one permission: `expense_report.edit.account`. Requires company feature(s): `expense_report`. Returns 402 if unavailable.
+
 ### Example
 
 ```php
@@ -362,7 +382,7 @@ Update the currently connected expense report user
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
-$updateExpenseReportAccountRequest = [/*...*/]; // array
+$updateExpenseReportAccountRequest = [/*...*/]; // array | Send a JSON object with the fields below. Fields marked required must be supplied.
 
 try {
     $result = $api->expenseReports()->updateExpenseReportAccount($updateExpenseReportAccountRequest);
@@ -377,7 +397,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **updateExpenseReportAccountRequest** | [see updateExpenseReportAccount](https://api.accounting.sh/swagger.html#operation/updateExpenseReportAccount)|  | |
+| **updateExpenseReportAccountRequest** | [see updateExpenseReportAccount](https://api.accounting.sh/swagger.html#operation/updateExpenseReportAccount)| Send a JSON object with the fields below. Fields marked required must be supplied. | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -391,7 +411,7 @@ updateExpenseReportSettings($updateExpenseReportSettingsRequest): null|string|ar
 
 Retrieve company settings for expense reports
 
-At least an url or a company must be provided
+Retrieve company settings for expense reports. Use the parameters and response fields below for this operation.
 
 ### Example
 
@@ -400,7 +420,7 @@ At least an url or a company must be provided
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
-$updateExpenseReportSettingsRequest = [/*...*/]; // array
+$updateExpenseReportSettingsRequest = [/*...*/]; // array | Send a JSON object with the fields below. Fields marked required must be supplied.
 
 try {
     $result = $api->expenseReports()->updateExpenseReportSettings($updateExpenseReportSettingsRequest);
@@ -415,7 +435,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **updateExpenseReportSettingsRequest** | [see updateExpenseReportSettings](https://api.accounting.sh/swagger.html#operation/updateExpenseReportSettings)|  | |
+| **updateExpenseReportSettingsRequest** | [see updateExpenseReportSettings](https://api.accounting.sh/swagger.html#operation/updateExpenseReportSettings)| Send a JSON object with the fields below. Fields marked required must be supplied. | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -429,6 +449,8 @@ verifyExpenseReportSettings($verifyExpenseReportSettingsRequest): null|string|ar
 
 Verify expense reports settings
 
+Verify expense reports settings. Use the parameters and response fields below for this operation. Requires at least one permission: `edit.company.settings`. Requires company feature(s): `expense_report`. Returns 402 if unavailable.
+
 ### Example
 
 ```php
@@ -436,7 +458,7 @@ Verify expense reports settings
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
-$verifyExpenseReportSettingsRequest = [/*...*/]; // array
+$verifyExpenseReportSettingsRequest = [/*...*/]; // array | Send a JSON object with the fields below. Fields marked required must be supplied.
 
 try {
     $result = $api->expenseReports()->verifyExpenseReportSettings($verifyExpenseReportSettingsRequest);
@@ -451,7 +473,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **verifyExpenseReportSettingsRequest** | [see verifyExpenseReportSettings](https://api.accounting.sh/swagger.html#operation/verifyExpenseReportSettings)|  | |
+| **verifyExpenseReportSettingsRequest** | [see verifyExpenseReportSettings](https://api.accounting.sh/swagger.html#operation/verifyExpenseReportSettings)| Send a JSON object with the fields below. Fields marked required must be supplied. | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

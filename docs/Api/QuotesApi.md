@@ -20,6 +20,8 @@ addQuote($addQuoteRequest): null|string|array
 
 Add a quote
 
+Add a quote. Send the resource fields in the request body; the response contains the saved record. Requires at least one permission: `add.quote`.
+
 ### Example
 
 ```php
@@ -27,7 +29,7 @@ Add a quote
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
-$addQuoteRequest = [/*...*/]; // array
+$addQuoteRequest = [/*...*/]; // array | Send a JSON object with the fields below. Fields marked required must be supplied.
 
 try {
     $result = $api->quotes()->addQuote($addQuoteRequest);
@@ -42,7 +44,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **addQuoteRequest** | [see addQuote](https://api.accounting.sh/swagger.html#operation/addQuote)|  | |
+| **addQuoteRequest** | [see addQuote](https://api.accounting.sh/swagger.html#operation/addQuote)| Send a JSON object with the fields below. Fields marked required must be supplied. | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -55,6 +57,8 @@ deleteQuote($uuid): null|string|array
 ```
 
 Delete a quote
+
+Delete a quote. This action deletes the selected record. Review references to it before deletion. Requires at least one permission: `quote.delete`.
 
 ### Example
 
@@ -92,6 +96,8 @@ getQuote($uuid): null|string|array
 
 Get a quote
 
+Get a quote. Use the identifier returned by the corresponding list or create operation. Requires at least one permission: `view.quote`.
+
 ### Example
 
 ```php
@@ -123,10 +129,12 @@ try {
 ## `getQuoteDocument()`
 
 ```php
-getQuoteDocument($uuid)
+getQuoteDocument($uuid): null|string|array
 ```
 
 Get a quote in PDF
+
+Retrieve the generated PDF for this record. HTTP 200 returns application/pdf. If generation is still pending, HTTP 202 returns JSON with success=false and an explanation; retry later. Requires at least one permission: `regenerate.quote`.
 
 ### Example
 
@@ -138,7 +146,8 @@ $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The quote uuid
 
 try {
-    $api->quotes()->getQuoteDocument($uuid);
+    $result = $api->quotes()->getQuoteDocument($uuid);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->quotes->getQuoteDocument: ', $e->getMessage(), PHP_EOL;
 }
@@ -158,10 +167,12 @@ try {
 ## `listQuotes()`
 
 ```php
-listQuotes($fields, $page, $perPage): null|string|array
+listQuotes($fields, $page, $perPage, $orderBy): null|string|array
 ```
 
 List company's quotes
+
+List company's quotes. Retrieve records using the query parameters below. Requires at least one permission: `list.quotes`.
 
 ### Example
 
@@ -170,12 +181,13 @@ List company's quotes
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
-$fields = 'fields_example'; // string | A comma separated list of fields requested in the response
-$page = 'page_example'; // string | The response page
-$perPage = 'perPage_example'; // string | The number of items per page
+$fields = uuid,contact,quote_number,status; // string | Comma-separated fields to include in each record. Default fields: uuid, contact, quote_number, status.
+$page = 1; // int | Page number, starting at 1. Values below 1 are treated as 1.
+$perPage = 10; // int | Records per page. The server caps page size to 100. Values below 1 use that maximum.
+$orderBy = created_at:desc; // string | Sort by a supported field and direction, using field:asc or field:desc.
 
 try {
-    $result = $api->quotes()->listQuotes($fields, $page, $perPage);
+    $result = $api->quotes()->listQuotes($fields, $page, $perPage, $orderBy);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->quotes->listQuotes: ', $e->getMessage(), PHP_EOL;
@@ -187,9 +199,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **fields** | **string**| A comma separated list of fields requested in the response | [optional] |
-| **page** | **string**| The response page | [optional] |
-| **perPage** | **string**| The number of items per page | [optional] |
+| **fields** | **string**| Comma-separated fields to include in each record. Default fields: uuid, contact, quote_number, status. | [optional] |
+| **page** | **int**| Page number, starting at 1. Values below 1 are treated as 1. | [optional] [default to 1] |
+| **perPage** | **int**| Records per page. The server caps page size to 100. Values below 1 use that maximum. | [optional] [default to 10] |
+| **orderBy** | **string**| Sort by a supported field and direction, using field:asc or field:desc. | [optional] |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -198,10 +211,12 @@ try {
 ## `updateQuote()`
 
 ```php
-updateQuote($uuid, $addQuoteRequest): null|string|array
+updateQuote($uuid, $updateQuoteRequest): null|string|array
 ```
 
 Update a quote
+
+Update a quote. Send the fields accepted by this operation in the request body. Requires at least one permission: `edit.quote`.
 
 ### Example
 
@@ -211,10 +226,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The quote uuid
-$addQuoteRequest = [/*...*/]; // array
+$updateQuoteRequest = [/*...*/]; // array | Send a JSON object with the fields below. Fields marked required must be supplied.
 
 try {
-    $result = $api->quotes()->updateQuote($uuid, $addQuoteRequest);
+    $result = $api->quotes()->updateQuote($uuid, $updateQuoteRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->quotes->updateQuote: ', $e->getMessage(), PHP_EOL;
@@ -227,7 +242,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **uuid** | **string**| The quote uuid | |
-| **addQuoteRequest** | [see updateQuote](https://api.accounting.sh/swagger.html#operation/updateQuote)|  | |
+| **updateQuoteRequest** | [see updateQuote](https://api.accounting.sh/swagger.html#operation/updateQuote)| Send a JSON object with the fields below. Fields marked required must be supplied. | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

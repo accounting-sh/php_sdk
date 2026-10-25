@@ -19,6 +19,8 @@ addNotificationType($addNotificationTypeRequest): null|string|array
 
 Add a notification type
 
+Add a notification type. Send the resource fields in the request body; the response contains the saved record. Requires at least one permission: `add.notification_type`.
+
 ### Example
 
 ```php
@@ -26,7 +28,7 @@ Add a notification type
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
-$addNotificationTypeRequest = [/*...*/]; // array
+$addNotificationTypeRequest = [/*...*/]; // array | Send a JSON object with the fields below. Fields marked required must be supplied.
 
 try {
     $result = $api->notificationTypes()->addNotificationType($addNotificationTypeRequest);
@@ -41,7 +43,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **addNotificationTypeRequest** | [see addNotificationType](https://api.accounting.sh/swagger.html#operation/addNotificationType)|  | |
+| **addNotificationTypeRequest** | [see addNotificationType](https://api.accounting.sh/swagger.html#operation/addNotificationType)| Send a JSON object with the fields below. Fields marked required must be supplied. | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -54,6 +56,8 @@ deleteNotificationType($uuid): null|string|array
 ```
 
 Delete a notification type
+
+Delete a notification type. This action deletes the selected record. Review references to it before deletion. Requires at least one permission: `delete.notification_type`.
 
 ### Example
 
@@ -91,6 +95,8 @@ getNotificationType($uuid): null|string|array
 
 Get a notification type
 
+Get a notification type. Use the identifier returned by the corresponding list or create operation. Requires at least one permission: `view.notification_type`.
+
 ### Example
 
 ```php
@@ -122,10 +128,12 @@ try {
 ## `listNotificationTypes()`
 
 ```php
-listNotificationTypes($fields, $page, $perPage): null|string|array
+listNotificationTypes($fields, $page, $perPage, $orderBy): null|string|array
 ```
 
 List company's notification types
+
+List company's notification types. Retrieve records using the query parameters below. Requires at least one permission: `list.notification_type`.
 
 ### Example
 
@@ -134,12 +142,13 @@ List company's notification types
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
-$fields = 'fields_example'; // string | A comma separated list of fields requested in the response
-$page = 'page_example'; // string | The response page
-$perPage = 'perPage_example'; // string | The number of items per page
+$fields = name,title,description,allowed_methods,internal; // string | Comma-separated fields to include in each record. Default fields: name, title, description, allowed_methods, internal.
+$page = 1; // int | Page number, starting at 1. Values below 1 are treated as 1.
+$perPage = 10; // int | Records per page. The server caps page size to 100. Values below 1 use that maximum.
+$orderBy = created_at:desc; // string | Sort by a supported field and direction, using field:asc or field:desc.
 
 try {
-    $result = $api->notificationTypes()->listNotificationTypes($fields, $page, $perPage);
+    $result = $api->notificationTypes()->listNotificationTypes($fields, $page, $perPage, $orderBy);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->notificationTypes->listNotificationTypes: ', $e->getMessage(), PHP_EOL;
@@ -151,9 +160,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **fields** | **string**| A comma separated list of fields requested in the response | [optional] |
-| **page** | **string**| The response page | [optional] |
-| **perPage** | **string**| The number of items per page | [optional] |
+| **fields** | **string**| Comma-separated fields to include in each record. Default fields: name, title, description, allowed_methods, internal. | [optional] |
+| **page** | **int**| Page number, starting at 1. Values below 1 are treated as 1. | [optional] [default to 1] |
+| **perPage** | **int**| Records per page. The server caps page size to 100. Values below 1 use that maximum. | [optional] [default to 10] |
+| **orderBy** | **string**| Sort by a supported field and direction, using field:asc or field:desc. | [optional] |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -162,10 +172,12 @@ try {
 ## `updateNotificationType()`
 
 ```php
-updateNotificationType($uuid, $addNotificationTypeRequest): null|string|array
+updateNotificationType($uuid, $updateNotificationTypeRequest): null|string|array
 ```
 
 Update a notification type
+
+Update a notification type. Send the fields accepted by this operation in the request body. Requires at least one permission: `edit.notification_type`.
 
 ### Example
 
@@ -175,10 +187,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api = new Accounting("auth_token");
 $uuid = 'uuid_example'; // string | The notification type uuid
-$addNotificationTypeRequest = [/*...*/]; // array
+$updateNotificationTypeRequest = [/*...*/]; // array | Send a JSON object with the fields below. Fields marked required must be supplied.
 
 try {
-    $result = $api->notificationTypes()->updateNotificationType($uuid, $addNotificationTypeRequest);
+    $result = $api->notificationTypes()->updateNotificationType($uuid, $updateNotificationTypeRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->notificationTypes->updateNotificationType: ', $e->getMessage(), PHP_EOL;
@@ -191,7 +203,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **uuid** | **string**| The notification type uuid | |
-| **addNotificationTypeRequest** | [see updateNotificationType](https://api.accounting.sh/swagger.html#operation/updateNotificationType)|  | |
+| **updateNotificationTypeRequest** | [see updateNotificationType](https://api.accounting.sh/swagger.html#operation/updateNotificationType)| Send a JSON object with the fields below. Fields marked required must be supplied. | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

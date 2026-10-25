@@ -15,6 +15,8 @@ getTranslatedCountries($lang): null|string|array
 
 Get translated list of countries
 
+Retrieve country reference data translated into the requested language.
+
 ### Example
 
 ```php
