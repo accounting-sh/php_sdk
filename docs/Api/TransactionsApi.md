@@ -14,6 +14,7 @@ All URIs are relative to https://api.accounting.sh, except if the operation defi
 | [**importTransactions()**](TransactionsApi.md#importTransactions) | **POST** /transactions/import | Import transactions - INTERNAL |
 | [**ledger()**](TransactionsApi.md#ledger) | **GET** /transactions/ledger | List company&#39;s transactions and transfers |
 | [**listLinks()**](TransactionsApi.md#listLinks) | **GET** /transactions/{uuid}/links | List a transaction links |
+| [**listPendingDocumentLinks()**](TransactionsApi.md#listPendingDocumentLinks) | **GET** /transactions/pending-links | List pending transaction links for a document |
 | [**listTransactionCodes()**](TransactionsApi.md#listTransactionCodes) | **GET** /transactions/{uuid}/codes | List transaction&#39;s codes |
 | [**listTransactions()**](TransactionsApi.md#listTransactions) | **GET** /transactions | List company&#39;s transactions |
 | [**reconciliationReject()**](TransactionsApi.md#reconciliationReject) | **POST** /transactions/{uuid}/reconciliation/rejections | Remember a rejected transaction/document candidate |
@@ -341,12 +342,12 @@ try {
 ## `ledger()`
 
 ```php
-ledger($fields, $page, $perPage, $account, $orderBy): null|string|array
+ledger($fields, $page, $perPage, $account, $linkStatus, $needsLinking, $orderBy): null|string|array
 ```
 
 List company's transactions and transfers
 
-Retrieve ledger entries combining transactions and transfers. Optionally filter by the account query parameter. Requires at least one permission: `transaction.list`, `list.transfers`.
+Retrieve ledger entries combining transactions and transfers. Optionally filter by account, link_status and the legacy needs_linking flag. The needs_linking filter includes only transactions with no links or at least one unconfirmed link; transfers are excluded. Requires at least one permission: `transaction.list`, `list.transfers`.
 
 ### Example
 
@@ -359,10 +360,12 @@ $fields = uuid,account,amount,event_date; // string | Comma-separated fields to 
 $page = 1; // int | Page number, starting at 1. Values below 1 are treated as 1.
 $perPage = 10; // int | Records per page. The server caps page size to 100. Values below 1 use that maximum.
 $account = 'account_example'; // string | An account uuid to filter results
+$linkStatus = 'linkStatus_example'; // string | all preserves the full ledger; unconfirmed includes transactions with no links or any unconfirmed link; confirmed requires a confirmed link and no unconfirmed links. Status views exclude transfers and take precedence over needs_linking.
+$needsLinking = false; // bool | Only transactions with no links or any unconfirmed link. Applies before pagination and to total; transfers are excluded. Default false preserves the full ledger.
 $orderBy = created_at:desc; // string | Sort by a supported field and direction, using field:asc or field:desc.
 
 try {
-    $result = $api->transactions()->ledger($fields, $page, $perPage, $account, $orderBy);
+    $result = $api->transactions()->ledger($fields, $page, $perPage, $account, $linkStatus, $needsLinking, $orderBy);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->transactions->ledger: ', $e->getMessage(), PHP_EOL;
@@ -378,6 +381,8 @@ try {
 | **page** | **int**| Page number, starting at 1. Values below 1 are treated as 1. | [optional] [default to 1] |
 | **perPage** | **int**| Records per page. The server caps page size to 100. Values below 1 use that maximum. | [optional] [default to 10] |
 | **account** | **string**| An account uuid to filter results | [optional] |
+| **linkStatus** | **string**| all preserves the full ledger; unconfirmed includes transactions with no links or any unconfirmed link; confirmed requires a confirmed link and no unconfirmed links. Status views exclude transfers and take precedence over needs_linking. | [optional] |
+| **needsLinking** | **bool**| Only transactions with no links or any unconfirmed link. Applies before pagination and to total; transfers are excluded. Default false preserves the full ledger. | [optional] [default to false] |
 | **orderBy** | **string**| Sort by a supported field and direction, using field:asc or field:desc. | [optional] |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -425,6 +430,50 @@ try {
 | **page** | **int**| Page number, starting at 1. Values below 1 are treated as 1. | [optional] [default to 1] |
 | **perPage** | **int**| Records per page. The server caps page size to 100. Values below 1 use that maximum. | [optional] [default to 10] |
 | **orderBy** | **string**| Sort by a supported field and direction, using field:asc or field:desc. | [optional] |
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `listPendingDocumentLinks()`
+
+```php
+listPendingDocumentLinks($targetType, $target, $page, $perPage): null|string|array
+```
+
+List pending transaction links for a document
+
+List unconfirmed, unprocessed links for a company-owned document. Requires `transaction_link.list`, `transaction.view` and the target viewing permission. Confirmation uses the existing transaction link PUT endpoint.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+$targetType = 'targetType_example'; // string
+$target = 'target_example'; // string
+$page = 1; // int
+$perPage = 10; // int | Capped at the standard API page size limit.
+
+try {
+    $result = $api->transactions()->listPendingDocumentLinks($targetType, $target, $page, $perPage);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->transactions->listPendingDocumentLinks: ', $e->getMessage(), PHP_EOL;
+}
+
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **targetType** | **string**|  | |
+| **target** | **string**|  | |
+| **page** | **int**|  | [optional] [default to 1] |
+| **perPage** | **int**| Capped at the standard API page size limit. | [optional] [default to 10] |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

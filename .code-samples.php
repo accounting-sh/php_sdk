@@ -1376,6 +1376,268 @@ try {
 }
 
 
+//..frSuperPdpApprove
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+$uuid = 'uuid_example'; // string
+
+try {
+    $api->fRSuperPDP()->frSuperPdpApprove($uuid);
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->fRSuperPDP->frSuperPdpApprove: ', $e->getMessage(), PHP_EOL;
+}
+
+
+//..frSuperPdpAuthorize
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+
+try {
+    $api->fRSuperPDP()->frSuperPdpAuthorize();
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->fRSuperPDP->frSuperPdpAuthorize: ', $e->getMessage(), PHP_EOL;
+}
+
+
+//..frSuperPdpCallback
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+$frSuperPdpCallbackRequest = [/*...*/]; // array
+
+try {
+    $api->fRSuperPDP()->frSuperPdpCallback($frSuperPdpCallbackRequest);
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->fRSuperPDP->frSuperPdpCallback: ', $e->getMessage(), PHP_EOL;
+}
+
+
+//..frSuperPdpClassify
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+$uuid = 'uuid_example'; // string
+$frSuperPdpClassifyRequest = [/*...*/]; // array
+
+try {
+    $api->fRSuperPDP()->frSuperPdpClassify($uuid, $frSuperPdpClassifyRequest);
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->fRSuperPDP->frSuperPdpClassify: ', $e->getMessage(), PHP_EOL;
+}
+
+
+//..frSuperPdpConfigure
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+$frSuperPdpConfigureRequest = [/*...*/]; // array
+
+try {
+    $api->fRSuperPDP()->frSuperPdpConfigure($frSuperPdpConfigureRequest);
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->fRSuperPDP->frSuperPdpConfigure: ', $e->getMessage(), PHP_EOL;
+}
+
+
+//..frSuperPdpDisconnect
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+
+try {
+    $api->fRSuperPDP()->frSuperPdpDisconnect();
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->fRSuperPDP->frSuperPdpDisconnect: ', $e->getMessage(), PHP_EOL;
+}
+
+
+//..frSuperPdpInbox
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+$page = 56; // int
+$reviewStatus = 'pending'; // string
+
+try {
+    $api->fRSuperPDP()->frSuperPdpInbox($page, $reviewStatus);
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->fRSuperPDP->frSuperPdpInbox: ', $e->getMessage(), PHP_EOL;
+}
+
+
+//..frSuperPdpLifecycle
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+$uuid = 'uuid_example'; // string
+$frSuperPdpLifecycleRequest = [/*...*/]; // array
+
+try {
+    $api->fRSuperPDP()->frSuperPdpLifecycle($uuid, $frSuperPdpLifecycleRequest);
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->fRSuperPDP->frSuperPdpLifecycle: ', $e->getMessage(), PHP_EOL;
+}
+
+
+//..frSuperPdpOperations
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+$page = 56; // int
+$kind = 'kind_example'; // string
+
+try {
+    $api->fRSuperPDP()->frSuperPdpOperations($page, $kind);
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->fRSuperPDP->frSuperPdpOperations: ', $e->getMessage(), PHP_EOL;
+}
+
+
+//..frSuperPdpReceipt
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+$uuid = 'uuid_example'; // string
+
+try {
+    $api->fRSuperPDP()->frSuperPdpReceipt($uuid);
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->fRSuperPDP->frSuperPdpReceipt: ', $e->getMessage(), PHP_EOL;
+}
+
+
+//..frSuperPdpReceiptHistory
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+$uuid = 'uuid_example'; // string
+$page = 56; // int
+
+try {
+    $api->fRSuperPDP()->frSuperPdpReceiptHistory($uuid, $page);
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->fRSuperPDP->frSuperPdpReceiptHistory: ', $e->getMessage(), PHP_EOL;
+}
+
+
+//..frSuperPdpReceiptPdf
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+$uuid = 'uuid_example'; // string
+
+try {
+    $api->fRSuperPDP()->frSuperPdpReceiptPdf($uuid);
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->fRSuperPDP->frSuperPdpReceiptPdf: ', $e->getMessage(), PHP_EOL;
+}
+
+
+//..frSuperPdpReconcile
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+$uuid = 'uuid_example'; // string
+$frSuperPdpReconcileRequest = [/*...*/]; // array
+
+try {
+    $api->fRSuperPDP()->frSuperPdpReconcile($uuid, $frSuperPdpReconcileRequest);
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->fRSuperPDP->frSuperPdpReconcile: ', $e->getMessage(), PHP_EOL;
+}
+
+
+//..frSuperPdpRefuse
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+$uuid = 'uuid_example'; // string
+$frSuperPdpRefuseRequest = [/*...*/]; // array
+
+try {
+    $api->fRSuperPDP()->frSuperPdpRefuse($uuid, $frSuperPdpRefuseRequest);
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->fRSuperPDP->frSuperPdpRefuse: ', $e->getMessage(), PHP_EOL;
+}
+
+
+//..frSuperPdpRetry
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+$uuid = 'uuid_example'; // string
+$frSuperPdpRetryRequest = [/*...*/]; // array
+
+try {
+    $api->fRSuperPDP()->frSuperPdpRetry($uuid, $frSuperPdpRetryRequest);
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->fRSuperPDP->frSuperPdpRetry: ', $e->getMessage(), PHP_EOL;
+}
+
+
+//..frSuperPdpSettings
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+
+try {
+    $api->fRSuperPDP()->frSuperPdpSettings();
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->fRSuperPDP->frSuperPdpSettings: ', $e->getMessage(), PHP_EOL;
+}
+
+
+//..frSuperPdpStatus
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+
+try {
+    $api->fRSuperPDP()->frSuperPdpStatus();
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->fRSuperPDP->frSuperPdpStatus: ', $e->getMessage(), PHP_EOL;
+}
+
+
+//..frSuperPdpSubmit
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+$frSuperPdpSubmitRequest = [/*...*/]; // array
+
+try {
+    $api->fRSuperPDP()->frSuperPdpSubmit($frSuperPdpSubmitRequest);
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->fRSuperPDP->frSuperPdpSubmit: ', $e->getMessage(), PHP_EOL;
+}
+
+
+//..frSuperPdpSync
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+
+try {
+    $api->fRSuperPDP()->frSuperPdpSync();
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->fRSuperPDP->frSuperPdpSync: ', $e->getMessage(), PHP_EOL;
+}
+
+
+//..frSuperPdpVerify
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+
+try {
+    $api->fRSuperPDP()->frSuperPdpVerify();
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->fRSuperPDP->frSuperPdpVerify: ', $e->getMessage(), PHP_EOL;
+}
+
+
 //..addInvoice
 require_once(__DIR__ . '/vendor/autoload.php');
 
@@ -3203,10 +3465,12 @@ $fields = uuid,account,amount,event_date; // string | Comma-separated fields to 
 $page = 1; // int | Page number, starting at 1. Values below 1 are treated as 1.
 $perPage = 10; // int | Records per page. The server caps page size to 100. Values below 1 use that maximum.
 $account = 'account_example'; // string | An account uuid to filter results
+$linkStatus = 'linkStatus_example'; // string | all preserves the full ledger; unconfirmed includes transactions with no links or any unconfirmed link; confirmed requires a confirmed link and no unconfirmed links. Status views exclude transfers and take precedence over needs_linking.
+$needsLinking = false; // bool | Only transactions with no links or any unconfirmed link. Applies before pagination and to total; transfers are excluded. Default false preserves the full ledger.
 $orderBy = created_at:desc; // string | Sort by a supported field and direction, using field:asc or field:desc.
 
 try {
-    $result = $api->transactions()->ledger($fields, $page, $perPage, $account, $orderBy);
+    $result = $api->transactions()->ledger($fields, $page, $perPage, $account, $linkStatus, $needsLinking, $orderBy);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->transactions->ledger: ', $e->getMessage(), PHP_EOL;
@@ -3228,6 +3492,23 @@ try {
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->transactions->listLinks: ', $e->getMessage(), PHP_EOL;
+}
+
+
+//..listPendingDocumentLinks
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+$targetType = 'targetType_example'; // string
+$target = 'target_example'; // string
+$page = 1; // int
+$perPage = 10; // int | Capped at the standard API page size limit.
+
+try {
+    $result = $api->transactions()->listPendingDocumentLinks($targetType, $target, $page, $perPage);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->transactions->listPendingDocumentLinks: ', $e->getMessage(), PHP_EOL;
 }
 
 

@@ -145,6 +145,26 @@ Class | Method | HTTP request | Description
 *ExpenseReportsApi* | [**verifyExpenseReportSettings**](docs/Api/ExpenseReportsApi.md#verifyexpensereportsettings) | **POST** /expenses/expense-reports/verify | Verify expense reports settings
 *ExportApi* | [**listExports**](docs/Api/ExportApi.md#listexports) | **GET** /export | List company&#39;s exports
 *ExportApi* | [**requestExport**](docs/Api/ExportApi.md#requestexport) | **POST** /export | Request an export
+*FRSuperPDPApi* | [**frSuperPdpApprove**](docs/Api/FRSuperPDPApi.md#frsuperpdpapprove) | **PUT** /fr/superpdp/inbox/{uuid}/approve | Approve a received invoice
+*FRSuperPDPApi* | [**frSuperPdpAuthorize**](docs/Api/FRSuperPDPApi.md#frsuperpdpauthorize) | **POST** /fr/superpdp/authorize | Create a SuperPDP consent URL
+*FRSuperPDPApi* | [**frSuperPdpCallback**](docs/Api/FRSuperPDPApi.md#frsuperpdpcallback) | **POST** /fr/superpdp/callback | Complete SuperPDP consent
+*FRSuperPDPApi* | [**frSuperPdpClassify**](docs/Api/FRSuperPDPApi.md#frsuperpdpclassify) | **PUT** /fr/superpdp/operations/{uuid}/classification | Classify reporting lines
+*FRSuperPDPApi* | [**frSuperPdpConfigure**](docs/Api/FRSuperPDPApi.md#frsuperpdpconfigure) | **PUT** /fr/superpdp/settings | Configure SuperPDP synchronization
+*FRSuperPDPApi* | [**frSuperPdpDisconnect**](docs/Api/FRSuperPDPApi.md#frsuperpdpdisconnect) | **DELETE** /fr/superpdp | Disconnect SuperPDP
+*FRSuperPDPApi* | [**frSuperPdpInbox**](docs/Api/FRSuperPDPApi.md#frsuperpdpinbox) | **GET** /fr/superpdp/inbox | List received invoices
+*FRSuperPDPApi* | [**frSuperPdpLifecycle**](docs/Api/FRSuperPDPApi.md#frsuperpdplifecycle) | **POST** /fr/superpdp/operations/{uuid}/events | Queue a buyer lifecycle event
+*FRSuperPDPApi* | [**frSuperPdpOperations**](docs/Api/FRSuperPDPApi.md#frsuperpdpoperations) | **GET** /fr/superpdp/operations | List SuperPDP operations
+*FRSuperPDPApi* | [**frSuperPdpReceipt**](docs/Api/FRSuperPDPApi.md#frsuperpdpreceipt) | **GET** /fr/superpdp/inbox/{uuid} | Get a received invoice
+*FRSuperPDPApi* | [**frSuperPdpReceiptHistory**](docs/Api/FRSuperPDPApi.md#frsuperpdpreceipthistory) | **GET** /fr/superpdp/inbox/{uuid}/history | Get received invoice history
+*FRSuperPDPApi* | [**frSuperPdpReceiptPdf**](docs/Api/FRSuperPDPApi.md#frsuperpdpreceiptpdf) | **GET** /fr/superpdp/inbox/{uuid}/pdf | Get a received invoice PDF
+*FRSuperPDPApi* | [**frSuperPdpReconcile**](docs/Api/FRSuperPDPApi.md#frsuperpdpreconcile) | **PUT** /fr/superpdp/operations/{uuid}/reconcile | Reconcile a reporting submission
+*FRSuperPDPApi* | [**frSuperPdpRefuse**](docs/Api/FRSuperPDPApi.md#frsuperpdprefuse) | **PUT** /fr/superpdp/inbox/{uuid}/refuse | Refuse a received invoice
+*FRSuperPDPApi* | [**frSuperPdpRetry**](docs/Api/FRSuperPDPApi.md#frsuperpdpretry) | **PUT** /fr/superpdp/operations/{uuid}/retry | Retry a SuperPDP operation
+*FRSuperPDPApi* | [**frSuperPdpSettings**](docs/Api/FRSuperPDPApi.md#frsuperpdpsettings) | **GET** /fr/superpdp/settings | Get SuperPDP settings
+*FRSuperPDPApi* | [**frSuperPdpStatus**](docs/Api/FRSuperPDPApi.md#frsuperpdpstatus) | **GET** /fr/superpdp | Get SuperPDP connection status
+*FRSuperPDPApi* | [**frSuperPdpSubmit**](docs/Api/FRSuperPDPApi.md#frsuperpdpsubmit) | **POST** /fr/superpdp/submit | Submit an issued invoice
+*FRSuperPDPApi* | [**frSuperPdpSync**](docs/Api/FRSuperPDPApi.md#frsuperpdpsync) | **POST** /fr/superpdp/sync | Queue SuperPDP synchronization
+*FRSuperPDPApi* | [**frSuperPdpVerify**](docs/Api/FRSuperPDPApi.md#frsuperpdpverify) | **POST** /fr/superpdp/verify | Queue SuperPDP verification
 *InvoicesApi* | [**addInvoice**](docs/Api/InvoicesApi.md#addinvoice) | **POST** /incomes/invoices | Add an invoice
 *InvoicesApi* | [**addInvoicePayment**](docs/Api/InvoicesApi.md#addinvoicepayment) | **POST** /incomes/invoices/{uuid}/payments | Add an invoice payment
 *InvoicesApi* | [**deleteInvoice**](docs/Api/InvoicesApi.md#deleteinvoice) | **DELETE** /incomes/invoices/{uuid} | Delete an invoice
@@ -267,6 +287,7 @@ Class | Method | HTTP request | Description
 *TransactionsApi* | [**importTransactions**](docs/Api/TransactionsApi.md#importtransactions) | **POST** /transactions/import | Import transactions - INTERNAL
 *TransactionsApi* | [**ledger**](docs/Api/TransactionsApi.md#ledger) | **GET** /transactions/ledger | List company&#39;s transactions and transfers
 *TransactionsApi* | [**listLinks**](docs/Api/TransactionsApi.md#listlinks) | **GET** /transactions/{uuid}/links | List a transaction links
+*TransactionsApi* | [**listPendingDocumentLinks**](docs/Api/TransactionsApi.md#listpendingdocumentlinks) | **GET** /transactions/pending-links | List pending transaction links for a document
 *TransactionsApi* | [**listTransactionCodes**](docs/Api/TransactionsApi.md#listtransactioncodes) | **GET** /transactions/{uuid}/codes | List transaction&#39;s codes
 *TransactionsApi* | [**listTransactions**](docs/Api/TransactionsApi.md#listtransactions) | **GET** /transactions | List company&#39;s transactions
 *TransactionsApi* | [**reconciliationReject**](docs/Api/TransactionsApi.md#reconciliationreject) | **POST** /transactions/{uuid}/reconciliation/rejections | Remember a rejected transaction/document candidate
@@ -324,6 +345,6 @@ vendor/bin/phpunit
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `10.0.9`
-    - Package version: `2.0.0`
+- API version: `10.1.0`
+    - Package version: `2.1.0`
 - Generator version: `7.6.0-SNAPSHOT`
