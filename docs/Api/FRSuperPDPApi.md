@@ -4,11 +4,14 @@ All URIs are relative to https://api.accounting.sh, except if the operation defi
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**frSuperPdpAddDirectory()**](FRSuperPDPApi.md#frSuperPdpAddDirectory) | **POST** /fr/superpdp/directory | Queue a SuperPDP directory line |
 | [**frSuperPdpApprove()**](FRSuperPDPApi.md#frSuperPdpApprove) | **PUT** /fr/superpdp/inbox/{uuid}/approve | Approve a received invoice |
 | [**frSuperPdpAuthorize()**](FRSuperPDPApi.md#frSuperPdpAuthorize) | **POST** /fr/superpdp/authorize | Create a SuperPDP consent URL |
 | [**frSuperPdpCallback()**](FRSuperPDPApi.md#frSuperPdpCallback) | **POST** /fr/superpdp/callback | Complete SuperPDP consent |
 | [**frSuperPdpClassify()**](FRSuperPDPApi.md#frSuperPdpClassify) | **PUT** /fr/superpdp/operations/{uuid}/classification | Classify reporting lines |
 | [**frSuperPdpConfigure()**](FRSuperPDPApi.md#frSuperPdpConfigure) | **PUT** /fr/superpdp/settings | Configure SuperPDP synchronization |
+| [**frSuperPdpDeleteDirectory()**](FRSuperPDPApi.md#frSuperPdpDeleteDirectory) | **DELETE** /fr/superpdp/directory/{identifier} | Disable a SuperPDP directory line |
+| [**frSuperPdpDirectory()**](FRSuperPDPApi.md#frSuperPdpDirectory) | **GET** /fr/superpdp/directory | List cached SuperPDP directory lines |
 | [**frSuperPdpDisconnect()**](FRSuperPDPApi.md#frSuperPdpDisconnect) | **DELETE** /fr/superpdp | Disconnect SuperPDP |
 | [**frSuperPdpInbox()**](FRSuperPDPApi.md#frSuperPdpInbox) | **GET** /fr/superpdp/inbox | List received invoices |
 | [**frSuperPdpLifecycle()**](FRSuperPDPApi.md#frSuperPdpLifecycle) | **POST** /fr/superpdp/operations/{uuid}/events | Queue a buyer lifecycle event |
@@ -25,6 +28,43 @@ All URIs are relative to https://api.accounting.sh, except if the operation defi
 | [**frSuperPdpSync()**](FRSuperPDPApi.md#frSuperPdpSync) | **POST** /fr/superpdp/sync | Queue SuperPDP synchronization |
 | [**frSuperPdpVerify()**](FRSuperPDPApi.md#frSuperPdpVerify) | **POST** /fr/superpdp/verify | Queue SuperPDP verification |
 
+
+## `frSuperPdpAddDirectory()`
+
+```php
+frSuperPdpAddDirectory($frSuperPdpAddDirectoryRequest)
+```
+
+Queue a SuperPDP directory line
+
+Queue a SuperPDP directory line; provider requests execute asynchronously. Requires the `edit.company` permission and the `einvoicing` company feature.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+$frSuperPdpAddDirectoryRequest = [/*...*/]; // array
+
+try {
+    $api->fRSuperPDP()->frSuperPdpAddDirectory($frSuperPdpAddDirectoryRequest);
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->fRSuperPDP->frSuperPdpAddDirectory: ', $e->getMessage(), PHP_EOL;
+}
+
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **frSuperPdpAddDirectoryRequest** | [see frSuperPdpAddDirectory](https://api.accounting.sh/swagger.html#operation/frSuperPdpAddDirectory)|  | |
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
 ## `frSuperPdpApprove()`
 
@@ -205,6 +245,77 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **frSuperPdpConfigureRequest** | [see frSuperPdpConfigure](https://api.accounting.sh/swagger.html#operation/frSuperPdpConfigure)|  | |
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `frSuperPdpDeleteDirectory()`
+
+```php
+frSuperPdpDeleteDirectory($identifier)
+```
+
+Disable a SuperPDP directory line
+
+Disable a SuperPDP directory line; provider requests execute asynchronously. Requires the `edit.company` permission and the `einvoicing` company feature.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+$identifier = 'identifier_example'; // string
+
+try {
+    $api->fRSuperPDP()->frSuperPdpDeleteDirectory($identifier);
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->fRSuperPDP->frSuperPdpDeleteDirectory: ', $e->getMessage(), PHP_EOL;
+}
+
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **identifier** | **string**|  | |
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `frSuperPdpDirectory()`
+
+```php
+frSuperPdpDirectory()
+```
+
+List cached SuperPDP directory lines
+
+List cached SuperPDP directory lines; provider requests execute asynchronously. Requires the `view.company` permission and the `einvoicing` company feature.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+
+try {
+    $api->fRSuperPDP()->frSuperPdpDirectory();
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->fRSuperPDP->frSuperPdpDirectory: ', $e->getMessage(), PHP_EOL;
+}
+
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

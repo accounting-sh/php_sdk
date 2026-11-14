@@ -266,6 +266,57 @@ try {
 }
 
 
+//..analyticsCards
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+$group = 'group_example'; // string | Select a related statistics-card group. See GET /analytics for available group metadata.
+$start = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Inclusive first activity date in YYYY-MM-DD format.
+$end = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Inclusive last activity date; also the balance as-of date where applicable.
+$interval = 'month'; // string | Calendar bucket for time-series graphs.
+$limit = 10; // int | Maximum ranked categories where the graph supports a limit.
+$currency = 'currency_example'; // string | Optional ISO 4217 currency filter; does not request arbitrary currency conversion.
+
+try {
+    $result = $api->analytics()->analyticsCards($group, $start, $end, $interval, $limit, $currency);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->analytics->analyticsCards: ', $e->getMessage(), PHP_EOL;
+}
+
+
+//..analyticsCatalog
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+
+try {
+    $result = $api->analytics()->analyticsCatalog();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->analytics->analyticsCatalog: ', $e->getMessage(), PHP_EOL;
+}
+
+
+//..analyticsGraph
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+$graph = 'graph_example'; // string | Select one of the implemented graph identifiers. See GET /analytics for localized titles, metric IDs, bases and feature requirements.
+$start = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Inclusive first activity date in YYYY-MM-DD format.
+$end = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Inclusive last activity date; also the balance as-of date where applicable.
+$interval = 'month'; // string | Calendar bucket for time-series graphs.
+$limit = 10; // int | Maximum ranked categories where the graph supports a limit.
+$currency = 'currency_example'; // string | Optional ISO 4217 currency filter; does not request arbitrary currency conversion.
+
+try {
+    $result = $api->analytics()->analyticsGraph($graph, $start, $end, $interval, $limit, $currency);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->analytics->analyticsGraph: ', $e->getMessage(), PHP_EOL;
+}
+
+
 //..addAttachment
 require_once(__DIR__ . '/vendor/autoload.php');
 
@@ -717,6 +768,21 @@ try {
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->companies->listCompanies: ', $e->getMessage(), PHP_EOL;
+}
+
+
+//..searchCompanyRegistries
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+$country = 'country_example'; // string
+$q = 'q_example'; // string
+
+try {
+    $result = $api->companies()->searchCompanyRegistries($country, $q);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->companies->searchCompanyRegistries: ', $e->getMessage(), PHP_EOL;
 }
 
 
@@ -1376,6 +1442,19 @@ try {
 }
 
 
+//..frSuperPdpAddDirectory
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+$frSuperPdpAddDirectoryRequest = [/*...*/]; // array
+
+try {
+    $api->fRSuperPDP()->frSuperPdpAddDirectory($frSuperPdpAddDirectoryRequest);
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->fRSuperPDP->frSuperPdpAddDirectory: ', $e->getMessage(), PHP_EOL;
+}
+
+
 //..frSuperPdpApprove
 require_once(__DIR__ . '/vendor/autoload.php');
 
@@ -1438,6 +1517,31 @@ try {
     $api->fRSuperPDP()->frSuperPdpConfigure($frSuperPdpConfigureRequest);
 } catch (Exception $e) {
     echo 'Exception when calling Accounting->fRSuperPDP->frSuperPdpConfigure: ', $e->getMessage(), PHP_EOL;
+}
+
+
+//..frSuperPdpDeleteDirectory
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+$identifier = 'identifier_example'; // string
+
+try {
+    $api->fRSuperPDP()->frSuperPdpDeleteDirectory($identifier);
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->fRSuperPDP->frSuperPdpDeleteDirectory: ', $e->getMessage(), PHP_EOL;
+}
+
+
+//..frSuperPdpDirectory
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+
+try {
+    $api->fRSuperPDP()->frSuperPdpDirectory();
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->fRSuperPDP->frSuperPdpDirectory: ', $e->getMessage(), PHP_EOL;
 }
 
 

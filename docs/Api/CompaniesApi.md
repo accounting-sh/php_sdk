@@ -11,6 +11,7 @@ All URIs are relative to https://api.accounting.sh, except if the operation defi
 | [**getCompanyFeatureSet()**](CompaniesApi.md#getCompanyFeatureSet) | **GET** /companies/{uuid}/features | List a company&#39;s feature set |
 | [**getCompanyOnboarding()**](CompaniesApi.md#getCompanyOnboarding) | **GET** /companies/{uuid}/onboarding | Get company onboarding status |
 | [**listCompanies()**](CompaniesApi.md#listCompanies) | **GET** /companies | List companies on this instance (resellers only) |
+| [**searchCompanyRegistries()**](CompaniesApi.md#searchCompanyRegistries) | **GET** /company-registries/{country}/search | Search public company registries for autofill |
 | [**updateCompany()**](CompaniesApi.md#updateCompany) | **PUT** /companies/{uuid} | Update a company |
 
 
@@ -281,6 +282,46 @@ try {
 | **page** | **int**| Page number, starting at 1. Values below 1 are treated as 1. | [optional] [default to 1] |
 | **perPage** | **int**| Records per page. The server caps page size to 100. Values below 1 use that maximum. | [optional] [default to 10] |
 | **orderBy** | **string**| Sort by a supported field and direction, using field:asc or field:desc. | [optional] |
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `searchCompanyRegistries()`
+
+```php
+searchCompanyRegistries($country, $q): null|string|array
+```
+
+Search public company registries for autofill
+
+Public onboarding autocomplete. Country FR or GB is required. Case-insensitive literal name prefixes or registration-number prefixes, minimum 3 characters. Returns up to 10 unsorted matches and has_more; narrow the query rather than paginate. French restricted-diffusion records are excluded. Missing facts are null. Uses imported snapshots, not live registry calls.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api = new Accounting("auth_token");
+$country = 'country_example'; // string
+$q = 'q_example'; // string
+
+try {
+    $result = $api->companies()->searchCompanyRegistries($country, $q);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling Accounting->companies->searchCompanyRegistries: ', $e->getMessage(), PHP_EOL;
+}
+
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **country** | **string**|  | |
+| **q** | **string**|  | |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

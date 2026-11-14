@@ -12,6 +12,21 @@ use Psr\Http\Message\StreamInterface;
 
 class TestHandler
 {
+    /** Return a non-null fixture that satisfies the parameter's pattern. */
+    public static function patternExample(string $pattern, string $example): string
+    {
+        // Add explicit fixtures here when the API introduces new patterns.
+        $fixtures = [
+            '/^[A-Z]{3}$/' => 'EUR',
+        ];
+        $value = $fixtures[$pattern] ?? $example;
+        if (preg_match($pattern, $value) !== 1) {
+            throw new \InvalidArgumentException("Add a matching test fixture for pattern: {$pattern}");
+        }
+
+        return $value;
+    }
+
     private ?string $method;
     private ?string $path;
     private ?string $contentType;
